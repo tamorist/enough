@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="en" class="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enough for All — one Earth, shared fairly</title>
+<meta name="author" content="Tatsuya Mori (@ttmori)">
+<meta name="description" content="人口も排出もこの50年で急増し、人類は地球1.7個分を使っています。富の偏りと排出の偏りは重なっています。富を分け直し、過剰消費の経済から抜け出す必要がある理由を、一次資料とともに。Why we need to share wealth fairly and leave the overconsumption economy — with sources.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Enough for All — 足りる経済へ">
+<meta property="og:description" content="Most fossil CO₂ was emitted in the last 50 years. Humanity uses 1.7 Earths. The richest 10% own three-quarters of wealth and cause half of emissions. Why we must share fairly and stop overconsuming.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:site_name" content="Enough for All">
+<meta property="og:url" content="https://tamorist.github.io/enough/">
+<meta property="og:image" content="https://tamorist.github.io/enough/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="There is one Earth. We are using 1.7. / Enough for All">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@ttmori">
+<link rel="canonical" href="https://tamorist.github.io/enough/">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%235a4fa0'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%23f6f2ea' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f2ea; --bg2: #fffdf8; --bg3: #ece6da; --ink: #1d1f1c; --muted: #6b6a63; --faint: #d9d2c4;
+    --red: #b8402f; --red2: #e0634c; --amber: #c98a1e; --blue: #2f5d8a; --green: #2f6b4f; --vio: #5a4fa0; --dark: #141614;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); line-height: 1.8; font-size: 16px;
+    font-family: Inter, "Noto Sans JP", -apple-system, "Hiragino Sans", sans-serif; -webkit-font-smoothing: antialiased; }
+  html.ja body { font-family: "Noto Sans JP", -apple-system, "Hiragino Sans", sans-serif; }
+  html.ja .en, html.en .ja { display: none !important; }
+  .num { font-family: Inter, -apple-system, sans-serif; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+  .serif { font-family: "Noto Serif JP", Georgia, serif; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  .narrow { max-width: 700px; }
+  a { color: var(--blue); }
+  section { padding: 88px 0; scroll-margin-top: 52px; }
+  .eyebrow { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; font-weight: 700; }
+  .chapter { display: flex; align-items: center; gap: 10px; margin: 0 0 16px; font-size: 18px; font-weight: 900; color: color-mix(in srgb, var(--c) 78%, #000); letter-spacing: .04em; }
+  .chapter .cn { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--c); color: #fff; font-size: 16px; letter-spacing: 0; }
+  .chapter::after { content: ""; flex: 1; max-width: 120px; height: 2px; background: var(--c); opacity: .35; margin-left: 4px; }
+  h2 { font-size: clamp(26px, 4.4vw, 40px); line-height: 1.35; margin: 0 0 18px; font-weight: 900; }
+  h3 { font-size: 18px; margin: 0 0 8px; line-height: 1.5; }
+  .lead { font-size: clamp(16px, 2.2vw, 18px); color: #3c3e39; margin: 0 0 12px; }
+  .small { font-size: 13px; color: var(--muted); }
+  .est { display: inline-block; font-size: 11px; font-weight: 700; color: var(--amber); border: 1px solid currentColor; border-radius: 4px; padding: 0 5px; margin-left: 4px; vertical-align: 2px; letter-spacing: .02em; }
+  .card { background: var(--bg2); border: 1px solid var(--faint); border-radius: 16px; padding: 22px; margin-top: 28px; }
+  details.more { margin-top: 14px; font-size: 14px; }
+  details.more summary { cursor: pointer; color: var(--blue); font-weight: 700; }
+  details.more[open] summary { margin-bottom: 8px; }
+
+  /* top bar */
+  .top { position: sticky; top: 0; z-index: 10; background: rgba(246,242,234,.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--faint); }
+  .top .wrap { display: flex; align-items: center; gap: 14px; height: 52px; font-size: 13px; }
+  .brand { font-weight: 900; text-decoration: none; color: var(--ink); white-space: nowrap; }
+  .nav { display: flex; gap: 14px; overflow-x: auto; scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { color: var(--muted); text-decoration: none; white-space: nowrap; }
+  .nav a:hover { color: var(--ink); }
+  .lang { margin-left: auto; display: flex; border: 1px solid var(--faint); border-radius: 8px; overflow: hidden; flex-shrink: 0; }
+  .lang button { font: inherit; font-size: 12px; background: transparent; color: var(--muted); border: 0; padding: 5px 10px; cursor: pointer; }
+  .lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); font-weight: 700; }
+  @media (max-width: 640px) { .nav { display: none; } }
+
+  /* hero */
+  .hero { background: var(--dark); color: #efece4; padding: 96px 0 72px; }
+  .hero .q { font-size: clamp(30px, 6vw, 58px); line-height: 1.35; font-weight: 900; margin: 0 0 22px; }
+  .hero .q .hl { color: #b7aef0; }
+  .hero .q .ib { display: inline-block; }
+  .hero p { color: #bdbab1; max-width: 680px; font-size: clamp(15px, 2.2vw, 18px); }
+  .hero p b { color: #efece4; }
+  .guide { display: flex; align-items: flex-end; gap: 10px; margin: 18px 0 22px; max-width: 680px; }
+  .guide .gchar { flex: 0 0 64px; width: 64px; height: 64px; }
+  .guide .gchar svg { width: 100%; height: 100%; display: block; }
+  .guide .bubble { position: relative; margin: 0 0 14px; background: #fff; color: var(--ink); border: 1px solid var(--faint); border-radius: 16px 16px 16px 4px; padding: 10px 14px; font-size: 14.5px; line-height: 1.75; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+  .guide .bubble b { color: #2f6b4f; }
+  .guide .bubble .nm { display: block; font-size: 11px; font-weight: 700; color: var(--muted); margin-bottom: 2px; }
+  .hero .guide { margin: 26px 0 8px; }
+  .hero .guide .gchar { flex-basis: 84px; width: 84px; height: 84px; }
+  .hero .guide .bubble { font-size: 15px; }
+  .reveal { display: none; }
+  html.ja .cwrap:not(.open) .counter, html.ja .cwrap:not(.open) .src { display: none; }
+  html.ja .cwrap:not(.open) .reveal { display: inline-flex; align-items: center; gap: 8px; margin: 18px 0 6px; font: inherit; font-size: 14px; font-weight: 700; color: #efece4; background: transparent; border: 1px solid #4a4e48; border-radius: 999px; padding: 9px 18px; cursor: pointer; }
+  html.ja .cwrap:not(.open) .reveal:hover { border-color: #9d9a91; }
+  .reveal small { font-weight: 400; color: #9d9a91; font-size: 12px; }
+  .counter { margin: 40px 0 12px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .counter > div { border: 1px solid #2c302b; border-radius: 16px; padding: 22px; background: #1b1e1a; }
+  .counter .k { font-size: 13px; color: #9d9a91; }
+  .counter .v { font-size: clamp(22px, 2.9vw, 32px); font-weight: 900; line-height: 1.15; color: #fff; margin: 8px 0 4px; white-space: nowrap; }
+  .counter .v.hot { color: #f09a7f; }
+  .counter .v.vio { color: #b7aef0; }
+  .counter .s { font-size: 12.5px; color: #8d8a82; }
+  .counter .s b { color: #efece4; }
+  .hero .src { font-size: 12px; color: #807d75; margin-top: 10px; max-width: none; }
+  .hero .src a { color: #9d9a91; }
+  .scroll-cue { margin-top: 36px; display: inline-flex; gap: 8px; align-items: center; color: #efece4; text-decoration: none; font-weight: 700; border: 1px solid #3a3f39; border-radius: 999px; padding: 10px 18px; }
+  .scroll-cue:hover { background: #22261f; }
+
+  /* map */
+  .layers { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 30px; }
+  .layers a { display: block; text-decoration: none; color: var(--ink); background: var(--bg2); border: 1px solid var(--faint); border-radius: 16px; padding: 20px; border-top: 4px solid var(--c); transition: transform .15s; }
+  .layers a:hover { transform: translateY(-2px); }
+  .layers .ic { font-size: 26px; }
+  .layers b { display: block; font-size: 17px; margin: 6px 0; }
+  .layers p { margin: 0; font-size: 14px; color: var(--muted); }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin: 28px 0; }
+  .stats > div { background: var(--bg2); border: 1px solid var(--faint); border-radius: 14px; padding: 18px; }
+  .stats .v { font-size: 34px; font-weight: 900; line-height: 1.15; }
+  .stats .k { font-size: 14px; margin-top: 4px; }
+  .stats .s { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  .callout { background: var(--bg2); border-left: 4px solid var(--red); border-radius: 0 12px 12px 0; padding: 18px 20px; margin: 28px 0; }
+  .callout.b { border-left-color: var(--blue); }
+  .callout.g { border-left-color: var(--green); }
+  .callout.v { border-left-color: var(--vio); }
+  .callout .big { font-size: clamp(24px, 4.6vw, 36px); font-weight: 900; line-height: 1.3; color: var(--red); }
+  blockquote.pull { margin: 28px 0; padding: 0 0 0 18px; border-left: 3px solid var(--ink); font-size: clamp(17px, 2.4vw, 21px); font-weight: 700; line-height: 1.6; }
+
+  /* charts */
+  .chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .chart .ax { font-size: 11px; fill: var(--muted); }
+  .chart .grid { stroke: var(--faint); stroke-width: 1; }
+  .chart .evl { stroke: var(--ink); stroke-width: 1.2; stroke-dasharray: 3 3; }
+  .chart .evt { font-size: 11px; font-weight: 700; fill: var(--ink); }
+  .chart .lbl, .chart .evt { font-size: 12px; font-weight: 700; paint-order: stroke; stroke: var(--bg2); stroke-width: 4px; stroke-linejoin: round; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 12px; }
+  .tabs button { font: inherit; font-size: 13px; background: var(--bg3); color: var(--ink); border: 1px solid var(--faint); border-radius: 999px; padding: 6px 13px; cursor: pointer; }
+  .tabs button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); font-weight: 700; }
+  .legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 12.5px; color: var(--muted); margin-top: 8px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; flex-shrink: 0; }
+
+  /* cumulative bar */
+  .cbar { display: flex; height: 54px; border-radius: 10px; overflow: hidden; margin: 14px 0 6px; }
+  .cbar > div { display: flex; flex-direction: column; justify-content: center; padding: 0 10px; color: #fff; font-size: 12px; line-height: 1.3; min-width: 0; overflow: hidden; white-space: nowrap; }
+  .cbar b { font-size: 18px; }
+
+  /* then & now table */
+  table.tn { width: 100%; border-collapse: collapse; font-size: 14.5px; margin-top: 18px; }
+  .tn th, .tn td { border-bottom: 1px solid var(--faint); padding: 10px 8px; text-align: right; }
+  .tn th:first-child, .tn td:first-child { text-align: left; }
+  .tn th { font-size: 12px; color: var(--muted); }
+  .tn td.x { font-weight: 900; color: var(--red); font-size: 17px; }
+  .tn small { display: block; color: var(--muted); font-size: 11.5px; }
+  @media (max-width: 560px) { .tn { font-size: 13px; } .tn th, .tn td { padding: 8px 4px; } .tn td.x { font-size: 15px; } }
+
+  /* lifetime tool */
+  input[type=range] { width: 100%; accent-color: var(--vio); height: 28px; }
+  .yr { font-size: 30px; font-weight: 900; }
+  .out { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+  .out > div { background: var(--bg); border: 1px solid var(--faint); border-radius: 12px; padding: 14px 16px; }
+  .out .k { font-size: 13px; color: var(--muted); }
+  .out .v { font-size: 28px; font-weight: 900; line-height: 1.2; }
+  .out .s { font-size: 12.5px; color: var(--muted); }
+
+  /* inequality bars */
+  .ineq { margin-top: 18px; }
+  .irow { display: grid; grid-template-columns: 150px 1fr; gap: 12px; align-items: center; padding: 7px 0; }
+  .irow .t { font-size: 14px; font-weight: 700; line-height: 1.35; }
+  .irow .t small { display: block; font-weight: 400; color: var(--muted); font-size: 11.5px; }
+  .ibar { display: flex; height: 34px; border-radius: 8px; overflow: hidden; background: var(--bg3); }
+  .ibar i { display: flex; align-items: center; justify-content: center; font-style: normal; font-size: 12.5px; font-weight: 700; color: #fff; min-width: 0; overflow: hidden; white-space: nowrap; transition: width .6s; }
+  .ibar i.m { color: var(--ink); }
+  @media (max-width: 560px) { .irow { grid-template-columns: 1fr; gap: 4px; } }
+  .pcap { margin-top: 10px; }
+  .pcap .row { display: grid; grid-template-columns: 150px 1fr 70px; gap: 10px; align-items: center; padding: 6px 0; font-size: 14px; }
+  .pcap .bar { height: 18px; background: var(--bg3); border-radius: 5px; overflow: hidden; }
+  .pcap .bar i { display: block; height: 100%; border-radius: 5px; }
+  .pcap .v { text-align: right; font-weight: 900; }
+  @media (max-width: 560px) { .pcap .row { grid-template-columns: 1fr 64px; } .pcap .bar { grid-column: 1 / -1; grid-row: 2; } }
+
+  /* overshoot */
+  .cal { position: relative; margin: 26px 0 8px; }
+  .cal .yearbar { display: flex; height: 44px; border-radius: 10px; overflow: hidden; }
+  .cal .yearbar i { display: block; height: 100%; }
+  .cal .months { display: grid; grid-template-columns: repeat(12, 1fr); font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .cal .months span { border-left: 1px solid var(--faint); padding-left: 3px; }
+  .cal .mk { position: absolute; top: -22px; transform: translateX(-50%); font-size: 12px; font-weight: 900; white-space: nowrap; }
+  .cal .mk::after { content: ""; position: absolute; left: 50%; top: 20px; width: 2px; height: 48px; background: var(--ink); margin-left: -1px; }
+  .cal .today { position: absolute; top: 0; height: 44px; width: 3px; margin-left: -1.5px; background: #fff; }
+  .cal .tl { position: absolute; top: 64px; transform: translateX(-50%); font-size: 11.5px; font-weight: 700; color: var(--ink); white-space: nowrap; }
+  .cal { padding-bottom: 22px; }
+  .earths .row { display: grid; grid-template-columns: 120px 1fr 52px; gap: 10px; align-items: center; padding: 4px 0; font-size: 14px; }
+  .earths .row.w { font-weight: 900; }
+  .earths .bar { position: relative; height: 20px; background: var(--bg3); border-radius: 5px; }
+  .earths .bar i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 5px; }
+  .earths .bar .one { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--ink); }
+  .earths .v { text-align: right; font-weight: 900; }
+  .earths .ax { position: relative; height: 18px; margin-left: 130px; margin-right: 62px; font-size: 11px; color: var(--muted); }
+  .earths .ax span { position: absolute; transform: translateX(-50%); }
+  @media (max-width: 560px) { .earths .row { grid-template-columns: 92px 1fr 44px; gap: 6px; font-size: 12.5px; } .earths .ax { margin-left: 98px; margin-right: 50px; } }
+  .pb { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 18px; }
+  .pb > div { border-radius: 12px; padding: 12px 14px; font-size: 13.5px; border: 1px solid var(--faint); background: var(--bg2); border-left: 6px solid var(--c); }
+  .pb b { display: block; font-size: 14.5px; }
+  .pb .st { font-size: 11.5px; font-weight: 700; color: var(--c); }
+
+  /* sectors */
+  .sect { display: grid; grid-template-columns: minmax(0, 340px) 1fr; gap: 24px; align-items: center; margin-top: 18px; }
+  @media (max-width: 720px) { .sect { grid-template-columns: 1fr; } .sect svg { max-width: 340px; margin: 0 auto; } }
+  .sect svg { width: 100%; height: auto; display: block; }
+  .seg { cursor: pointer; transition: opacity .2s; }
+  .sect.hov .seg:not(.on) { opacity: .35; }
+  .slist { list-style: none; margin: 0; padding: 0; font-size: 14px; }
+  .slist li { display: grid; grid-template-columns: 14px 1fr 54px; gap: 8px; align-items: baseline; padding: 6px 8px; border-radius: 8px; cursor: pointer; }
+  .slist li i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  .slist li b { text-align: right; }
+  .slist li small { display: block; color: var(--muted); font-size: 12px; }
+  .slist li.on { background: var(--bg3); }
+  .slist li.grp { cursor: default; font-size: 12px; color: var(--muted); font-weight: 700; padding: 10px 8px 2px; display: block; }
+
+  /* direction */
+  .acts { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; margin-top: 24px; }
+  .acts > div { background: var(--bg2); border: 1px solid var(--faint); border-radius: 16px; padding: 18px; border-top: 4px solid var(--c, var(--vio)); }
+  .acts h3 { display: flex; gap: 8px; align-items: center; }
+  .acts p { font-size: 14px; margin: 6px 0; }
+  .acts ul { margin: 6px 0 0; padding-left: 18px; font-size: 14px; }
+  .acts li { margin: 4px 0; }
+  .shift { width: 100%; border-collapse: collapse; font-size: 14.5px; margin-top: 18px; }
+  .shift th, .shift td { border-bottom: 1px solid var(--faint); padding: 10px 8px; text-align: left; vertical-align: top; }
+  .shift th { font-size: 12px; color: var(--muted); }
+  .shift td:first-child { color: var(--muted); }
+  .shift td:last-child { font-weight: 700; }
+  .shift td.ar { color: var(--vio); font-weight: 900; width: 28px; text-align: center; }
+  .dn { display: grid; grid-template-columns: minmax(0, 360px) 1fr; gap: 24px; align-items: center; }
+  @media (max-width: 720px) { .dn { grid-template-columns: 1fr; } .dn svg { max-width: 360px; margin: 0 auto; } }
+  .dn svg { width: 100%; height: auto; display: block; }
+  .share { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  .share a, .share button { font: inherit; font-size: 14px; font-weight: 700; text-decoration: none; border-radius: 999px; padding: 10px 18px; cursor: pointer; border: 1px solid var(--ink); }
+  .share a { background: var(--ink); color: var(--bg); }
+  .share button { background: transparent; color: var(--ink); }
+  .reads { margin-top: 18px; display: grid; gap: 10px; }
+  .reads a { display: block; text-decoration: none; color: var(--ink); background: var(--bg2); border: 1px solid var(--faint); border-radius: 12px; padding: 12px 16px; font-size: 14px; }
+  .reads a b { display: block; font-size: 15px; }
+  .reads a span.d { color: var(--muted); font-size: 13px; }
+
+  .honest { background: var(--bg3); }
+  .honest ul { padding-left: 18px; }
+  .honest li { margin: 8px 0; }
+  .srcs ol { font-size: 13px; padding-left: 22px; }
+  .srcs li { margin: 6px 0; }
+  .srcs .use { color: var(--muted); display: block; font-size: 12px; }
+  .sister .card2 { display: flex; gap: 16px; align-items: center; text-decoration: none; color: var(--ink); background: var(--bg2); border: 1px solid var(--faint); border-radius: 16px; padding: 18px 20px; margin-top: 12px; }
+  .sister .card2:hover { border-color: var(--ink); }
+  .sister .card2 .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--c); flex-shrink: 0; }
+  .sister .card2 .t { flex: 1; }
+  .sister .card2 b { display: block; font-size: 17px; }
+  .sister .card2 .d { display: block; font-size: 13.5px; color: var(--muted); }
+  .sister .card2 .go { font-weight: 700; font-size: 13px; white-space: nowrap; }
+  footer { padding: 32px 0 48px; font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--faint); }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><span class="ja">足りる経済へ</span><span class="en">Enough for All</span></a>
+    <nav class="nav">
+      <a href="#speed"><span class="ja">急な変化</span><span class="en">Speed</span></a>
+      <a href="#fair"><span class="ja">富と排出の偏り</span><span class="en">Inequality</span></a>
+      <a href="#limits"><span class="ja">地球の限界</span><span class="en">Limits</span></a>
+      <a href="#sectors"><span class="ja">どこから出る</span><span class="en">Sectors</span></a>
+      <a href="#energy"><span class="ja">エネルギー</span><span class="en">Energy</span></a>
+      <a href="#growth"><span class="ja">成長の限界</span><span class="en">Growth</span></a>
+      <a href="#direction"><span class="ja">変革の方向</span><span class="en">Direction</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="en">EN</button><button data-lang="ja">日本語</button>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#807d75">Enough for All</p>
+    <h1 class="q serif">
+      <span class="ja"><span class="ib">地球は、</span><span class="ib">ひとつしかない。</span><br><span class="hl"><span class="ib">私たちは、</span><span class="ib">1.7個分を使っている。</span></span></span>
+      <span class="en">There is one Earth.<br><span class="hl">We are using 1.7 of them.</span></span>
+    </h1>
+    <p>
+      <span class="ja">人類の歴史の大半で、人口も排出もゆっくりとしか増えませんでした。それがこの50年で一気に膨らみ、いま社会は地球の限界にぶつかっています。しかもその負荷は、<b>ひと握りの豊かな人々に大きく偏っています</b>。気候変動の根っこにあるのは、技術の不足よりも、<b>富の偏りと、使いすぎを前提にした経済</b>です。このページは、なぜ富を分け直し、過剰消費の経済から抜け出す必要があるのかを、データで順に見ていきます。数字にはすべて出典をつけ、私たちの概算にはそう書いています。</span>
+      <span class="en">For most of human history, population and emissions grew slowly. In the last 50 years they surged, and society has now run into the planet’s limits. And the load is <b>concentrated in a small, wealthy minority</b>. At the root of climate change lies less a lack of technology than <b>unequal wealth and an economy built on using too much</b>. This page walks through the data on why we need to share wealth fairly and leave the overconsumption economy behind. Every number is sourced, and our own estimates are labelled as such.</span>
+    </p>
+<div class="guide ja hero-g"><span class="gchar" data-mood="smile"></span><p class="bubble"><span class="nm">ちきゅうさん</span>こんにちは。ここでは、<b>「なぜ社会の仕組みを変える必要があるのか」</b>をいっしょに見ていくよ。だれかを責める話じゃなくて、<b>みんなに足りる世界</b>をどう作るかの話。ゆっくり読んでね。</p></div>
+    <div class="cwrap" id="cwrap">
+    <button type="button" class="reveal" id="reveal">いまの数字を見る<small>世界の人口・地球の予算・富の偏り</small></button>
+    <div class="counter">
+      <div>
+        <div class="k"><span class="ja">いまの世界の人口</span><span class="en">World population now</span><span class="est">≈</span></div>
+        <div class="v num" id="cPop">—</div>
+        <div class="s"><span class="ja">1年に約<b>7,000万人</b>、1秒に2人ほど増えています。1975年の約2倍です。</span><span class="en">Growing by about <b>70 million a year</b> — two people a second. About double 1975.</span></div>
+      </div>
+      <div>
+        <div class="k"><span class="ja">今年の「地球の予算」を使い切った日</span><span class="en">The day we used up this year’s Earth budget</span></div>
+        <div class="v hot num" id="cOver">—</div>
+        <div class="s" id="cOverS">—</div>
+      </div>
+      <div>
+        <div class="k"><span class="ja">最も豊かな10%が持つ、世界の資産</span><span class="en">Share of world wealth owned by the richest 10%</span></div>
+        <div class="v vio num"><span class="ja">約4分の3</span><span class="en">About ¾</span></div>
+        <div class="s"><span class="ja">下位50%の持ち分は約<b>2%</b>。排出では上位10%が約半分です。</span><span class="en">The poorest half own about <b>2%</b>. On emissions, the top 10% cause about half.</span></div>
+      </div>
+    </div>
+    <p class="src"><span class="ja">出典：国連 世界人口推計2024（人口は2025年なかば約82.3億人から年約7,000万人増と置いた私たちの概算）、Global Footprint Network（2026年）、World Inequality Report 2022・2026、Chancel（2022）。</span><span class="en">Sources: UN World Population Prospects 2024 (the live figure assumes ~8.23 billion in mid-2025 plus ~70 million a year — our estimate), Global Footprint Network (2026), World Inequality Report 2022 and 2026, Chancel (2022).</span> <a href="#sources"><span class="ja">出典一覧</span><span class="en">All sources</span></a></p>
+    </div>
+    <a class="scroll-cue" href="#map"><span class="ja">全体像を見る ↓</span><span class="en">See the whole picture ↓</span></a>
+  </div>
+</header>
+
+<!-- MAP -->
+<section id="map" style="padding-bottom:40px">
+  <div class="wrap">
+    <p class="eyebrow"><span class="ja">このページの道すじ</span><span class="en">The argument in four steps</span></p>
+    <h2><span class="ja">問題は「速さ」「偏り」「限界」。<br>だから「方向」を変える。</span><span class="en">Speed, inequality, limits.<br>So we change direction.</span></h2>
+    <p class="lead narrow"><span class="ja">気候変動は、自然の問題であると同時に<b>経済の問題</b>です。どれだけ速く、だれのために、地球の何を使ってきたのか。その答えから、必要な社会の変化の方向が見えてきます。</span><span class="en">Climate change is a problem of nature — and of <b>economics</b>. How fast, for whom, and with how much of the planet have we been consuming? The answers point to the direction society needs to take.</span></p>
+    <div class="layers">
+      <a href="#speed" style="--c:var(--red)"><span class="ic">📈</span><b><span class="ja">① 急激な変化</span><span class="en">① A sudden surge</span></b><p><span class="ja">化石燃料の CO₂ の約7割は、この50年に出された。人口も排出も、まだ増え続けている。</span><span class="en">About 70% of all fossil CO₂ was emitted in the last 50 years — and growth hasn’t stopped.</span></p></a>
+      <a href="#fair" style="--c:var(--vio)"><span class="ic">⚖️</span><b><span class="ja">② 富と排出の偏り</span><span class="en">② Unequal wealth, unequal emissions</span></b><p><span class="ja">富の偏りと排出の偏りは、ほぼ同じ形。痛みをどう分けるかが、変化の鍵になる。</span><span class="en">The two inequalities have almost the same shape. How the costs are shared decides whether change happens.</span></p></a>
+      <a href="#limits" style="--c:var(--amber)"><span class="ic">🌍</span><b><span class="ja">③ 地球の限界</span><span class="en">③ The planet’s limits</span></b><p><span class="ja">地球1.7個分の消費。9つの「地球の限界」のうち7つを超えている。</span><span class="en">1.7 Earths of consumption. 7 of 9 planetary boundaries crossed.</span></p></a>
+      <a href="#direction" style="--c:var(--green)"><span class="ic">🧭</span><b><span class="ja">④ 変革の方向</span><span class="en">④ The direction of change</span></b><p><span class="ja">再エネを足すだけでは足りない。富を分け直し、過剰な消費を減らし、みんなに足りる経済へ。</span><span class="en">Adding renewables isn’t enough. Share wealth, cut excess, and build an economy that is enough for all.</span></p></a>
+    </div>
+  </div>
+</section>
+
+<!-- 1 SPEED -->
+<section id="speed">
+  <div class="wrap">
+    <p class="chapter" style="--c:var(--red)"><span class="cn">1</span><span class="ja">急激な変化</span><span class="en">A sudden surge</span></p>
+    <h2><span class="ja">人類の歴史の大半は、ゆっくりだった。<br>この50年だけが、違う。</span><span class="en">For most of history, change was slow.<br>The last 50 years are different.</span></h2>
+    <div class="guide ja"><span class="gchar" data-mood="worry"></span><p class="bubble">グラフの右のはしが、ぐっと立ち上がっているよね。いま生きている多くの人は、<b>その急な坂の上で</b>暮らしているんだ。</p></div>
+    <p class="lead narrow"><span class="ja">世界の人口が10億人に達したのは、1800年ごろのことです。1950年には約25億人、1975年には約41億人、そして今は約82億人。<b>この50年で、ほぼ2倍</b>になりました。この30年間だけでも約25億人が増えています。1950年の世界の人口と、ほぼ同じ規模です。</span><span class="en">The world reached one billion people around 1800. By 1950 it was about 2.5 billion, by 1975 about 4.1 billion, and today about 8.2 billion — <b>nearly double in 50 years</b>. In the last 30 years alone we added about 2.5 billion people: as many as lived on Earth in 1950.</span></p>
+
+    <div class="card">
+      <div class="tabs" role="group" aria-label="Chart">
+        <button data-sp="pop" aria-pressed="true"><span class="ja">世界の人口</span><span class="en">World population</span></button>
+        <button data-sp="co2"><span class="ja">化石燃料からの CO₂ 排出</span><span class="en">Fossil CO₂ emissions</span></button>
+      </div>
+      <div class="chart" id="spChart"></div>
+      <p class="small" id="spNote"></p>
+    </div>
+
+    <p class="narrow" style="margin-top:28px"><span class="ja">排出量は、同じことをさらにはっきりと示しています。産業革命以来、化石燃料から出された CO₂ の<b>約7割はこの50年間に、約半分はこの30年間に</b>出されたものです。その大半は、世界が警告を受けたあとのことです。『成長の限界』の出版と、環境をテーマにした初めての国連会議（ストックホルム）は、どちらも1972年、この50年が始まる直前でした。リオの地球サミット（1992年）は、この30年が始まる直前に開かれていました。</span><span class="en">Emissions tell the same story even more sharply. Of all the CO₂ emitted from fossil fuels since the Industrial Revolution, <b>about 70% was emitted in the last 50 years, and about half in the last 30</b>. Most of it came after the world had been warned. <i>The Limits to Growth</i> and the first UN conference on the environment (Stockholm) both came in 1972, just before those 50 years began. The Rio Earth Summit (1992) met just before the last 30.</span></p>
+    <div class="card">
+      <h3><span class="ja">化石燃料から出た CO₂ の累計（1750〜2025年）は、いつ出されたか</span><span class="en">When was all fossil CO₂ (1750–2025) emitted?</span></h3>
+      <div class="cbar" id="cbar"></div>
+      <p class="small"><span class="ja">化石燃料とセメントからの CO₂。Global Carbon Project（Our World in Data 経由、2024年まで）に 2025年の推計 381億 t を加えた計算。</span><span class="en">CO₂ from fossil fuels and cement. Global Carbon Project data (via Our World in Data, to 2024) plus the 2025 estimate of 38.1 Gt.</span></p>
+    </div>
+
+    <h3 style="margin-top:44px"><span class="ja">50年前・30年前・今</span><span class="en">50 years ago, 30 years ago, now</span></h3>
+    <table class="tn">
+      <thead><tr><th></th><th>1975</th><th>1995</th><th><span class="ja">今</span><span class="en">Now</span></th><th><span class="ja">1975年比</span><span class="en">vs 1975</span></th></tr></thead>
+      <tbody>
+        <tr><td><span class="ja">世界の人口</span><span class="en">World population</span></td><td class="num">40.7<span class="ja">億</span><span class="en">bn</span></td><td class="num">57.6<span class="ja">億</span><span class="en">bn</span></td><td class="num">82.3<span class="ja">億</span><span class="en">bn</span><small>2025</small></td><td class="x num"><span class="ja">約2倍</span><span class="en">~2×</span></td></tr>
+        <tr><td><span class="ja">化石燃料からの年間 CO₂</span><span class="en">Fossil CO₂ per year</span></td><td class="num"><span class="ja">170億 t</span><span class="en">17.0 Gt</span></td><td class="num"><span class="ja">235億 t</span><span class="en">23.5 Gt</span></td><td class="num"><span class="ja">381億 t</span><span class="en">38.1 Gt</span><small>2025</small></td><td class="x num"><span class="ja">約2.2倍</span><span class="en">~2.2×</span></td></tr>
+        <tr><td><span class="ja">大気中の CO₂ の増加分</span><span class="en">Rise in atmospheric CO₂</span><small><span class="ja">産業革命前（約280 ppm）から</span><span class="en">above pre-industrial (~280 ppm)</span></small></td><td class="num">+51 ppm<small>331</small></td><td class="num">+81 ppm<small>361</small></td><td class="num">+147 ppm<small>427 (2025)</small></td><td class="x num"><span class="ja">約2.9倍</span><span class="en">~2.9×</span></td></tr>
+      </tbody>
+    </table>
+    <p class="small" style="margin-top:8px"><span class="ja">英語表記の Gt は10億トン。人口：国連 世界人口推計2024、排出：Global Carbon Project、大気中の CO₂：NOAA マウナロア観測所の年平均。</span><span class="en">Population: UN World Population Prospects 2024. Emissions: Global Carbon Project. Atmospheric CO₂: NOAA Mauna Loa annual means.</span></p>
+
+    <p class="narrow" style="margin-top:22px"><span class="ja">しかも、変化の速さは衰えていません。人口は今も、1970年代後半とほぼ同じ人数（年約7,000万〜7,500万人）が毎年増えています。排出量と大気中の CO₂ は、1年あたりで見ると、<b>前半の20年（1975〜95年）より後半の30年（1995〜2025年）の方が速く</b>増えています（大気中の CO₂ は年1.5 ppm → 2.2 ppm）。</span><span class="en">And the pace hasn’t slowed. Population still grows by about as many people each year as in the late 1970s (70–75 million). Emissions and atmospheric CO₂ grew <b>faster per year in the last 30 years (1995–2025) than in the 20 before (1975–95)</b> — atmospheric CO₂ from 1.5 to 2.2 ppm a year.</span></p>
+
+    <div class="card">
+      <h3><span class="ja">あなたが生まれてから、どれだけ？</span><span class="en">How much since you were born?</span></h3>
+      <label for="byr" class="small"><span class="ja">生まれた年</span><span class="en">Year you were born</span></label>
+      <div class="yr num" id="byrOut">1985</div>
+      <input type="range" id="byr" min="1935" max="2015" step="1" value="1985">
+      <div class="out">
+        <div><div class="k"><span class="ja">化石燃料の CO₂（累計）のうち、生まれてから出された割合</span><span class="en">Share of all fossil CO₂ ever emitted that came after your birth</span></div><div class="v num" id="byShare">—</div><div class="s"><span class="ja">1750〜2025年の累計に対して</span><span class="en">Of the 1750–2025 total</span></div></div>
+        <div><div class="k"><span class="ja">生まれた年の世界の人口</span><span class="en">World population the year you were born</span></div><div class="v num" id="byPop">—</div><div class="s" id="byPopS"></div></div>
+        <div><div class="k"><span class="ja">その年の化石燃料 CO₂ 排出</span><span class="en">Fossil CO₂ that year</span></div><div class="v num" id="byCo2">—</div><div class="s" id="byCo2S"></div></div>
+      </div>
+      <p class="small" style="margin-top:12px"><span class="ja">今生きている多くの人は、自分の一生のうちに、人類が化石燃料で気候に与えてきた影響の大半を目の当たりにしてきたことになります。</span><span class="en">Many people alive today have witnessed, within their own lifetime, most of the impact humanity has ever had on the climate through fossil fuels.</span></p>
+    </div>
+
+    <div class="callout b">
+      <b><span class="ja">「人が増えすぎたせい」ではありません</span><span class="en">This is not “too many people”</span></b>
+      <p style="margin:6px 0 0;font-size:15px"><span class="ja">人口と排出は同じように増えましたが、増えた排出の大半は豊かな国と豊かな人々の消費から来ています。人口が増えているのは主に、一人あたりの排出がとても少ない国々です。人口の増加は、教育・医療・女性の権利が進むと自然にゆるやかになり、国連は2080年代なかばの約103億人を頂点に減ると見ています。問題の中心は<b>人数</b>よりも、<b>だれが・どれだけ使っているか</b>です。それが次の章です。</span><span class="en">Population and emissions rose together, but most of the added emissions come from the consumption of rich countries and rich people. Population is growing mainly where emissions per person are very low. Growth slows as education, health care and women’s rights advance, and the UN projects a peak of about 10.3 billion in the mid-2080s. The heart of the problem is less <b>how many</b> of us there are than <b>who uses how much</b>. That is the next chapter.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 2 FAIR -->
+<section id="fair" style="background:var(--bg2)">
+  <div class="wrap">
+    <p class="chapter" style="--c:var(--vio)"><span class="cn">2</span><span class="ja">富と排出の偏り</span><span class="en">Unequal wealth, unequal emissions</span></p>
+    <h2><span class="ja">富の偏りと、排出の偏りは<br>ほぼ同じ形をしている。</span><span class="en">Wealth inequality and emissions inequality<br>have almost the same shape.</span></h2>
+    <div class="guide ja"><span class="gchar" data-mood="smile"></span><p class="bubble">いちばん多く出している人たちと、いちばん多く持っている人たちは、<b>ほとんど同じ人たち</b>。だから、<b>分け方を変えれば、多くの人は苦しまずにすむ</b>んだ。</p></div>
+    <p class="lead narrow"><span class="ja">世界の人々を所得で3つに分けてみます。<b>上位10%</b>の人々は、世界の資産の約4分の3を持ち、排出の約半分を出しています。<b>下位50%</b>の人々は、資産の約2%しか持たず、排出も約12%ですが、気候の被害を最も強く受けています。</span><span class="en">Split the world’s people into three groups by income. The <b>top 10%</b> own about three-quarters of the world’s wealth and cause about half of emissions. The <b>bottom 50%</b> own about 2% of wealth and cause about 12% of emissions — yet suffer the most from climate damage.</span></p>
+    <div class="card">
+      <div class="legend" style="margin:0 0 6px"><span><i style="background:#7fae8f"></i><span class="ja">下位50%</span><span class="en">Bottom 50%</span></span><span><i style="background:#cfc7b6"></i><span class="ja">中間40%</span><span class="en">Middle 40%</span></span><span><i style="background:var(--vio)"></i><span class="ja">上位10%</span><span class="en">Top 10%</span></span></div>
+      <div class="ineq" id="ineq"></div>
+      <p class="small" style="margin-top:10px"><span class="ja">世界の人々を一人ずつ、所得の順に並べた分け方（国ごとではありません）。所得・資産：World Inequality Report 2022（2021年）。排出：Chancel（2022、2019年、消費にもとづく個人の排出）。最新の World Inequality Report 2026 でも、上位10%が資産の約4分の3、下位50%が約2%と、ほとんど変わっていません。</span><span class="en">Individuals worldwide ranked by income (not countries). Income and wealth: World Inequality Report 2022 (2021). Emissions: Chancel (2022), 2019, consumption-based personal emissions. The latest World Inequality Report 2026 finds almost no change: the top 10% own about three-quarters of wealth, the bottom half about 2%.</span></p>
+    </div>
+
+    <div class="card">
+      <h3><span class="ja">一人あたりの年間排出（2019年）</span><span class="en">Emissions per person per year (2019)</span></h3>
+      <div class="pcap" id="pcap"></div>
+      <p class="small" style="margin-top:8px"><span class="ja">温室効果ガス（CO₂ 換算）。Chancel（2022）。世界平均は約6 t。上位1%（約8,000万人）は、下位50%（約38億人）の<b>約70倍</b>を出しています。</span><span class="en">Greenhouse gases in CO₂-equivalent. Chancel (2022). World average ~6 t. The top 1% (about 80 million people) emit <b>about 70 times</b> as much per person as the bottom 50% (about 3.8 billion).</span></p>
+    </div>
+
+    <div class="callout v">
+      <div class="big" style="color:var(--vio)"><span class="ja">富がめぐらなくなれば、<br>ゲームは終わる。</span><span class="en">When wealth stops circulating,<br>the game is over.</span></div>
+      <p style="margin:10px 0 0;font-size:15px"><span class="ja">一人がすべてのお金を手にしたところで終わるボードゲームのように、経済も、富がめぐらなくなれば回らなくなります。いまの世界では、最も豊かな0.001%（約6万人）が世界の資産の6%超を持ち、その割合は1995年の約4%から増え続けています（WIR 2026）。億万長者が実際に払っている税は、資産のわずか約0.3%にとどまるとされます（Zucman 2024）。</span><span class="en">Like a board game that ends when one player holds all the money, an economy stops working when wealth no longer circulates. Today the richest 0.001% — about 60,000 people — hold over 6% of the world’s wealth, up from about 4% in 1995 (WIR 2026). Billionaires pay effective taxes of only about 0.3% of their wealth (Zucman 2024).</span></p>
+    </div>
+
+    <h3 style="margin-top:40px"><span class="ja">だから、気候の問題は「分け方」の問題になる</span><span class="en">So climate becomes a question of distribution</span></h3>
+    <div class="acts">
+      <div style="--c:var(--red)"><h3>🦺 <span class="ja">負担が逆向きだと、止まる</span><span class="en">Regressive burdens stall change</span></h3>
+        <p><span class="ja">燃料税のように一律にかかる負担は、所得の少ない人ほど重くなります。2018年のフランスでは、燃料税の引き上げが「黄色いベスト運動」を引き起こし、撤回されました。<b>公平さの設計がない気候政策は、続きません。</b></span><span class="en">Flat charges like fuel taxes hit low-income households hardest. In France in 2018, a fuel-tax rise sparked the “yellow vests” protests and was withdrawn. <b>Climate policy without fair design does not last.</b></span></p></div>
+      <div style="--c:var(--vio)"><h3>🎯 <span class="ja">削るのは「過剰」から</span><span class="en">Cut from the excess first</span></h3>
+        <p><span class="ja">排出の約半分は上位10%から出ています。プライベートジェット、頻繁な飛行機、巨大な住宅、投資先の化石燃料事業。ここを減らせば、多くの人の暮らしを削らなくても、排出は大きく減ります。</span><span class="en">About half of emissions come from the top 10%: private jets, frequent flying, very large homes, fossil-fuel investments. Cutting there reduces emissions a lot without squeezing most people’s lives.</span></p></div>
+      <div style="--c:var(--green)"><h3>🤝 <span class="ja">集めて、戻す</span><span class="en">Collect, then return</span></h3>
+        <p><span class="ja">炭素への課金の収入を全員に同じ額で戻すと、排出の少ない多数派は、払う額より受け取る額の方が多くなります。富裕層への課税を公共交通・住宅・医療に回せば、<b>減らすことと、暮らしが良くなることが両立</b>します。</span><span class="en">If carbon-price revenue is returned to everyone as an equal dividend, the low-emitting majority receive more than they pay. Taxing wealth to fund transit, housing and health care means <b>cutting emissions and improving lives at the same time</b>.</span></p></div>
+    </div>
+    <p class="small" style="margin-top:14px"><span class="ja">「全員に同じ額で戻す」の効果は仕組みの説明で、国や制度によって結果は変わります。</span><span class="en">The equal-dividend effect describes the mechanism; actual results depend on the country and the design.</span></p>
+  </div>
+</section>
+
+<!-- 3 LIMITS -->
+<section id="limits">
+  <div class="wrap">
+    <p class="chapter" style="--c:var(--amber)"><span class="cn">3</span><span class="ja">地球の限界</span><span class="en">The planet’s limits</span></p>
+    <h2><span class="ja">今年の地球の予算は、<br>7月30日に使い切った。</span><span class="en">This year’s Earth budget<br>ran out on 30 July.</span></h2>
+    <div class="guide ja"><span class="gchar" data-mood="worry"></span><p class="bubble">8月からは、<b>未来の分を前借り</b>しているんだ。森や海や土が1年で生み出せる以上を、私たちは使っているよ。</p></div>
+    <p class="lead narrow"><span class="ja">アース・オーバーシュート・デーは、人類がその年に使う自然の資源と、吸収してもらう CO₂ が、地球が1年で再生・吸収できる量を超える日です。2026年は<b>7月30日</b>。人類は、地球が再生できる速さの約1.7倍（<b>地球1.73個分</b>）で自然を使っていて、これは記録上最も大きな行き過ぎです。</span><span class="en">Earth Overshoot Day marks the date when humanity’s demand for nature that year — resources used and CO₂ to be absorbed — exceeds what the Earth can regenerate in a year. In 2026 it fell on <b>30 July</b>. We are using nature about 1.7 times faster than it can renew (<b>1.73 Earths</b>), the largest overshoot on record.</span></p>
+    <div class="card">
+      <h3><span class="ja">2026年のカレンダー</span><span class="en">The 2026 calendar</span></h3>
+      <div class="cal" id="cal"></div>
+      <div class="legend"><span><i style="background:var(--green)"></i><span class="ja">地球が1年で再生できる分</span><span class="en">What Earth can renew in a year</span></span><span><i style="background:var(--red)"></i><span class="ja">行き過ぎ（未来からの前借り）</span><span class="en">Overshoot (borrowed from the future)</span></span></div>
+      <p class="small" style="margin-top:10px"><span class="ja">足跡の約6割は、吸収しきれない CO₂ です。気候変動は、この「使いすぎ」のいちばん大きな部分です。</span><span class="en">Roughly 60% of the footprint is CO₂ that nature can’t absorb. Climate change is the largest part of this overspending.</span></p>
+    </div>
+
+    <div class="card">
+      <h3><span class="ja">世界中の人がその国の人と同じ暮らしをしたら、地球はいくつ必要？</span><span class="en">If everyone lived like the people of…, how many Earths would we need?</span></h3>
+      <div class="earths" id="earths"></div>
+      <p class="small" style="margin-top:8px"><span class="ja">Global Footprint Network。国別は2025年版の推計（多くは2024年の状況）、世界は2026年版で、年が少し違います。インドとナイジェリアは地球1個に収まっています（それぞれ地球の75%・53%分）。</span><span class="en">Global Footprint Network. Country figures are from the 2025 edition (mostly 2024 conditions); the world figure is from the 2026 edition. India and Nigeria fit within one Earth (75% and 53% of one).</span></p>
+    </div>
+
+    <h3 style="margin-top:44px"><span class="ja">9つの「地球の限界」のうち、7つを超えている</span><span class="en">Seven of nine planetary boundaries are crossed</span></h3>
+    <p class="narrow"><span class="ja">プラネタリー・バウンダリー（地球の限界）は、人類が安定した地球で暮らし続けるための9つの「安全な範囲」です。気候はそのひとつにすぎません。2025年の評価では、海の酸性化が新たに加わり、<b>9つのうち7つ</b>が安全な範囲を超えました。</span><span class="en">Planetary boundaries are nine “safe operating limits” for keeping the Earth system stable. Climate is only one. In the 2025 assessment ocean acidification joined the list, so <b>seven of nine</b> are now outside the safe zone.</span></p>
+    <div class="pb" id="pb"></div>
+    <p class="small" style="margin-top:10px"><span class="ja">Planetary Health Check 2025（ポツダム気候影響研究所など）。ほとんどの項目で、悪化が続いています。</span><span class="en">Planetary Health Check 2025 (Potsdam Institute for Climate Impact Research and others). Most indicators are still worsening.</span></p>
+
+    <div class="stats">
+      <div><div class="v num">×3.4</div><div class="k"><span class="ja">資源の採掘量（1970→2020年）</span><span class="en">Material extraction (1970→2020)</span></div><div class="s"><span class="ja">約300億 t → 約1,060億 t。2060年までにさらに約60%増える見込み（UNEP 2024）</span><span class="en">~30 → ~106 billion tonnes; set to rise another ~60% by 2060 (UNEP 2024)</span></div></div>
+      <div><div class="v num"><span class="ja">半分以上</span><span class="en">55%+</span></div><div class="k"><span class="ja">資源の採掘と加工から出る温室効果ガス</span><span class="en">Greenhouse gases from extracting and processing materials</span></div><div class="s"><span class="ja">土地に関わる生物多様性の損失と水不足の約9割は、農林業など生物資源の採取と加工から（UNEP 2024）</span><span class="en">Biomass extraction and processing drive ~90% of land-related biodiversity loss and water stress (UNEP 2024)</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 SECTORS -->
+<section id="sectors" style="background:var(--bg2)">
+  <div class="wrap">
+    <p class="chapter" style="--c:var(--blue)"><span class="cn">4</span><span class="ja">どこから出ているか</span><span class="en">Where emissions come from</span></p>
+    <h2><span class="ja">排出の4分の3は、エネルギーから。<br>でも、それだけではない。</span><span class="en">Three-quarters of emissions come from energy.<br>But not all.</span></h2>
+    <div class="guide ja"><span class="gchar" data-mood="smile"></span><p class="bubble">円の上を押すと、その中身が見られるよ。<b>電気・移動・ものづくり・食べもの</b>。暮らしのほとんどが、どこかでつながっているんだ。</p></div>
+    <p class="lead narrow"><span class="ja">世界の温室効果ガスの排出を部門別に分けると、<b>電気と熱、移動、ものづくり、建物</b>など、エネルギーを使うことによる排出が約77%を占めます。残りは農業、工業の化学反応、廃棄物などです。</span><span class="en">Split global greenhouse gas emissions by sector and about 77% come from using energy — <b>electricity and heat, transport, manufacturing, buildings</b> and more. The rest come from agriculture, industrial processes and waste.</span></p>
+    <div class="sect" id="sect"></div>
+    <p class="small" style="margin-top:14px"><span class="ja">WRI / Climate Watch（2026年4月更新、2023年のデータ）。土地利用は森林の吸収を差し引いた正味の値で、森林破壊そのものの排出はもっと大きくなります。部門の分け方を変えて「食べもの」で見ると、生産から輸送・加工・廃棄まで、食料システム全体で<b>排出の約3分の1</b>になります（Crippa ら 2021）。</span><span class="en">WRI / Climate Watch (updated April 2026, 2023 data). Land use is net of forest sinks; gross deforestation emissions are much larger. Viewed through food instead, the whole food system — from farm to transport, processing and waste — accounts for <b>about a third of emissions</b> (Crippa et al. 2021).</span></p>
+    <div class="callout g">
+      <span class="ja">どの部門でも、排出の大きさは<b>使う量</b>で決まります。電気をすべて再エネにしても、建てる・運ぶ・つくる・食べる量が増え続ければ、資源の採掘や土地の利用は増えます。部門ごとの技術だけでなく、<b>どれだけ必要なのか</b>を問うことが欠かせません。食べものについては、姉妹サイト<a href="https://tamorist.github.io/83-billion/">「830億の理由」</a>で詳しく扱っています。</span>
+      <span class="en">In every sector, the size of emissions depends on <b>how much we use</b>. Even with fully renewable electricity, if we keep building, shipping, making and eating more, extraction and land use keep growing. We need to ask not only which technology, but <b>how much is actually needed</b>. Food is covered in detail on the sister site <a href="https://tamorist.github.io/83-billion/">83 Billion Reasons</a>.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 5 ENERGY -->
+<section id="energy">
+  <div class="wrap">
+    <p class="chapter" style="--c:var(--red)"><span class="cn">5</span><span class="ja">エネルギー</span><span class="en">Energy</span></p>
+    <h2><span class="ja">再エネは「置き換え」ではなく、<br>まだ「上乗せ」になっている。</span><span class="en">Renewables are still being added on top,<br>not replacing fossil fuels.</span></h2>
+    <div class="guide ja"><span class="gchar" data-mood="worry"></span><p class="bubble">再エネは、すごい速さで増えているよ。でも<b>化石燃料も、まだ増えている</b>。下の灰色の部分が、ちっとも細くならないんだ。</p></div>
+    <p class="lead narrow"><span class="ja">世界のエネルギーの<b>約8割は、いまも化石燃料</b>です。風力と太陽光は急速に伸びていますが、増え続けるエネルギー需要の<b>上乗せ</b>になっていて、化石燃料の使用量そのものは2024年も過去最高でした。2000年から2024年までに、低炭素のエネルギー（再エネ＋原子力）は約17.5 PWh 増えましたが、化石燃料は<b>約48 PWh</b>、その約2.7倍も増えています。</span><span class="en"><b>About 80% of the world’s energy still comes from fossil fuels.</b> Wind and solar are growing fast, but mostly <b>on top of</b> rising demand; fossil fuel use hit another record in 2024. From 2000 to 2024, low-carbon energy (renewables + nuclear) grew by about 17.5 PWh — while fossil fuels grew by <b>about 48 PWh</b>, some 2.7 times as much.</span></p>
+    <div class="card">
+      <div class="tabs" role="group" aria-label="Units">
+        <button data-en="abs" aria-pressed="true"><span class="ja">使った量</span><span class="en">Amount used</span></button>
+        <button data-en="share"><span class="ja">割合</span><span class="en">Share</span></button>
+      </div>
+      <div class="chart" id="enChart"></div>
+      <div class="legend" id="enLegend"></div>
+      <p class="small" style="margin-top:8px"><span class="ja">世界の一次エネルギー（1965〜2024年、PWh＝1兆 kWh）。Energy Institute Statistical Review（Our World in Data 経由）。再エネと原子力は、同じ電気を化石燃料で作った場合に必要な量に換算する方法（代替法）。換算の方法によって化石燃料の割合は約81〜87%と変わります。</span><span class="en">World primary energy, 1965–2024 (PWh = trillion kWh). Energy Institute Statistical Review via Our World in Data. Renewables and nuclear use the substitution method; depending on the accounting method, the fossil share is about 81–87%.</span></p>
+    </div>
+    <div class="stats">
+      <div><div class="v num">92% → 81%</div><div class="k"><span class="ja">化石燃料の割合（1975→2024年）</span><span class="en">Fossil share (1975→2024)</span></div><div class="s"><span class="ja">50年で約11ポイントしか下がっていない</span><span class="en">Down only ~11 points in 50 years</span></div></div>
+      <div><div class="v num">×2.3</div><div class="k"><span class="ja">化石燃料の使用量（1975→2024年）</span><span class="en">Fossil fuel use (1975→2024)</span></div><div class="s"><span class="ja">割合は下がっても、量は2倍以上に</span><span class="en">The share fell; the amount more than doubled</span></div></div>
+      <div><div class="v num"><span class="ja">約7兆ドル</span><span class="en">~$7 tn</span></div><div class="k"><span class="ja">化石燃料への補助（2022年）</span><span class="en">Fossil fuel subsidies (2022)</span></div><div class="s"><span class="ja">見えない補助を含む。世界の GDP の約7%（IMF）</span><span class="en">Including implicit subsidies; ~7% of world GDP (IMF)</span></div></div>
+    </div>
+    <p class="narrow"><span class="ja">歴史家のジャン＝バティスト・フレソズは、人類のエネルギーの歴史に「移行」はほとんどなく、あったのは<b>「追加」</b>だったと指摘しています。石炭の時代にも木材の使用は増え続け、石油の時代にも石炭は増え続けました。効率が上がると、かえって使う量が増える「リバウンド効果（ジェボンズのパラドックス）」もあります。気候を安定させるには、新しいエネルギーを足すだけでなく、<b>化石燃料を意図して減らし、エネルギーの総量を抑える</b>ことが必要です。</span><span class="en">Historian Jean-Baptiste Fressoz argues that the history of energy has had almost no “transitions” — only <b>additions</b>. Wood use kept growing in the coal age, and coal kept growing in the oil age. Efficiency gains can even raise total use (the rebound effect, or Jevons paradox). To stabilise the climate we must not only add new energy but <b>deliberately cut fossil fuels and cap total energy use</b>.</span></p>
+  </div>
+</section>
+
+<!-- 6 GROWTH -->
+<section id="growth" style="background:var(--bg2)">
+  <div class="wrap">
+    <p class="chapter" style="--c:var(--amber)"><span class="cn">6</span><span class="ja">成長の限界</span><span class="en">The limits of growth</span></p>
+    <h2><span class="ja">「グリーン成長」だけでは、<br>間に合わない。</span><span class="en">“Green growth” alone<br>won’t get there in time.</span></h2>
+    <div class="guide ja"><span class="gchar" data-mood="smile"></span><p class="bubble">でもね、いい知らせもあるよ。<b>みんながちゃんと暮らすのに必要なエネルギーは、いまよりずっと少なくてすむ</b>んだって。</p></div>
+    <p class="lead narrow"><span class="ja">経済を成長させながら排出を減らす「デカップリング」は、一部の豊かな国で実際に起きています。ただし、その速さは必要な速さに遠く及びません。</span><span class="en">“Decoupling” — growing the economy while cutting emissions — is happening in some rich countries. But nowhere near fast enough.</span></p>
+    <div class="stats">
+      <div><div class="v num"><span class="ja">220年以上</span><span class="en">220+ years</span></div><div class="k"><span class="ja">デカップリングに成功した豊かな11か国が、いまの速さで排出を95%減らすのにかかる年数</span><span class="en">Time for 11 rich countries that achieved decoupling to cut emissions 95% at their current pace</span></div><div class="s"><span class="ja">その間に、1.5℃の公平な取り分の約27倍を排出（Vogel & Hickel 2023）</span><span class="en">Emitting ~27× their fair 1.5°C share on the way (Vogel & Hickel 2023)</span></div></div>
+      <div><div class="v num">×15</div><div class="k"><span class="ja">必要な削減の速さ</span><span class="en">How much faster cuts must be</span></div><div class="s"><span class="ja">公平な取り分を守るには、これらの国は年約30%の削減が必要（同上）</span><span class="en">To respect their fair shares these countries need ~30% cuts a year (same study)</span></div></div>
+      <div><div class="v num" style="color:var(--green)">−60%</div><div class="k"><span class="ja">全員がまともに暮らすのに必要なエネルギー</span><span class="en">Energy needed for a decent life for everyone</span></div><div class="s"><span class="ja">2050年に約100億人。いまの世界の消費より60%以上少なく、1960年代と同じくらい（Millward-Hopkins ら 2020）</span><span class="en">For ~10 billion people in 2050: over 60% below today’s use, about the level of the 1960s (Millward-Hopkins et al. 2020)</span></div></div>
+    </div>
+    <p class="narrow"><span class="ja">足りないのは、エネルギーや資源の「量」ではありません。食べもの、住まい、医療、教育、移動、通信といった、人がまともに暮らすために必要なものは、いまの地球の上でも全員に行き渡らせることができます。問題は、<b>その多くが一部の人の過剰な消費と、成長し続けないと回らない経済の仕組みに使われている</b>ことです。</span><span class="en">What is lacking is not the <i>amount</i> of energy or materials. Food, housing, health care, education, mobility and communication — what people need for a decent life — can reach everyone on today’s planet. The problem is that <b>so much goes to the excess consumption of a few, and to an economy that stops working unless it keeps growing</b>.</span></p>
+    <blockquote class="pull"><span class="ja">問題は「足りない」ことではない。<br>「分け方」と「使いすぎ」だ。</span><span class="en">The problem isn’t that there isn’t enough.<br>It’s how it is shared, and how much is wasted.</span></blockquote>
+  </div>
+</section>
+
+<!-- 7 DIRECTION -->
+<section id="direction">
+  <div class="wrap">
+    <p class="chapter" style="--c:var(--green)"><span class="cn">7</span><span class="ja">変革の方向</span><span class="en">The direction of change</span></p>
+    <h2><span class="ja">分け直し、使いすぎをやめ、<br>みんなに足りる経済へ。</span><span class="en">Share fairly, stop overusing,<br>build an economy that is enough for all.</span></h2>
+    <div class="guide ja"><span class="gchar" data-mood="happy"></span><p class="bubble">ここまで読んでくれて、ありがとう。<b>減らすのは「過剰」、増やすのは「足りないところ」</b>。そう考えると、変えることは怖くないよ。</p></div>
+    <p class="lead narrow"><span class="ja">ここまでのデータが示す方向はひとつです。地球の限界の内側に戻りながら、すべての人の暮らしを支える。そのためには、<b>富を分け直すこと</b>と、<b>過剰消費を前提にした経済から抜け出すこと</b>を、セットで進める必要があります。どちらか一方だけでは、うまくいきません。</span><span class="en">The data point one way: return within the planet’s limits while supporting everyone’s life. That means <b>redistributing wealth</b> and <b>leaving an economy built on overconsumption</b> — together. Either one alone will fail.</span></p>
+
+    <div class="card dn">
+      <svg viewBox="0 0 360 360" role="img" aria-labelledby="dnT">
+        <title id="dnT">Doughnut: the safe and just space between the social foundation and the ecological ceiling</title>
+        <circle cx="180" cy="180" r="170" fill="#f3d6cf"/>
+        <circle cx="180" cy="180" r="128" fill="#cfe3d3"/>
+        <circle cx="180" cy="180" r="128" fill="none" stroke="var(--red)" stroke-width="3"/>
+        <circle cx="180" cy="180" r="72" fill="#f7e7c4"/>
+        <circle cx="180" cy="180" r="72" fill="none" stroke="var(--green)" stroke-width="3"/>
+        <circle cx="180" cy="180" r="44" fill="#fffdf8"/>
+        <g font-size="12.5" font-weight="700" text-anchor="middle" fill="#1d1f1c">
+          <text x="180" y="30" class="ja">行き過ぎ（地球の限界を超える）</text><text x="180" y="30" class="en">Overshoot (beyond Earth’s limits)</text>
+          <text x="180" y="78" fill="#7d2618" class="ja">環境の上限</text><text x="180" y="78" fill="#7d2618" class="en">Ecological ceiling</text>
+          <text x="180" y="98" fill="#1f4d39" class="ja">安全で公正な空間</text><text x="180" y="98" fill="#1f4d39" class="en">Safe and just space</text>
+          <text x="180" y="132" fill="#1f4d39" class="ja">社会の土台</text><text x="180" y="132" fill="#1f4d39" class="en">Social foundation</text>
+          <text x="180" y="176" font-size="11" class="ja">不足</text><text x="180" y="176" font-size="11" class="en">Shortfall</text>
+          <text x="180" y="192" font-size="10" font-weight="400" class="ja">食・水・住・医療…</text><text x="180" y="192" font-size="10" font-weight="400" class="en">food, water, home…</text>
+        </g>
+      </svg>
+      <div>
+        <h3><span class="ja">ドーナツの中で暮らす</span><span class="en">Living inside the doughnut</span></h3>
+        <p style="font-size:15px"><span class="ja">経済学者ケイト・ラワースの「ドーナツ経済」は、目指す場所を一枚の図にしたものです。内側の輪は、だれも食べもの・水・住まい・医療・教育に不足しない<b>「社会の土台」</b>。外側の輪は、地球の限界という<b>「環境の上限」</b>。その間が、人類が目指すべき「安全で公正な空間」です。</span><span class="en">Economist Kate Raworth’s “Doughnut” puts the goal in one picture. The inner ring is the <b>social foundation</b>: no one short of food, water, housing, health care or education. The outer ring is the <b>ecological ceiling</b>: the planet’s limits. The space in between is where humanity needs to be.</span></p>
+        <p style="font-size:15px"><span class="ja">いまの世界は、外側にはみ出しながら、内側にも穴が空いている状態です。約150か国を調べた研究では、<b>地球の限界を守りながら住民の基本的な必要を満たしている国は、ひとつもありません</b>でした（O’Neill ら 2018）。豊かな国は外にはみ出し、貧しい国は土台に届いていない。だから必要なのは、ただ「減らす」でも「増やす」でもなく、<b>分け直す</b>ことです。</span><span class="en">Today the world spills over the outer ring while leaving holes in the inner one. A study of some 150 countries found <b>none that meets its people’s basic needs within planetary limits</b> (O’Neill et al. 2018). Rich countries overshoot; poor countries fall short of the foundation. So the answer is neither simply “less” nor “more”, but <b>redistribution</b>.</span></p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:44px"><span class="ja">何から何へ</span><span class="en">From what, to what</span></h3>
+    <table class="shift">
+      <thead><tr><th><span class="ja">いまの経済</span><span class="en">Today’s economy</span></th><th></th><th><span class="ja">足りる経済</span><span class="en">An economy of enough</span></th></tr></thead>
+      <tbody>
+        <tr><td><span class="ja">GDP の成長が目的</span><span class="en">GDP growth as the goal</span></td><td class="ar">→</td><td><span class="ja">人の暮らしと地球の健康が目的</span><span class="en">Wellbeing and a healthy planet as the goal</span></td></tr>
+        <tr><td><span class="ja">富が上に集まる</span><span class="en">Wealth flows upward</span></td><td class="ar">→</td><td><span class="ja">富がめぐる（課税と再分配）</span><span class="en">Wealth circulates (tax and redistribution)</span></td></tr>
+        <tr><td><span class="ja">私的なぜいたく、公的な貧しさ</span><span class="en">Private luxury, public squalor</span></td><td class="ar">→</td><td><span class="ja">私的には十分、公的には豊か</span><span class="en">Private sufficiency, public luxury</span></td></tr>
+        <tr><td><span class="ja">再エネを足す</span><span class="en">Add renewables</span></td><td class="ar">→</td><td><span class="ja">化石燃料を減らし、総量も抑える</span><span class="en">Cut fossil fuels and cap the total</span></td></tr>
+        <tr><td><span class="ja">使い捨て・買い替え</span><span class="en">Throwaway and replace</span></td><td class="ar">→</td><td><span class="ja">長く使う・直す・分け合う</span><span class="en">Durable, repairable, shared</span></td></tr>
+        <tr><td><span class="ja">成長しないと雇用と福祉が崩れる</span><span class="en">Jobs and welfare collapse without growth</span></td><td class="ar">→</td><td><span class="ja">成長に頼らない雇用と社会保障</span><span class="en">Jobs and welfare that don’t depend on growth</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="acts">
+      <div style="--c:var(--vio)"><h3>💰 <span class="ja">富を分け直す</span><span class="en">Redistribute wealth</span></h3>
+        <ul class="ja"><li>超富裕層への最低課税：億万長者の資産に年2%で、約3,000人から年2,000億〜2,500億ドル（Zucman 2024、G20 への報告）</li><li>ぜいたくな排出への課税（プライベートジェット、頻繁な飛行機）</li><li>炭素課金の収入を、全員への還付や公共サービスに</li></ul>
+        <ul class="en"><li>A minimum tax on the super-rich: 2% a year on billionaires’ wealth would raise $200–250 bn a year from about 3,000 people (Zucman 2024, report to the G20)</li><li>Taxes on luxury emissions (private jets, frequent flying)</li><li>Return carbon-price revenue as dividends or public services</li></ul></div>
+      <div style="--c:var(--red)"><h3>✂️ <span class="ja">過剰をやめる</span><span class="en">End overconsumption</span></h3>
+        <ul class="ja"><li>化石燃料の採掘を計画的に減らし、補助をやめる</li><li>エネルギーと資源の総量に目標と上限を</li><li>修理する権利、長く使える製品、計画的な陳腐化の禁止</li><li>過剰消費をあおる広告を見直す</li></ul>
+        <ul class="en"><li>Plan the phase-down of fossil fuel extraction; end subsidies</li><li>Targets and caps on total energy and material use</li><li>Right to repair, durable products, ban planned obsolescence</li><li>Rethink advertising that drives overconsumption</li></ul></div>
+      <div style="--c:var(--green)"><h3>🚆 <span class="ja">公共の豊かさ</span><span class="en">Public abundance</span></h3>
+        <ul class="ja"><li>公共交通、住宅、医療、教育、ケアをだれもが使えるように</li><li>車がなくても暮らせるまち</li><li>働く時間を短くし、時間の豊かさを</li><li>成長に頼らない社会保障の設計</li></ul>
+        <ul class="en"><li>Public transport, housing, health, education and care for everyone</li><li>Towns where you can live without a car</li><li>Shorter working hours — wealth in time</li><li>Social security designed not to depend on growth</li></ul></div>
+      <div style="--c:var(--amber)"><h3>🌏 <span class="ja">世界の公正</span><span class="en">Global fairness</span></h3>
+        <ul class="ja"><li>歴史的に多く排出した国が、先に・大きく減らす</li><li>被害を受ける国への資金と、債務の見直し</li><li>足りない国・人は、暮らしを良くするために使う量を増やせるように</li></ul>
+        <ul class="en"><li>Countries that emitted most historically cut first and deepest</li><li>Finance for the countries suffering damage; debt relief</li><li>Room for people and countries who lack enough to use more</li></ul></div>
+    </div>
+
+    <h3 style="margin-top:40px"><span class="ja">ひとりで抱え込まなくていい</span><span class="en">You don’t have to carry this alone</span></h3>
+    <p class="narrow"><span class="ja">これは「みんなで我慢しよう」という話ではありません。仕組みを変える話です。だからこそ、一人ひとりができる一番大きなことは、<b>話題にし、声をあげ、票を使う</b>ことです。暮らしの中でも、飛行機・車・肉・大きな買い物のように影響の大きいところから見直すと、変化は実感しやすくなります。</span><span class="en">This isn’t a call for everyone to tighten their belts. It’s about changing the system. So the biggest thing any one person can do is to <b>talk about it, speak up and vote</b>. In daily life, start with the big levers — flying, driving, meat, large purchases — where change is most noticeable.</span></p>
+    <blockquote class="pull"><span class="ja">地球はひとつ。<br>みんなに足りるだけは、ちゃんとある。</span><span class="en">There is one Earth.<br>And there is enough — for all of us.</span></blockquote>
+    <div class="share">
+      <a id="shareX" href="#" target="_blank" rel="noopener"><span class="ja">X で共有</span><span class="en">Share on X</span></a>
+      <button id="copyLink"><span class="ja">リンクをコピー</span><span class="en">Copy link</span></button>
+    </div>
+
+    <h3 style="margin-top:44px"><span class="ja">もっと詳しく（作者の連載）</span><span class="en">Go deeper (author’s writing)</span></h3>
+    <div class="reads">
+      <a href="https://note.com/ttmori/n/ncce93c710c01"><b>なぜ脱炭素は進まないのか ―― 問題は「技術」ではなく「経済ルール」である</b><span class="d"><span class="ja">経済ルール・政治・グリーン成長の限界</span><span class="en">Economic rules, politics and the limits of green growth (Japanese)</span></span></a>
+      <a href="https://note.com/ttmori/n/n5c7c99c2537d"><b>持続可能世界へ移行するための全体ロードマップ [Survival Redesign]</b><span class="d"><span class="ja">では、どうやって移行するのか</span><span class="en">How the transition could work (Japanese)</span></span></a>
+      <a href="https://ttmori.substack.com/p/survival-redesign-a-blueprint-for"><b>Survival Redesign: A Blueprint for Capitalism 2.0 and Global Democracy</b><span class="d"><span class="ja">提案の詳細（英語）</span><span class="en">The full proposal</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- HONEST -->
+<section class="honest">
+  <div class="wrap narrow">
+    <p class="eyebrow" id="limitsnote"><span class="ja">数字の限界</span><span class="en">Limits of the numbers</span></p>
+    <h2 style="font-size:24px"><span class="ja">誇張しないこと</span><span class="en">What we don’t overstate</span></h2>
+    <ul class="ja">
+      <li><b>「7割」「半分」は化石燃料とセメントの CO₂ です。</b>森林破壊など土地利用の CO₂ を含めると、昔の排出の割合が大きくなり、この50年の割合は約6割になります。</li>
+      <li><b>富と排出の分布は推計です。</b>各国の統計をつなぎ合わせたモデルによるもので、とくに最上位の資産や排出には大きな不確かさがあります。排出は消費にもとづく個人の排出で、投資を通じた排出を入れると上位の割合はさらに大きくなります（WIR 2026：資本の所有にもとづくと上位10%が77%）。</li>
+      <li><b>エコロジカル・フットプリントは、ひとつの物差しです。</b>計算方法には批判もあり、とくに CO₂ の扱いで値が変わります。「地球何個分」は目安として読んでください。</li>
+      <li><b>地球の限界の境界線には幅があります。</b>どこに線を引くかは科学的な判断で、研究者の間でも議論があります。ただし、7つの項目で悪化が続いていることは多くの研究で一致しています。</li>
+      <li><b>エネルギーの割合は、数え方で変わります。</b>代替法では化石燃料は約81%、Energy Institute の新しい方法では約87%です。どちらでも「約8割以上」です。</li>
+      <li><b>デカップリングの研究には反論もあります。</b>どの期間・どの国・どの排出（生産か消費か）を見るかで結論は変わります。ただ、必要な速さに届いている国がないことは、広く認められています。</li>
+      <li><b>「何をすべきか」は価値判断を含みます。</b>このページの「変革の方向」は、データにもとづく私たちの提案で、唯一の答えではありません。</li>
+    </ul>
+    <ul class="en">
+      <li><b>“70%” and “half” refer to CO₂ from fossil fuels and cement.</b> Including land-use CO₂ such as deforestation raises the share of older emissions; the last 50 years then account for about 60%.</li>
+      <li><b>Wealth and emissions distributions are estimates.</b> They come from models that combine national statistics, with large uncertainty at the very top. Emissions are consumption-based personal emissions; counting emissions through investments makes the top’s share even larger (WIR 2026: 77% for the top 10% by capital ownership).</li>
+      <li><b>The Ecological Footprint is one yardstick.</b> Its method has critics, especially on how CO₂ is counted. Read “number of Earths” as a guide.</li>
+      <li><b>Planetary boundary thresholds have ranges.</b> Where to draw them involves scientific judgement and is debated. But that seven indicators keep worsening is widely shared.</li>
+      <li><b>Energy shares depend on accounting.</b> The substitution method gives ~81% fossil; the Energy Institute’s newer method ~87%. Either way, “around 80% or more”.</li>
+      <li><b>Decoupling research is contested.</b> Conclusions depend on the period, countries and whether production or consumption emissions are counted. That no country is decoupling fast enough is, however, widely accepted.</li>
+      <li><b>“What to do” involves values.</b> The direction on this page is our proposal based on the data, not the only possible answer.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section id="sources" class="srcs" style="padding-top:56px">
+  <div class="wrap narrow">
+    <p class="eyebrow"><span class="ja">出典</span><span class="en">Sources</span></p>
+    <ol>
+      <li><a href="https://population.un.org/wpp/">UN World Population Prospects 2024</a> <span class="use"><span class="ja">人口 1950年 約25億、1975年 約41億、1995年 約58億、2025年 約82.3億、年約7,000万人増。2080年代なかばに約103億で頂点</span><span class="en">Population ~2.5 bn (1950), ~4.1 bn (1975), ~5.8 bn (1995), ~8.23 bn (2025); ~70 m a year; peak ~10.3 bn in the mid-2080s</span></span>; <a href="https://ourworldindata.org/population-growth">Our World in Data: Population</a> <span class="use"><span class="ja">1800年ごろに10億人（HYDE・Gapminder）</span><span class="en">One billion around 1800 (HYDE, Gapminder)</span></span></li>
+      <li><a href="https://github.com/owid/co2-data">Our World in Data CO₂ dataset</a> (Global Carbon Project) <span class="use"><span class="ja">化石燃料とセメントの CO₂（1750〜2024年）。累計のうち1975年以降 約74%、1995年以降 約52%（2025年を加えた私たちの計算）</span><span class="en">Fossil and cement CO₂, 1750–2024. Since 1975 ~74%, since 1995 ~52% of the cumulative total (our calculation incl. 2025)</span></span></li>
+      <li><a href="https://globalcarbonbudget.org/">Global Carbon Budget 2025</a> <span class="use"><span class="ja">2025年の化石燃料 CO₂ 381億 t（過去最高）</span><span class="en">Fossil CO₂ 38.1 Gt in 2025 (record)</span></span></li>
+      <li><a href="https://gml.noaa.gov/ccgg/trends/gl_data.html">NOAA Global Monitoring Laboratory, Mauna Loa annual mean CO₂</a> <span class="use"><span class="ja">1975年 331.1、1995年 361.0、2025年 427.4 ppm</span><span class="en">331.1 (1975), 361.0 (1995), 427.4 ppm (2025)</span></span></li>
+      <li>Meadows et al. (1972) <i>The Limits to Growth</i>; UN Conference on the Human Environment, Stockholm (1972); UN Conference on Environment and Development, Rio de Janeiro (1992); Paris Agreement (2015)</li>
+      <li><a href="https://wir2022.wid.world/executive-summary/">World Inequality Report 2022</a> <span class="use"><span class="ja">2021年：所得 上位10% 52%・下位50% 8.5%、資産 上位10% 76%・下位50% 2%（中間40%は残り）</span><span class="en">2021: income top 10% 52%, bottom 50% 8.5%; wealth top 10% 76%, bottom 50% 2% (middle 40% the remainder)</span></span></li>
+      <li><a href="https://wir2026.wid.world/insight/executive-summary/">World Inequality Report 2026</a> <span class="use"><span class="ja">上位10%が資産の約4分の3、下位50%が2%。上位0.001%が6%超（1995年は約4%）。資本の所有にもとづく排出は上位10%が77%、下位50%が3%</span><span class="en">Top 10% own ~¾ of wealth, bottom half 2%; top 0.001% over 6% (~4% in 1995); ownership-based emissions: top 10% 77%, bottom 50% 3%</span></span></li>
+      <li><a href="https://doi.org/10.1038/s41893-022-00955-z">Chancel (2022) Global carbon inequality over 1990–2019. <i>Nature Sustainability</i> 5, 931–938</a> <span class="use"><span class="ja">2019年：上位10% 約48%、中間40% 約40%、下位50% 約12%。一人あたり 下位50% 1.4 t、中間40% 6.1 t、上位1% 約101 t、世界平均 約6 t（上位10%の約29 t は割合と平均からの私たちの計算）</span><span class="en">2019: top 10% ~48%, middle 40% ~40%, bottom 50% ~12%. Per person: bottom 50% 1.4 t, middle 40% 6.1 t, top 1% ~101 t, world average ~6 t (top 10% ~29 t is our calculation from the shares and average)</span></span></li>
+      <li><a href="https://gabriel-zucman.eu/files/report-g20.pdf">Zucman (2024) A blueprint for a coordinated minimum effective taxation standard for ultra-high-net-worth individuals (report to the G20)</a> <span class="use"><span class="ja">億万長者の実効税率は資産の約0.3%、2%の最低課税で年2,000億〜2,500億ドル</span><span class="en">Billionaires’ effective tax ~0.3% of wealth; a 2% minimum would raise $200–250 bn a year</span></span></li>
+      <li><a href="https://footprintnetwork.org/2026/06/05/announcement-earth-overshoot-day-2026-falls-on-july-30/">Global Footprint Network: Earth Overshoot Day 2026</a>; <a href="https://overshoot.footprintnetwork.org/newsroom/country-overshoot-days/">Country Overshoot Days</a> <span class="use"><span class="ja">2026年は7月30日、地球1.73個分（2026年版）。国別の必要な地球の数（2025年版）</span><span class="en">30 July 2026, 1.73 Earths (2026 edition); Earths needed by country (2025 edition)</span></span></li>
+      <li><a href="https://www.planetaryhealthcheck.org/">Planetary Health Check 2025</a> (Sakschewski, Caesar et al., PIK) <span class="use"><span class="ja">9つのうち7つが超過、海の酸性化が新たに超過</span><span class="en">7 of 9 crossed; ocean acidification newly crossed</span></span>; Richardson et al. (2023) <i>Science Advances</i>; Rockström et al. (2009) <i>Nature</i></li>
+      <li><a href="https://www.unep.org/resources/global-resource-outlook-2024">UNEP International Resource Panel (2024) Global Resources Outlook 2024</a> <span class="use"><span class="ja">採掘量 1970年 約300億 t → 2020年 約1,060億 t、2060年までに約60%増、採掘と加工で温室効果ガスの55%超、生物資源で土地関連の生物多様性損失・水不足の約90%</span><span class="en">Extraction ~30 bn t (1970) → ~106 bn t (2020); ~60% more by 2060; extraction and processing >55% of GHG; biomass ~90% of land-related biodiversity loss and water stress</span></span></li>
+      <li><a href="https://www.wri.org/insights/4-charts-explain-greenhouse-gas-emissions-countries-and-sectors">WRI (2026) Where do emissions come from? (Climate Watch, 2023 data)</a> <span class="use"><span class="ja">エネルギー 76.7%（電気と熱 33.6、運輸 14.3、製造と建設 12.2、建物 6.3）、農業 12.3、工業プロセス 6.2、廃棄物 3.8、土地利用 0.9（正味）。「その他のエネルギー」10.3%はエネルギー合計から差し引いた私たちの計算</span><span class="en">Energy 76.7% (electricity & heat 33.6, transport 14.3, manufacturing & construction 12.2, buildings 6.3), agriculture 12.3, industrial processes 6.2, waste 3.8, land use 0.9 (net). “Other energy” 10.3% is our calculation by subtraction</span></span></li>
+      <li><a href="https://doi.org/10.1038/s43016-021-00225-9">Crippa et al. (2021) Food systems are responsible for a third of global anthropogenic GHG emissions. <i>Nature Food</i></a></li>
+      <li><a href="https://github.com/owid/energy-data">Our World in Data energy dataset</a> (Energy Institute Statistical Review of World Energy) <span class="use"><span class="ja">一次エネルギー（代替法）1965〜2024年、化石燃料の割合 1975年 92%、2024年 81%</span><span class="en">Primary energy (substitution method) 1965–2024; fossil share 92% (1975), 81% (2024)</span></span>; <a href="https://www.energyinst.org/statistical-review">Energy Institute Statistical Review 2025</a> <span class="use"><span class="ja">2024年の需要は過去最高、新しい方法で化石燃料 86.6%</span><span class="en">Record demand in 2024; fossil 86.6% under the new method</span></span></li>
+      <li><a href="https://www.imf.org/en/Publications/WP/Issues/2023/08/22/IMF-Fossil-Fuel-Subsidies-Data-2023-Update-537281">IMF (2023) Fossil Fuel Subsidies Data: 2023 Update</a> <span class="use"><span class="ja">約7兆ドル（2022年、GDP の約7%）</span><span class="en">~$7 trillion (2022, ~7% of GDP)</span></span></li>
+      <li>Fressoz, J.-B. (2024) <i>More and More and More: An All-Consuming History of Energy</i> <span class="use"><span class="ja">エネルギーの歴史は「移行」ではなく「追加」</span><span class="en">Energy history as addition, not transition</span></span></li>
+      <li><a href="https://doi.org/10.1016/S2542-5196(23)00174-2">Vogel & Hickel (2023) Is green growth happening? An empirical analysis of achieved versus Paris-compliant CO₂–GDP decoupling in high-income countries. <i>The Lancet Planetary Health</i> 7, e759–69</a> <span class="use"><span class="ja">11か国、95%削減まで220年超、公平な取り分の27倍、必要な速さは15倍（年約30%）</span><span class="en">11 countries; 220+ years to cut 95%; 27× fair shares; 15× faster (~30%/yr) needed</span></span></li>
+      <li><a href="https://doi.org/10.1016/j.gloenvcha.2020.102168">Millward-Hopkins et al. (2020) Providing decent living with minimum energy: A global scenario. <i>Global Environmental Change</i></a> <span class="use"><span class="ja">2050年に約100億人のまともな暮らしを、いまより60%以上少ないエネルギーで</span><span class="en">Decent living for ~10 bn in 2050 with over 60% less energy than today</span></span></li>
+      <li>Raworth, K. (2017) <i>Doughnut Economics</i>; <a href="https://doi.org/10.1038/s41893-018-0021-4">O’Neill et al. (2018) A good life for all within planetary boundaries. <i>Nature Sustainability</i></a> <span class="use"><span class="ja">基本的な必要を地球の限界の内で満たしている国はない</span><span class="en">No country meets basic needs within planetary boundaries</span></span></li>
+      <li><span class="ja">フランスの燃料税引き上げと「黄色いベスト運動」（2018年11月〜、政府は12月に引き上げを撤回）</span><span class="en">France’s fuel-tax rise and the “yellow vests” movement (from November 2018; the government withdrew the rise in December)</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- SISTER SITES -->
+<section class="sister" style="padding-top:24px">
+  <div class="wrap narrow">
+    <p class="eyebrow"><span class="ja">姉妹サイト</span><span class="en">Sister sites</span></p>
+    <a class="card2" href="https://tamorist.github.io/tipping-point/" target="_blank" rel="noopener" style="--c:#c75c1a">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="t"><b><span class="ja">臨界点の手前で</span><span class="en">Before the Tipping Point</span></b>
+        <span class="d"><span class="ja">気候変動の全体像を1ページに。残された炭素予算、越えたら戻れない臨界点とその連鎖。</span><span class="en">The climate crisis on one page: the carbon budget left, tipping points and their cascades.</span></span></span>
+      <span class="go"><span class="ja">サイトへ ↗</span><span class="en">Visit ↗</span></span>
+    </a>
+    <a class="card2" href="https://tamorist.github.io/slow-war/" target="_blank" rel="noopener" style="--c:var(--red)">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="t"><b><span class="ja">静かな戦争</span><span class="en">The Slow War</span></b>
+        <span class="d"><span class="ja">いまの CO₂ 排出が「確定」させる未来の犠牲者を、戦争と比べて見るサイト。あなたの1日の排出も計算できます。</span><span class="en">How today’s CO₂ emissions lock in future deaths, compared with history’s wars — and what your own day adds up to.</span></span></span>
+      <span class="go"><span class="ja">サイトへ ↗</span><span class="en">Visit ↗</span></span>
+    </a>
+    <a class="card2" href="https://tamorist.github.io/83-billion/" target="_blank" rel="noopener" style="--c:var(--green)">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="t"><b><span class="ja">830億の理由</span><span class="en">83 Billion Reasons</span></b>
+        <span class="d"><span class="ja">動物・地球・人の健康から、肉を減らす理由と無理のない始め方。</span><span class="en">Why to eat less meat — for animals, the planet and your health — and an easy way to start.</span></span></span>
+      <span class="go"><span class="ja">サイトへ ↗</span><span class="en">Visit ↗</span></span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p style="margin:0 0 8px"><span class="ja">プライバシー：閲覧数の計測に <a href="https://www.goatcounter.com/">GoatCounter</a> を使っています。Cookie を使わず、個人を特定しません。スライダーで選んだ内容は、どこにも送信されません。</span><span class="en">Privacy: page views are counted with <a href="https://www.goatcounter.com/">GoatCounter</a>, which uses no cookies and does not identify visitors. Nothing you choose on the sliders is sent anywhere.</span></p>
+    <span class="ja">足りる経済へ / Tatsuya Mori（@ttmori）· コード <a href="https://github.com/tamorist/enough">MIT</a>、コンテンツ <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · 姉妹サイト：<a href="https://tamorist.github.io/tipping-point/">臨界点の手前で ↗</a>・<a href="https://tamorist.github.io/slow-war/">静かな戦争 ↗</a>・<a href="https://tamorist.github.io/83-billion/">830億の理由 ↗</a> · すべてのサイト：<a href="https://tamorist.github.io/">ClimateWatchMan ↗</a></span>
+    <span class="en">Enough for All / Tatsuya Mori (@ttmori) · Code <a href="https://github.com/tamorist/enough">MIT</a>, content <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · Sister sites: <a href="https://tamorist.github.io/tipping-point/">Before the Tipping Point ↗</a> · <a href="https://tamorist.github.io/slow-war/">The Slow War ↗</a> · <a href="https://tamorist.github.io/83-billion/">83 Billion Reasons ↗</a> · All sites: <a href="https://tamorist.github.io/">ClimateWatchMan ↗</a></span>
+  </div>
+</footer>
+
+<script>
+/* GoatCounter（アクセス数の計測）
+   goatcounter.com で登録したサイトコード（'enoughforall' → https://enoughforall.goatcounter.com）。
+   公開サイト（github.io）でのみ計測し、ローカル表示は数えない。 */
+const GOATCOUNTER_CODE = 'enoughforall';
+(function () {
+  if (!GOATCOUNTER_CODE || !/\.github\.io$/.test(location.hostname)) return;
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://gc.zgo.at/count.js';
+  s.dataset.goatcounter = `https://${GOATCOUNTER_CODE}.goatcounter.com/count`;
+  document.head.appendChild(s);
+})();
+
+const SITE_URL = 'https://tamorist.github.io/enough/';
+const $ = id => document.getElementById(id);
+let lang = 'en';
+try { const s = localStorage.getItem('en-lang'); if (s === 'en' || s === 'ja') lang = s; } catch (e) {}
+const qLang = new URLSearchParams(location.search).get('lang');
+if (qLang === 'en' || qLang === 'ja') lang = qLang;
+const ja = () => lang === 'ja';
+const fmt = (x, d = 0) => x.toLocaleString(ja() ? 'ja-JP' : 'en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+
+// ---- データ
+// 化石燃料＋セメントの CO₂（Gt/年、1750〜2024年：Global Carbon Project via OWID）＋2025年（GCB 2025 の推計 38.1）
+const CO2 = [0.009,0.009,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.011,0.011,0.011,0.011,0.011,0.012,0.012,0.012,0.012,0.013,0.013,0.013,0.014,0.014,0.014,0.014,0.015,0.015,0.015,0.016,0.016,0.016,0.017,0.017,0.017,0.018,0.018,0.019,0.019,0.02,0.02,0.021,0.022,0.022,0.023,0.022,0.022,0.022,0.023,0.027,0.033,0.032,0.04,0.03,0.032,0.031,0.033,0.036,0.035,0.036,0.039,0.04,0.041,0.041,0.042,0.044,0.045,0.049,0.051,0.051,0.051,0.052,0.054,0.056,0.058,0.061,0.061,0.066,0.067,0.066,0.089,0.083,0.082,0.083,0.089,0.097,0.107,0.106,0.106,0.11,0.119,0.122,0.129,0.132,0.142,0.155,0.158,0.171,0.174,0.185,0.197,0.199,0.208,0.217,0.255,0.26,0.278,0.281,0.286,0.303,0.332,0.349,0.356,0.38,0.41,0.435,0.449,0.481,0.494,0.525,0.536,0.57,0.631,0.67,0.629,0.681,0.691,0.704,0.71,0.76,0.858,0.888,0.938,0.998,1.01,1.017,1.033,1.084,1.201,1.202,1.307,1.37,1.381,1.363,1.412,1.496,1.545,1.618,1.707,1.864,1.963,2.026,2.077,2.265,2.29,2.441,2.549,2.905,2.79,2.907,3.05,3.097,3.254,3.525,3.198,3.148,3.4,3.556,3.506,3.041,3.547,3.115,3.265,3.703,3.716,3.741,3.677,4.013,3.996,4.288,3.958,3.539,3.193,3.363,3.656,3.836,4.208,4.497,4.23,4.47,4.885,4.999,4.983,5.075,5.162,4.289,4.609,5.165,5.448,5.204,5.93,6.382,6.468,6.651,6.79,7.444,7.926,8.186,8.418,8.855,9.387,9.415,9.747,10.267,10.824,11.311,11.863,12.237,12.905,13.762,14.899,15.504,16.225,17.077,16.998,16.988,17.862,18.358,19.025,19.509,19.41,18.88,18.73,18.902,19.457,20.145,20.438,21.106,21.919,22.2,22.732,23.206,22.52,22.75,22.975,23.517,24.233,24.38,24.296,24.838,25.511,25.693,26.265,27.653,28.61,29.599,30.594,31.499,32.05,31.513,33.318,34.48,34.955,35.276,35.466,35.404,35.393,35.975,36.734,37.087,35.158,36.867,37.528,38.094,38.599].concat([38.1]);
+const CO2_Y0 = 1750;
+// 世界の人口（10億人）：1750〜1940年は10年ごと（OWID）、1950〜2024年は毎年（国連 WPP 2024）＋2025年
+const POP_ANNUAL = [2.493,2.537,2.584,2.634,2.686,2.74,2.795,2.853,2.911,2.966,3.015,3.065,3.123,3.193,3.264,3.335,3.404,3.473,3.545,3.619,3.695,3.77,3.845,3.921,3.996,4.071,4.144,4.218,4.292,4.369,4.448,4.529,4.613,4.697,4.782,4.869,4.958,5.05,5.142,5.234,5.328,5.419,5.506,5.592,5.676,5.759,5.842,5.925,6.007,6.089,6.172,6.255,6.338,6.42,6.503,6.587,6.671,6.757,6.844,6.933,7.022,7.111,7.201,7.292,7.382,7.47,7.559,7.646,7.73,7.811,7.887,7.954,8.021,8.092,8.162].concat([8.232]);
+const POP = [[1750,0.753],[1760,0.788],[1770,0.828],[1780,0.901],[1790,0.942],[1800,0.983],[1810,1.02],[1820,1.09],[1830,1.162],[1840,1.22],[1850,1.276],[1860,1.298],[1870,1.34],[1880,1.415],[1890,1.521],[1900,1.627],[1910,1.767],[1920,1.895],[1930,2.072],[1940,2.292]]
+  .concat(POP_ANNUAL.map((v, i) => [1950 + i, v]));
+// 一次エネルギー（PWh、代替法）：[年, 石炭, 石油, ガス, 原子力, 水力, 風力＋太陽光, その他の再エネ]
+const EN = [[1965,16.2,18.0,6.3,0.1,2.6,0.0,0.1],[1966,16.4,19.4,6.9,0.1,2.7,0.0,0.1],[1967,16.1,20.8,7.4,0.1,2.8,0.0,0.1],[1968,16.3,22.5,8.0,0.1,2.9,0.0,0.1],[1969,16.8,24.4,8.8,0.2,3.1,0.0,0.1],[1970,17.1,26.7,9.6,0.2,3.3,0.0,0.1],[1971,17.0,28.1,10.3,0.3,3.4,0.0,0.1],[1972,17.2,30.3,10.9,0.4,3.6,0.0,0.1],[1973,17.7,32.7,11.4,0.6,3.6,0.0,0.1],[1974,17.7,32.2,11.7,0.7,4.0,0.0,0.1],[1975,18.0,32.0,11.7,1.0,4.0,0.0,0.1],[1976,18.7,34.1,12.4,1.2,4.0,0.0,0.1],[1977,19.3,35.2,12.8,1.5,4.1,0.0,0.1],[1978,19.5,36.7,13.3,1.7,4.5,0.0,0.2],[1979,20.4,37.2,14.1,1.8,4.7,0.0,0.2],[1980,20.9,35.6,14.2,2.0,4.8,0.0,0.2],[1981,21.2,34.3,14.4,2.3,4.9,0.0,0.2],[1982,21.4,33.3,14.5,2.5,5.0,0.0,0.2],[1983,22.1,33.1,14.7,2.9,5.2,0.0,0.3],[1984,23.0,33.6,15.9,3.5,5.4,0.0,0.3],[1985,24.0,33.7,16.3,4.1,5.5,0.0,0.3],[1986,24.3,34.7,16.4,4.4,5.6,0.0,0.4],[1987,25.2,35.5,17.3,4.8,5.6,0.0,0.4],[1988,26.0,36.6,18.1,5.3,5.8,0.0,0.4],[1989,26.2,37.2,18.9,5.4,5.8,0.0,0.4],[1990,25.9,37.9,19.5,5.6,6.0,0.0,0.5],[1991,25.7,37.9,20.0,5.8,6.1,0.0,0.5],[1992,25.6,38.4,20.1,5.9,6.1,0.0,0.5],[1993,25.7,38.2,20.3,6.1,6.5,0.0,0.5],[1994,25.8,39.1,20.4,6.2,6.5,0.0,0.6],[1995,26.0,39.7,21.1,6.5,6.9,0.0,0.6],[1996,26.6,40.6,22.2,6.7,7.0,0.0,0.6],[1997,26.6,41.7,22.0,6.6,7.1,0.0,0.6],[1998,26.4,41.8,22.4,6.8,7.2,0.0,0.7],[1999,26.5,42.4,23.1,7.0,7.2,0.1,0.7],[2000,27.5,43.0,24.0,7.2,7.4,0.1,0.7],[2001,27.9,43.4,24.3,7.3,7.1,0.1,0.7],[2002,29.0,43.7,25.1,7.4,7.2,0.1,0.8],[2003,31.5,44.6,25.7,7.2,7.1,0.2,0.9],[2004,33.7,46.4,26.8,7.5,7.6,0.2,0.9],[2005,36.2,47.0,27.4,7.4,7.8,0.3,1.0],[2006,38.1,47.4,28.2,7.5,8.1,0.4,1.1],[2007,40.2,48.1,29.3,7.3,8.2,0.5,1.3],[2008,40.8,47.7,30.1,7.2,8.6,0.6,1.5],[2009,40.2,46.6,29.4,7.1,8.5,0.8,1.7],[2010,42.0,48.2,31.6,7.2,8.9,1.0,1.9],[2011,44.0,48.6,32.3,6.9,9.0,1.3,2.0],[2012,44.1,49.4,33.2,6.4,9.4,1.6,2.1],[2013,44.7,49.9,33.7,6.4,9.7,2.0,2.3],[2014,44.9,50.3,34.0,6.5,9.9,2.3,2.4],[2015,43.7,51.3,34.8,6.5,9.8,2.8,2.6],[2016,42.8,52.3,35.6,6.6,10.1,3.2,2.6],[2017,43.2,53.3,36.6,6.6,10.2,4.0,2.8],[2018,43.9,53.8,38.3,6.7,10.4,4.6,3.0],[2019,43.6,54.0,39.1,6.9,10.5,5.3,3.2],[2020,42.3,49.1,38.7,6.6,10.8,6.1,3.2],[2021,44.6,51.8,40.2,6.9,10.6,7.2,3.4],[2022,44.9,53.6,40.1,6.6,10.7,8.4,3.6],[2023,45.3,54.8,40.2,6.7,10.4,9.7,3.7],[2024,45.9,55.3,41.3,6.9,10.9,11.3,3.8]];
+
+// ---- 小さな SVG ヘルパー
+let W = 680, H = 320, narrow = false;
+const ML = 46, MR = 14, MT = 52, MB = 30;
+function fit(el) { W = Math.max(300, Math.min(680, el.clientWidth || 680)); narrow = W < 520; H = narrow ? 280 : 320; }
+const sx = (x, x0, x1) => ML + (x - x0) / (x1 - x0) * (W - ML - MR);
+const sy = (y, y1) => H - MB - y / y1 * (H - MT - MB);
+
+function axes(x0, x1, y1, xt, yt, yfmt) {
+  let s = '';
+  yt.forEach(v => { const y = sy(v, y1); s += `<line class="grid" x1="${ML}" x2="${W - MR}" y1="${y}" y2="${y}"/><text class="ax" x="${ML - 6}" y="${y + 4}" text-anchor="end">${yfmt(v)}</text>`; });
+  xt.forEach(v => { s += `<text class="ax" x="${sx(v, x0, x1)}" y="${H - MB + 16}" text-anchor="middle">${v}</text>`; });
+  return s;
+}
+function events(x0, x1, list) {
+  return list.map((e, i) => {
+    const x = sx(e.x, x0, x1), y = 12 + i * 14;
+    return `<line class="evl" x1="${x}" x2="${x}" y1="${y + 4}" y2="${H - MB}"/><text class="evt" x="${x}" y="${y}" text-anchor="${e.a || 'middle'}">${e.t}</text>`;
+  }).join('');
+}
+function shade(x0, x1, a, b, fill, label) {
+  const xa = sx(a, x0, x1), xb = sx(b, x0, x1);
+  return `<rect x="${xa}" y="${MT}" width="${xb - xa}" height="${H - MT - MB}" fill="${fill}"/>` +
+    (label ? `<text class="ax" x="${xa + 4}" y="${H - MB - 6}" font-weight="700">${label}</text>` : '');
+}
+const EVENTS = () => narrow ? [
+  { x: 1972, t: ja() ? '1972 成長の限界' : '1972 Limits to Growth', a: 'end' },
+  { x: 1992, t: ja() ? '1992 リオ' : '1992 Rio', a: 'end' },
+  { x: 2015, t: ja() ? '2015 パリ' : '2015 Paris', a: 'end' },
+] : [
+  { x: 1972, t: ja() ? '1972 『成長の限界』・ストックホルム会議' : '1972 Limits to Growth · Stockholm', a: 'end' },
+  { x: 1992, t: ja() ? '1992 リオ地球サミット' : '1992 Rio Earth Summit', a: 'end' },
+  { x: 2015, t: ja() ? '2015 パリ協定' : '2015 Paris', a: 'end' },
+];
+
+let sp = 'pop';
+function renderSpeed() {
+  fit($('spChart'));
+  const x0 = 1750, x1 = 2025;
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${sp === 'pop' ? 'World population 1750–2025' : 'Fossil CO2 emissions 1750–2025'}">`;
+  s += shade(x0, x1, 1975, 2025, 'rgba(184,64,47,.07)', ja() ? 'この50年' : 'last 50 years');
+  s += shade(x0, x1, 1995, 2025, 'rgba(184,64,47,.08)', '');
+  if (sp === 'pop') {
+    const y1 = 9;
+    s += axes(x0, x1, y1, (narrow ? [1750, 1850, 1950] : [1750, 1800, 1850, 1900, 1950, 2000]), [0, 2, 4, 6, 8], v => ja() ? v * 10 + '億' : v + ' bn');
+    s += events(x0, x1, EVENTS());
+    const pts = POP.map(([x, y]) => [sx(x, x0, x1), sy(y, y1)]);
+    s += `<path d="M${pts[0][0]},${sy(0, y1)} L${pts.map(p => p.join(',')).join(' L')} L${pts[pts.length - 1][0]},${sy(0, y1)} Z" fill="rgba(90,79,160,.14)"/>`;
+    s += `<path d="M${pts.map(p => p.join(',')).join(' L')}" fill="none" stroke="var(--vio)" stroke-width="2.6"/>`;
+    [[1800, 0.983, ja() ? '10億人' : '1 bn'], [1950, 2.493, ja() ? '25億' : '2.5 bn'], [1975, 4.071, ja() ? '41億' : '4.1 bn'], [2025, 8.232, ja() ? '82億' : '8.2 bn']].forEach(([x, y, t]) => {
+      const px = sx(x, x0, x1), py = sy(y, y1);
+      s += `<circle cx="${px}" cy="${py}" r="4.5" fill="var(--vio)"/><text class="lbl" x="${px - 7}" y="${py - 8}" text-anchor="end" fill="var(--vio)">${t}</text>`;
+    });
+    $('spNote').innerHTML = ja() ? '世界の人口（1750〜2025年）。Our World in Data（HYDE、国連 世界人口推計2024）。網かけは1975年以降と1995年以降。' : 'World population, 1750–2025. Our World in Data (HYDE, UN World Population Prospects 2024). Shading marks 1975 onward and 1995 onward.';
+  } else {
+    const y1 = 42;
+    s += axes(x0, x1, y1, (narrow ? [1750, 1850, 1950] : [1750, 1800, 1850, 1900, 1950, 2000]), [0, 10, 20, 30, 40], v => ja() ? v * 10 + '億t' : v + ' Gt');
+    s += events(x0, x1, EVENTS());
+    const pts = CO2.map((y, i) => [sx(CO2_Y0 + i, x0, x1).toFixed(1), sy(y, y1).toFixed(1)]);
+    s += `<path d="M${pts[0][0]},${sy(0, y1)} L${pts.map(p => p.join(',')).join(' L')} L${pts[pts.length - 1][0]},${sy(0, y1)} Z" fill="rgba(184,64,47,.16)"/>`;
+    s += `<path d="M${pts.map(p => p.join(',')).join(' L')}" fill="none" stroke="var(--red)" stroke-width="2.4"/>`;
+    [[1975, CO2[1975 - CO2_Y0], ja() ? '170億t' : '17 Gt'], [2025, 38.1, ja() ? '381億t' : '38 Gt']].forEach(([x, y, t]) => {
+      const px = sx(x, x0, x1), py = sy(y, y1);
+      s += `<circle cx="${px}" cy="${py}" r="4.5" fill="var(--red)"/><text class="lbl" x="${px - 7}" y="${py - 8}" text-anchor="end" fill="var(--red)">${t}</text>`;
+    });
+    $('spNote').innerHTML = ja() ? '化石燃料とセメントからの CO₂（1750〜2025年）。Global Carbon Project（Our World in Data 経由）、2025年は Global Carbon Budget 2025 の推計。' : 'CO₂ from fossil fuels and cement, 1750–2025. Global Carbon Project via Our World in Data; 2025 from the Global Carbon Budget 2025 estimate.';
+  }
+  $('spChart').innerHTML = s + '</svg>';
+  document.querySelectorAll('[data-sp]').forEach(b => b.setAttribute('aria-pressed', b.dataset.sp === sp));
+}
+
+const cumFrom = y => CO2.slice(Math.max(0, y - CO2_Y0)).reduce((a, b) => a + b, 0);
+const TOTAL = cumFrom(CO2_Y0);
+function renderCbar() {
+  const a = 1 - cumFrom(1975) / TOTAL, b = (cumFrom(1975) - cumFrom(1995)) / TOTAL, c = cumFrom(1995) / TOTAL;
+  const seg = (w, col, t, d) => `<div style="width:${w * 100}%;background:${col}"><b class="num">${Math.round(w * 100)}%</b><span>${t}</span></div>`;
+  $('cbar').innerHTML = seg(a, '#8f897b', '1750–1974', '') + seg(b, 'var(--red2)', '1975–1994') + seg(c, 'var(--red)', '1995–2025');
+}
+
+function renderBirth() {
+  const y = +$('byr').value;
+  $('byrOut').textContent = ja() ? y + '年' : y;
+  $('byShare').textContent = Math.round(cumFrom(y) / TOTAL * 100) + '%';
+  const p = POP_ANNUAL[y - 1950] ?? POP.find(r => r[0] >= y)[1];
+  $('byPop').textContent = ja() ? fmt(p * 10, 1) + '億人' : fmt(p, 2) + ' bn';
+  $('byPopS').textContent = ja() ? `いまは約82億人（約${fmt(8.232 / p, 1)}倍）` : `Today ~8.2 bn (about ${fmt(8.232 / p, 1)}×)`;
+  const e = CO2[y - CO2_Y0];
+  $('byCo2').textContent = ja() ? fmt(e * 10, 0) + '億 t' : fmt(e, 1) + ' Gt';
+  $('byCo2S').textContent = ja() ? `2025年は381億 t（約${fmt(38.1 / e, 1)}倍）` : `2025: 38.1 Gt (about ${fmt(38.1 / e, 1)}×)`;
+}
+
+// ---- 富と排出の偏り
+const INEQ = [
+  { ja: '人口', en: 'People', sj: '', se: '', v: [50, 40, 10] },
+  { ja: '所得', en: 'Income', sj: '2021年', se: '2021', v: [8.5, 39.5, 52] },
+  { ja: '資産', en: 'Wealth', sj: '2021年', se: '2021', v: [2, 22, 76] },
+  { ja: '排出', en: 'Emissions', sj: '2019年', se: '2019', v: [12, 40, 48] },
+];
+function renderIneq() {
+  const col = ['#7fae8f', '#cfc7b6', 'var(--vio)'];
+  $('ineq').innerHTML = INEQ.map(r => `<div class="irow"><div class="t">${r[lang]}${r.sj ? `<small>${ja() ? r.sj : r.se}</small>` : ''}</div>
+    <div class="ibar">${r.v.map((v, i) => `<i class="${i === 1 ? 'm' : ''}" style="width:${v}%;background:${col[i]}" title="${v}%">${v >= 9 ? v + '%' : ''}</i>`).join('')}</div></div>`).join('');
+  const P = [
+    { ja: '下位50%', en: 'Bottom 50%', v: 1.4, c: '#7fae8f' },
+    { ja: '中間40%', en: 'Middle 40%', v: 6.1, c: '#b5ab96' },
+    { ja: '上位10%', en: 'Top 10%', v: 29, c: 'var(--vio)', e: 1 },
+    { ja: '上位1%', en: 'Top 1%', v: 101, c: '#3b3270' },
+  ];
+  $('pcap').innerHTML = P.map(r => `<div class="row"><div>${r[lang]}</div><div class="bar"><i style="width:${r.v / 101 * 100}%;background:${r.c}"></i></div><div class="v num">${r.e ? '~' : ''}${fmt(r.v, r.v < 10 ? 1 : 0)} t</div></div>`).join('');
+}
+
+// ---- 地球の予算
+const OD = new Date(2026, 6, 30);
+function renderCal() {
+  const y0 = new Date(2026, 0, 1), y1 = new Date(2027, 0, 1), span = y1 - y0;
+  const pOD = (OD - y0) / span * 100;
+  const now = new Date(), pNow = Math.min(100, Math.max(0, (now - y0) / span * 100));
+  const mn = ja() ? ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'] : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const inYear = now >= y0 && now < y1;
+  $('cal').innerHTML = `<div class="yearbar"><i style="width:${pOD}%;background:var(--green)"></i><i style="width:${100 - pOD}%;background:var(--red)"></i></div>
+    <span class="mk" style="left:${pOD}%">${ja() ? '7月30日' : '30 July'}</span>
+    ${inYear ? `<span class="today" style="left:${pNow}%"></span><span class="tl" style="left:${pNow}%">${ja() ? '今日' : 'Today'} ▲</span>` : ''}
+    <div class="months">${mn.map(m => `<span>${m}</span>`).join('')}</div>`;
+}
+const EARTHS = [
+  { ja: 'カタール', en: 'Qatar', v: 10 }, { ja: 'カナダ', en: 'Canada', v: 5.5 }, { ja: 'アメリカ', en: 'USA', v: 5.1 },
+  { ja: 'オーストラリア', en: 'Australia', v: 4.9 }, { ja: '韓国', en: 'South Korea', v: 3.7 }, { ja: 'フランス', en: 'France', v: 3.2 },
+  { ja: 'ドイツ', en: 'Germany', v: 2.8 }, { ja: '日本', en: 'Japan', v: 2.7, me: 1 }, { ja: 'イギリス', en: 'UK', v: 2.6 },
+  { ja: '中国', en: 'China', v: 2.5 }, { ja: '世界平均', en: 'World', v: 1.73, w: 1 }, { ja: 'ブラジル', en: 'Brazil', v: 1.6 },
+  { ja: 'インドネシア', en: 'Indonesia', v: 1.3 }, { ja: 'インド', en: 'India', v: 0.75 }, { ja: 'ナイジェリア', en: 'Nigeria', v: 0.53 },
+];
+function renderEarths() {
+  const mx = 10, pc = v => v / mx * 100;
+  $('earths').innerHTML = EARTHS.map(r => {
+    const c = r.w ? 'var(--ink)' : r.v <= 1 ? 'var(--green)' : r.v >= 4 ? 'var(--red)' : 'var(--amber)';
+    return `<div class="row${r.w ? ' w' : ''}"><div>${r[lang]}</div><div class="bar"><i style="width:${pc(r.v)}%;background:${c}"></i><span class="one" style="left:${pc(1)}%"></span></div><div class="v num">${fmt(r.v, r.v < 1 || r.w ? 2 : 1)}</div></div>`;
+  }).join('') + `<div class="ax">${[0, 1, 2, 4, 6, 8, 10].map(v => `<span style="left:${pc(v)}%">${v}</span>`).join('')}</div>`;
+}
+const PB = [
+  { ja: '気候変動', en: 'Climate change', x: 1 }, { ja: '生物圏の健全性', en: 'Biosphere integrity', x: 1 },
+  { ja: '土地利用の変化', en: 'Land-system change', x: 1 }, { ja: '淡水の変化', en: 'Freshwater change', x: 1 },
+  { ja: '窒素・リンの流れ', en: 'Nitrogen & phosphorus flows', x: 1 }, { ja: '新しい化学物質（プラスチックなど）', en: 'Novel entities (plastics, chemicals)', x: 1 },
+  { ja: '海の酸性化', en: 'Ocean acidification', x: 1, n: 1 }, { ja: '大気中のエアロゾル', en: 'Atmospheric aerosols', x: 0 },
+  { ja: '成層圏オゾン', en: 'Stratospheric ozone', x: 0 },
+];
+function renderPB() {
+  $('pb').innerHTML = PB.map(p => `<div style="--c:${p.x ? 'var(--red)' : 'var(--green)'}"><span class="st">${p.x ? (ja() ? '超過' : 'Crossed') + (p.n ? (ja() ? '（2025年に新たに）' : ' (new in 2025)') : '') : (ja() ? '安全な範囲内' : 'Within safe limits')}</span><b>${p[lang]}</b></div>`).join('');
+}
+
+// ---- 部門別（WRI / Climate Watch、2023年）
+const SECT = [
+  { k: 'el', ja: '電気と熱', en: 'Electricity & heat', v: 33.6, c: '#b8402f', g: 'e', dj: '発電所・熱供給。家庭や工場が使う電気もここ', de: 'Power and heat plants — including the electricity homes and factories use' },
+  { k: 'tr', ja: '運輸', en: 'Transport', v: 14.3, c: '#e0634c', g: 'e', dj: '車・トラック・飛行機・船', de: 'Cars, trucks, planes, ships' },
+  { k: 'mf', ja: '製造と建設', en: 'Manufacturing & construction', v: 12.2, c: '#c98a1e', g: 'e', dj: '鉄・セメント・化学などの工場の燃料', de: 'Fuel burned in steel, cement, chemical and other plants' },
+  { k: 'bd', ja: '建物', en: 'Buildings', v: 6.3, c: '#e3b05a', g: 'e', dj: '家庭や店での暖房・調理の燃料', de: 'Fuel for heating and cooking in homes and businesses' },
+  { k: 'oe', ja: 'その他のエネルギー', en: 'Other energy', v: 10.3, c: '#a39e90', g: 'e', dj: '採掘時の漏れ（メタン）、国際輸送の燃料など', de: 'Leaks during extraction (methane), international bunkers and more' },
+  { k: 'ag', ja: '農業', en: 'Agriculture', v: 12.3, c: '#2f6b4f', g: 'o', dj: '牛のげっぷ（メタン）、肥料、水田', de: 'Cattle (methane), fertiliser, rice paddies' },
+  { k: 'ip', ja: '工業プロセス', en: 'Industrial processes', v: 6.2, c: '#5a4fa0', g: 'o', dj: 'セメントや化学製品をつくる反応そのもの', de: 'Chemical reactions in making cement and chemicals' },
+  { k: 'ws', ja: '廃棄物', en: 'Waste', v: 3.8, c: '#2f5d8a', g: 'o', dj: '埋め立て地や排水からのメタン', de: 'Methane from landfills and wastewater' },
+  { k: 'lu', ja: '土地利用（正味）', en: 'Land use (net)', v: 0.9, c: '#7fae8f', g: 'o', dj: '森林破壊の排出から森の吸収を差し引いた値', de: 'Deforestation minus forest uptake' },
+];
+let sel = null;
+function arc(cx, cy, r0, r1, a0, a1) {
+  const p = (r, a) => [cx + r * Math.sin(a), cy - r * Math.cos(a)];
+  const lg = a1 - a0 > Math.PI ? 1 : 0, [x0, y0] = p(r1, a0), [x1, y1] = p(r1, a1), [x2, y2] = p(r0, a1), [x3, y3] = p(r0, a0);
+  return `M${x0},${y0} A${r1},${r1} 0 ${lg} 1 ${x1},${y1} L${x2},${y2} A${r0},${r0} 0 ${lg} 0 ${x3},${y3} Z`;
+}
+function renderSect() {
+  const tot = SECT.reduce((a, s) => a + s.v, 0);
+  let a = 0, svg = `<svg viewBox="0 0 320 320" role="img" aria-label="Global GHG emissions by sector">`;
+  SECT.forEach(s => {
+    const a1 = a + s.v / tot * Math.PI * 2;
+    svg += `<path class="seg${sel === s.k ? ' on' : ''}" data-s="${s.k}" d="${arc(160, 160, 78, 128, a + 0.004, a1 - 0.004)}" fill="${s.c}"><title>${s[lang]} ${s.v}%</title></path>`;
+    a = a1;
+  });
+  const eA = SECT.filter(s => s.g === 'e').reduce((x, s) => x + s.v, 0) / tot * Math.PI * 2;
+  svg += `<path d="${arc(160, 160, 134, 140, 0.01, eA - 0.01)}" fill="var(--ink)" opacity=".7"/>`;
+  const cur = SECT.find(s => s.k === sel);
+  svg += cur
+    ? `<text x="160" y="152" text-anchor="middle" font-size="30" font-weight="900" fill="${cur.c}">${cur.v}%</text><text x="160" y="176" text-anchor="middle" font-size="12.5" font-weight="700">${cur[lang]}</text>`
+    : `<text x="160" y="152" text-anchor="middle" font-size="30" font-weight="900">76.7%</text><text x="160" y="176" text-anchor="middle" font-size="12.5" font-weight="700">${ja() ? 'エネルギーの利用' : 'Energy use'}</text>`;
+  svg += '</svg>';
+  let li = '', g = '';
+  SECT.forEach(s => {
+    if (s.g !== g) { g = s.g; li += `<li class="grp">${g === 'e' ? (ja() ? 'エネルギーの利用 76.7%（外側の黒い線）' : 'Energy use 76.7% (outer black line)') : (ja() ? 'エネルギー以外 23.2%' : 'Non-energy 23.2%')}</li>`; }
+    li += `<li data-s="${s.k}" class="${sel === s.k ? 'on' : ''}"><i style="background:${s.c}"></i><span>${s[lang]}<small>${ja() ? s.dj : s.de}</small></span><b class="num">${s.v}%</b></li>`;
+  });
+  $('sect').innerHTML = svg + `<ul class="slist">${li}</ul>`;
+  $('sect').classList.toggle('hov', !!sel);
+}
+
+// ---- エネルギー（積み上げ面グラフ）
+const ENC = [
+  { ja: '石炭', en: 'Coal', c: '#3a3c37' }, { ja: '石油', en: 'Oil', c: '#6b6a63' }, { ja: 'ガス', en: 'Gas', c: '#a39e90' },
+  { ja: '原子力', en: 'Nuclear', c: '#c98a1e' }, { ja: '水力', en: 'Hydro', c: '#2f5d8a' }, { ja: '風力＋太陽光', en: 'Wind + solar', c: '#2f6b4f' },
+  { ja: 'その他の再エネ', en: 'Other renewables', c: '#7fae8f' },
+];
+let enMode = 'abs';
+function renderEnergy() {
+  fit($('enChart'));
+  const x0 = 1965, x1 = 2024, share = enMode === 'share', y1 = share ? 100 : 180;
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="World primary energy by source 1965–2024">`;
+  s += axes(x0, x1, y1, (narrow ? [1965, 1985, 2005, 2024] : [1965, 1975, 1985, 1995, 2005, 2015, 2024]), share ? [0, 25, 50, 75, 100] : [0, 50, 100, 150], v => share ? v + '%' : v + ' PWh');
+  const base = EN.map(() => 0);
+  ENC.forEach((c, k) => {
+    const top = EN.map((r, i) => { const tot = r.slice(1).reduce((a, b) => a + b, 0); return base[i] + (share ? r[k + 1] / tot * 100 : r[k + 1]); });
+    const up = EN.map((r, i) => `${sx(r[0], x0, x1).toFixed(1)},${sy(top[i], y1).toFixed(1)}`);
+    const dn = EN.map((r, i) => `${sx(r[0], x0, x1).toFixed(1)},${sy(base[i], y1).toFixed(1)}`).reverse();
+    s += `<path d="M${up.join(' L')} L${dn.join(' L')} Z" fill="${c.c}"><title>${c[lang]}</title></path>`;
+    top.forEach((v, i) => (base[i] = v));
+  });
+  // 化石燃料の上端の線
+  const fos = EN.map(r => { const tot = r.slice(1).reduce((a, b) => a + b, 0), f = r[1] + r[2] + r[3]; return share ? f / tot * 100 : f; });
+  s += `<path d="M${EN.map((r, i) => `${sx(r[0], x0, x1).toFixed(1)},${sy(fos[i], y1).toFixed(1)}`).join(' L')}" fill="none" stroke="#fff" stroke-width="1.6" stroke-dasharray="4 3"/>`;
+  const last = fos[fos.length - 1], lx = sx(2024, x0, x1);
+  s += `<text class="lbl" x="${lx - 6}" y="${sy(last, y1) - 8}" text-anchor="end" fill="var(--ink)">${ja() ? '化石燃料' : 'Fossil fuels'} ${share ? Math.round(last) + '%' : Math.round(last) + ' PWh'}</text>`;
+  s += events(x0, x1, EVENTS().slice(1));
+  $('enChart').innerHTML = s + '</svg>';
+  $('enLegend').innerHTML = ENC.map(c => `<span><i style="background:${c.c}"></i>${c[lang]}</span>`).join('');
+  document.querySelectorAll('[data-en]').forEach(b => b.setAttribute('aria-pressed', b.dataset.en === enMode));
+}
+
+// ---- ヒーローのカウンター
+const POP_T0 = Date.UTC(2025, 6, 1), POP_0 = 8.232e9, POP_RATE = 70e6 / (365.25 * 864e5);
+function tick() {
+  $('cPop').textContent = fmt(Math.round(POP_0 + (Date.now() - POP_T0) * POP_RATE)) + (ja() ? '人' : '');
+}
+function renderOver() {
+  const days = Math.floor((new Date() - OD) / 864e5);
+  $('cOver').textContent = ja() ? '7月30日' : '30 July';
+  $('cOverS').innerHTML = days > 0 && days < 160
+    ? (ja() ? `それから<b>${days}日</b>、私たちは未来から前借りして暮らしています。地球<b>1.73個分</b>の消費です。` : `For <b>${days} days</b> since, we have been borrowing from the future. We use <b>1.73 Earths</b>.`)
+    : (ja() ? `2026年。人類は地球<b>1.73個分</b>を使っています。` : `In 2026. Humanity uses <b>1.73 Earths</b>.`);
+}
+
+// ---- language
+function setLang(l) {
+  lang = l;
+  document.documentElement.lang = l;
+  document.documentElement.classList.remove('ja', 'en'); document.documentElement.classList.add(l);
+  try { localStorage.setItem('en-lang', l); } catch (e) {}
+  document.querySelectorAll('.lang button[data-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
+  document.title = l === 'ja' ? '足りる経済へ — 地球ひとつを、みんなで分ける' : 'Enough for All — one Earth, shared fairly';
+  renderSpeed(); renderCbar(); renderBirth(); renderIneq(); renderCal(); renderEarths(); renderPB(); renderSect(); renderEnergy(); renderOver(); tick(); setShare();
+}
+function guideSVG(mood) {
+  const brow = mood === 'worry' ? '<path d="M37 44l8-3M71 41l8 3" stroke="#2b2f2c" stroke-width="2.6" stroke-linecap="round"/>' : '';
+  const mouth = mood === 'happy'
+    ? '<path d="M49 61q9 11 18 0z" fill="#7a3b33"/><path d="M53 66q5 3 10 0" fill="#e88b84"/>'
+    : mood === 'worry'
+      ? '<path d="M51 65q4-3 7 0t7 0" stroke="#2b2f2c" stroke-width="2.4" fill="none" stroke-linecap="round"/>'
+      : '<path d="M51 61q7 6 14 0" stroke="#2b2f2c" stroke-width="2.6" fill="none" stroke-linecap="round"/>';
+  return `<svg viewBox="0 0 116 116" aria-hidden="true">
+    <ellipse cx="58" cy="108" rx="30" ry="4" fill="#000" opacity=".08"/>
+    <path d="M58 14c2-8 9-12 16-11-1 8-8 13-16 11z" fill="#4f9a6a"/><path d="M58 16c-1-6-6-9-11-8 1 6 6 9 11 8z" fill="#6fb784"/>
+    <circle cx="58" cy="58" r="42" fill="#6db3df"/>
+    <path d="M24 44c6-10 18-15 26-10 6 4 2 12-6 13-7 1-8 8-14 9-5 1-8-6-6-12z" fill="#7cc48f"/>
+    <path d="M70 22c10 2 20 9 24 18-6 2-12-2-17 2-5 3-10 1-11-5-1-6-2-11 4-15z" fill="#7cc48f"/>
+    <path d="M74 80c6-4 14-3 18 1-3 7-10 13-18 14-5-3-6-11 0-15z" fill="#7cc48f"/><path d="M32 82c4 0 7 4 6 8-4-1-8-4-6-8z" fill="#7cc48f"/>
+    <circle cx="58" cy="58" r="42" fill="none" stroke="#3d7fae" stroke-width="2.5"/>
+    <path d="M30 34q8-12 22-14" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" opacity=".6"/>
+    ${brow}
+    <ellipse cx="44" cy="52" rx="4.6" ry="5.8" fill="#2b2f2c"/><ellipse cx="72" cy="52" rx="4.6" ry="5.8" fill="#2b2f2c"/>
+    <circle cx="45.6" cy="49.8" r="1.7" fill="#fff"/><circle cx="73.6" cy="49.8" r="1.7" fill="#fff"/>
+    <ellipse cx="35" cy="63" rx="6" ry="3.6" fill="#f29b9b" opacity=".75"/><ellipse cx="81" cy="63" rx="6" ry="3.6" fill="#f29b9b" opacity=".75"/>
+    ${mouth}</svg>`;
+}
+document.querySelectorAll('.gchar').forEach(g => (g.innerHTML = guideSVG(g.dataset.mood)));
+function setShare() {
+  const text = ja() ? '地球はひとつ。私たちは1.7個分を使っている。富の偏りと排出の偏りは重なっている。' : 'There is one Earth. We are using 1.7. Wealth inequality and emissions inequality have the same shape.';
+  $('shareX').href = 'https://x.com/intent/post?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(SITE_URL);
+}
+
+document.addEventListener('click', e => {
+  const sEl = e.target.closest('[data-s]');
+  if (sEl) { sel = sel === sEl.dataset.s ? null : sEl.dataset.s; renderSect(); return; }
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.lang) setLang(b.dataset.lang);
+  else if (b.dataset.sp) { sp = b.dataset.sp; renderSpeed(); }
+  else if (b.dataset.en) { enMode = b.dataset.en; renderEnergy(); }
+  else if (b.id === 'reveal') $('cwrap').classList.add('open');
+  else if (b.id === 'copyLink') {
+    navigator.clipboard?.writeText(SITE_URL).then(() => {
+      const s = b.innerHTML; b.textContent = ja() ? 'コピーしました' : 'Copied'; setTimeout(() => (b.innerHTML = s), 1600);
+    });
+  }
+});
+$('byr').addEventListener('input', renderBirth);
+let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { renderSpeed(); renderEnergy(); }, 150); });
+
+setLang(lang);
+setInterval(tick, 1000);
+</script>
+</body>
+</html>
