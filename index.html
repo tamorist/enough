@@ -214,6 +214,18 @@
   .slist li.on { background: var(--bg3); }
   .slist li.grp { cursor: default; font-size: 12px; color: var(--muted); font-weight: 700; padding: 10px 8px 2px; display: block; }
 
+  /* gap */
+  .gb { margin-top: 14px; }
+  .gb .row { display: grid; grid-template-columns: 200px 1fr 64px; gap: 12px; align-items: center; padding: 8px 0; font-size: 14px; }
+  .gb .row small { display: block; color: var(--muted); font-size: 11.5px; line-height: 1.4; }
+  .gb .bar { position: relative; height: 26px; background: var(--bg3); border-radius: 6px; }
+  .gb .bar i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 6px; }
+  .gb .bar .base { position: absolute; top: -5px; bottom: -5px; width: 2px; background: var(--ink); left: 100%; margin-left: -2px; }
+  .gb .v { text-align: right; font-weight: 900; font-size: 18px; }
+  .gb .ax { position: relative; height: 18px; margin: 2px 76px 0 212px; font-size: 11px; color: var(--muted); }
+  .gb .ax span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+  @media (max-width: 560px) { .gb .row { grid-template-columns: 1fr 56px; } .gb .bar { grid-column: 1 / -1; grid-row: 2; } .gb .ax { margin: 2px 0 0; } }
+
   /* direction */
   .acts { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; margin-top: 24px; }
   .acts > div { background: var(--bg2); border: 1px solid var(--faint); border-radius: 16px; padding: 18px; border-top: 4px solid var(--c, var(--vio)); }
@@ -267,6 +279,7 @@
       <a href="#limits"><span class="ja">地球の限界</span><span class="en">Limits</span></a>
       <a href="#sectors"><span class="ja">どこから出る</span><span class="en">Sectors</span></a>
       <a href="#energy"><span class="ja">エネルギー</span><span class="en">Energy</span></a>
+      <a href="#gap"><span class="ja">ギャップ</span><span class="en">The gap</span></a>
       <a href="#growth"><span class="ja">成長の限界</span><span class="en">Growth</span></a>
       <a href="#direction"><span class="ja">変革の方向</span><span class="en">Direction</span></a>
     </nav>
@@ -496,10 +509,36 @@
   </div>
 </section>
 
-<!-- 6 GROWTH -->
-<section id="growth" style="background:var(--bg2)">
+<!-- 6 GAP -->
+<section id="gap" style="background:var(--bg2)">
   <div class="wrap">
-    <p class="chapter" style="--c:var(--amber)"><span class="cn">6</span><span class="ja">成長の限界</span><span class="en">The limits of growth</span></p>
+    <p class="chapter" style="--c:var(--red)"><span class="cn">6</span><span class="ja">ギャップ</span><span class="en">The gap</span></p>
+    <h2><span class="ja">必要な削減と、各国の約束。<br>その間には、大きな溝がある。</span><span class="en">What is needed, and what is promised.<br>Between them lies a wide gap.</span></h2>
+    <div class="guide ja"><span class="gchar" data-mood="worry"></span><p class="bubble">いまの約束をぜんぶ守っても、1.5℃に必要な削減の<b>5分の1ほど</b>しか減らないんだ。しかも、その約束もまだ守れていないよ。</p></div>
+    <p class="lead narrow"><span class="ja">世界の温室効果ガスの排出は、2024年も前年より2.3%増えて、過去最高の<b>約577億 t</b>（CO₂ 換算）になりました。国連環境計画（UNEP）の「排出ギャップ報告」は、パリ協定の目標に必要な削減と、各国の約束（NDC）との差を毎年まとめています。</span><span class="en">Global greenhouse gas emissions rose another 2.3% in 2024 to a record <b>57.7 billion tonnes</b> (CO₂-equivalent). Each year the UN Environment Programme’s Emissions Gap Report compares the cuts needed for the Paris goals with what countries have pledged (their NDCs).</span></p>
+    <div class="card">
+      <h3><span class="ja">2035年の排出、2019年と比べて</span><span class="en">Emissions in 2035, compared with 2019</span></h3>
+      <div class="gb">
+        <div class="row"><div><span class="ja">各国の新しい約束</span><span class="en">Countries’ new pledges</span><small><span class="ja">113か国の NDC（2025年11月まで）</span><span class="en">NDCs from 113 Parties (to Nov 2025)</span></small></div><div class="bar"><i style="width:88%;background:var(--amber)"></i><span class="base"></span></div><div class="v num">−12%</div></div>
+        <div class="row"><div><span class="ja">2℃に必要</span><span class="en">Needed for 2°C</span></div><div class="bar"><i style="width:65%;background:var(--red2)"></i><span class="base"></span></div><div class="v num">−35%</div></div>
+        <div class="row"><div><b><span class="ja">1.5℃に必要</span><span class="en">Needed for 1.5°C</span></b></div><div class="bar"><i style="width:45%;background:var(--red)"></i><span class="base"></span></div><div class="v num">−55%</div></div>
+        <div class="ax"><span style="left:0;transform:none">0</span><span style="left:50%"><span class="ja">半分</span><span class="en">half</span></span><span style="left:100%;transform:translateX(-100%)"><span class="ja">2019年＝100</span><span class="en">2019 = 100</span></span></div>
+      </div>
+      <p class="small" style="margin-top:12px"><span class="ja">必要な削減：UNEP 排出ギャップ報告2025。約束：UNFCCC の NDC 統合報告の更新（2025年11月、113か国の新しい NDC を反映した世界全体の見通し）。約束が<b>すべて守られた場合</b>の値です。</span><span class="en">Required cuts: UNEP Emissions Gap Report 2025. Pledges: UNFCCC update to the NDC Synthesis Report (November 2025; global outlook reflecting new NDCs from 113 Parties). Pledges assume <b>full implementation</b>.</span></p>
+    </div>
+    <div class="stats">
+      <div><div class="v num" style="color:var(--red)">2.8℃</div><div class="k"><span class="ja">いまの政策のままの、今世紀末の気温上昇</span><span class="en">Warming by 2100 under current policies</span></div><div class="s"><span class="ja">約束をすべて守っても2.3〜2.5℃。1.5℃を、少なくとも一時的に超えることは避けられない（UNEP 2025）</span><span class="en">2.3–2.5°C even if every pledge is met; exceeding 1.5°C, at least temporarily, is now unavoidable (UNEP 2025)</span></div></div>
+      <div><div class="v num" style="color:var(--red)"><span class="ja">2倍以上</span><span class="en">2×+</span></div><div class="k"><span class="ja">各国が2030年に計画している化石燃料の生産量</span><span class="en">Fossil fuels governments plan to produce in 2030</span></div><div class="s"><span class="ja">1.5℃に合う量の約2.2倍（120%多い）、2℃に合う量より77%多い。石炭は6倍、ガスは約1.9倍、石油は約1.3倍（生産ギャップ報告2025）</span><span class="en">About 2.2× (120% more than) what fits 1.5°C, and 77% more than fits 2°C. Coal 6×, gas ~1.9×, oil ~1.3× (Production Gap Report 2025)</span></div></div>
+      <div><div class="v num" style="color:var(--red)">+35%</div><div class="k"><span class="ja">生産計画は、自国の約束も超えている</span><span class="en">Production plans exceed even countries’ own pledges</span></div><div class="s"><span class="ja">2030年に35%、2050年に141%上回る。2023年の報告より、ギャップは広がった（110% → 120%）</span><span class="en">By 35% in 2030 and 141% in 2050. The gap has widened since the 2023 report (110% → 120%)</span></div></div>
+    </div>
+    <p class="narrow"><span class="ja">つまり世界は、<b>減らすと約束しながら、掘る計画を増やしている</b>状態です。「二重の不足」——必要より低い目標を掲げ、その目標にさえ届いていない。前の章で見た「再エネは上乗せ」は、この計画の上に起きています。技術や約束だけでは溝は埋まらず、<b>化石燃料の生産そのものを減らす</b>ことと、使う量を減らすことが欠かせません。</span><span class="en">In other words, the world is <b>promising to cut while planning to dig more</b>. A double shortfall: targets below what is needed, and not even those are being met. The “renewables on top” we saw in the last chapter sits on these plans. Technology and pledges alone won’t close the gap; we need to <b>cut fossil fuel production itself</b>, and how much we use.</span></p>
+  </div>
+</section>
+
+<!-- 7 GROWTH -->
+<section id="growth">
+  <div class="wrap">
+    <p class="chapter" style="--c:var(--amber)"><span class="cn">7</span><span class="ja">成長の限界</span><span class="en">The limits of growth</span></p>
     <h2><span class="ja">「グリーン成長」だけでは、<br>間に合わない。</span><span class="en">“Green growth” alone<br>won’t get there in time.</span></h2>
     <div class="guide ja"><span class="gchar" data-mood="smile"></span><p class="bubble">でもね、いい知らせもあるよ。<b>みんながちゃんと暮らすのに必要なエネルギーは、いまよりずっと少なくてすむ</b>んだって。</p></div>
     <p class="lead narrow"><span class="ja">経済を成長させながら排出を減らす「デカップリング」は、一部の豊かな国で実際に起きています。ただし、その速さは必要な速さに遠く及びません。</span><span class="en">“Decoupling” — growing the economy while cutting emissions — is happening in some rich countries. But nowhere near fast enough.</span></p>
@@ -521,10 +560,10 @@
   </div>
 </section>
 
-<!-- 7 DIRECTION -->
-<section id="direction">
+<!-- 8 DIRECTION -->
+<section id="direction" style="background:var(--bg2)">
   <div class="wrap">
-    <p class="chapter" style="--c:var(--green)"><span class="cn">7</span><span class="ja">変革の方向</span><span class="en">The direction of change</span></p>
+    <p class="chapter" style="--c:var(--green)"><span class="cn">8</span><span class="ja">変革の方向</span><span class="en">The direction of change</span></p>
     <h2><span class="ja">分け直し、使いすぎをやめ、<br>みんなに足りる経済へ。</span><span class="en">Share fairly, stop overusing,<br>build an economy that is enough for all.</span></h2>
     <div class="guide ja"><span class="gchar" data-mood="happy"></span><p class="bubble">ここまで読んでくれて、ありがとう。<b>減らすのは「過剰」、増やすのは「足りないところ」</b>。そう考えると、変えることは怖くないよ。</p></div>
     <p class="lead narrow"><span class="ja">ここまでのデータが示す方向はひとつです。地球の限界の内側に戻りながら、すべての人の暮らしを支える。そのためには、<b>富を分け直すこと</b>と、<b>過剰消費を前提にした経済から抜け出すこと</b>を、セットで進める必要があります。どちらか一方だけでは、うまくいきません。</span><span class="en">The data point one way: return within the planet’s limits while supporting everyone’s life. That means <b>redistributing wealth</b> and <b>leaving an economy built on overconsumption</b> — together. Either one alone will fail.</span></p>
@@ -647,6 +686,9 @@
       <li><a href="https://www.wri.org/insights/4-charts-explain-greenhouse-gas-emissions-countries-and-sectors">WRI (2026) Where do emissions come from? (Climate Watch, 2023 data)</a> <span class="use"><span class="ja">エネルギー 76.7%（電気と熱 33.6、運輸 14.3、製造と建設 12.2、建物 6.3）、農業 12.3、工業プロセス 6.2、廃棄物 3.8、土地利用 0.9（正味）。「その他のエネルギー」10.3%はエネルギー合計から差し引いた私たちの計算</span><span class="en">Energy 76.7% (electricity & heat 33.6, transport 14.3, manufacturing & construction 12.2, buildings 6.3), agriculture 12.3, industrial processes 6.2, waste 3.8, land use 0.9 (net). “Other energy” 10.3% is our calculation by subtraction</span></span></li>
       <li><a href="https://doi.org/10.1038/s43016-021-00225-9">Crippa et al. (2021) Food systems are responsible for a third of global anthropogenic GHG emissions. <i>Nature Food</i></a></li>
       <li><a href="https://github.com/owid/energy-data">Our World in Data energy dataset</a> (Energy Institute Statistical Review of World Energy) <span class="use"><span class="ja">一次エネルギー（代替法）1965〜2024年、化石燃料の割合 1975年 92%、2024年 81%</span><span class="en">Primary energy (substitution method) 1965–2024; fossil share 92% (1975), 81% (2024)</span></span>; <a href="https://www.energyinst.org/statistical-review">Energy Institute Statistical Review 2025</a> <span class="use"><span class="ja">2024年の需要は過去最高、新しい方法で化石燃料 86.6%</span><span class="en">Record demand in 2024; fossil 86.6% under the new method</span></span></li>
+      <li><a href="https://www.unep.org/en/publications/report/emissions-gap-report-2025">UNEP (2025) Emissions Gap Report 2025: Off Target</a> <span class="use"><span class="ja">2024年の排出 577億 t CO₂ 換算（+2.3%）、2035年に2019年比 2℃ −35%・1.5℃ −55%が必要、NDC で2.3〜2.5℃、いまの政策で2.8℃、1.5℃を少なくとも一時的に超える</span><span class="en">2024 emissions 57.7 Gt CO₂e (+2.3%); 2035 cuts vs 2019 of 35% (2°C) and 55% (1.5°C) needed; NDCs 2.3–2.5°C, current policies 2.8°C; 1.5°C exceeded at least temporarily</span></span></li>
+      <li><a href="https://unfccc.int/node/653428">UNFCCC (2025) Update to the NDC Synthesis Report</a> <span class="use"><span class="ja">113か国の新しい NDC にもとづき、世界の排出は2035年に2019年比で約12%減の見通し（10月の統合報告では64か国分で17%減）</span><span class="en">Based on new NDCs from 113 Parties, global emissions projected ~12% below 2019 in 2035 (the October report: 17% for the 64 Parties then covered)</span></span></li>
+      <li><a href="https://productiongap.org/2025report/">SEI, Climate Analytics, IISD (2025) Production Gap Report 2025</a> <span class="use"><span class="ja">2030年の計画生産量は1.5℃に合う量より120%、2℃より77%多い。石炭 +500%、ガス +92%、石油 +31%。自国の約束を2030年に35%、2050年に141%上回る。2023年は110%・69%</span><span class="en">2030 planned production 120% above 1.5°C and 77% above 2°C; coal +500%, gas +92%, oil +31%; exceeds own pledges by 35% (2030) and 141% (2050); 2023: 110% and 69%</span></span></li>
       <li><a href="https://www.imf.org/en/Publications/WP/Issues/2023/08/22/IMF-Fossil-Fuel-Subsidies-Data-2023-Update-537281">IMF (2023) Fossil Fuel Subsidies Data: 2023 Update</a> <span class="use"><span class="ja">約7兆ドル（2022年、GDP の約7%）</span><span class="en">~$7 trillion (2022, ~7% of GDP)</span></span></li>
       <li>Fressoz, J.-B. (2024) <i>More and More and More: An All-Consuming History of Energy</i> <span class="use"><span class="ja">エネルギーの歴史は「移行」ではなく「追加」</span><span class="en">Energy history as addition, not transition</span></span></li>
       <li><a href="https://doi.org/10.1016/S2542-5196(23)00174-2">Vogel & Hickel (2023) Is green growth happening? An empirical analysis of achieved versus Paris-compliant CO₂–GDP decoupling in high-income countries. <i>The Lancet Planetary Health</i> 7, e759–69</a> <span class="use"><span class="ja">11か国、95%削減まで220年超、公平な取り分の27倍、必要な速さは15倍（年約30%）</span><span class="en">11 countries; 220+ years to cut 95%; 27× fair shares; 15× faster (~30%/yr) needed</span></span></li>
