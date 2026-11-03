@@ -195,6 +195,17 @@
   .earths .ax { position: relative; height: 18px; margin-left: 130px; margin-right: 62px; font-size: 11px; color: var(--muted); }
   .earths .ax span { position: absolute; transform: translateX(-50%); }
   @media (max-width: 560px) { .earths .row { grid-template-columns: 92px 1fr 44px; gap: 6px; font-size: 12.5px; } .earths .ax { margin-left: 98px; margin-right: 50px; } }
+  .eg .row { display: grid; grid-template-columns: 120px 1fr 52px; gap: 10px; align-items: center; padding: 5px 8px; margin: 0 -8px; border-radius: 8px; font-size: 14px; }
+  .eg .row.w { font-weight: 900; background: var(--bg3); }
+  .eg .row.me { box-shadow: inset 0 0 0 1.5px var(--vio); }
+  .eg .gl { display: flex; flex-wrap: wrap; gap: 4px; }
+  .eg .gl span { position: relative; width: 34px; height: 34px; }
+  .eg .gl svg { position: absolute; inset: 0; width: 34px; height: 34px; }
+  .eg .gl .part { position: absolute; inset: 0; overflow: hidden; }
+  .eg .gl .ghost { opacity: .18; filter: grayscale(1); }
+  .eg .v { text-align: right; font-weight: 900; font-size: 16px; }
+  .eg .one { font-size: 12px; color: var(--muted); margin: 10px 0 0; }
+  @media (max-width: 560px) { .eg .row { grid-template-columns: 1fr 48px; gap: 4px 6px; font-size: 13px; } .eg .gl { grid-column: 1 / -1; grid-row: 2; } .eg .row { padding: 4px 8px; } .eg .gl { gap: 2px; flex-wrap: nowrap; } .eg .gl span, .eg .gl svg { width: min(26px, 8.4vw - 3px); height: min(26px, 8.4vw - 3px); flex: none; } }
   .pb { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 18px; }
   .pb > div { border-radius: 12px; padding: 12px 14px; font-size: 13.5px; border: 1px solid var(--faint); background: var(--bg2); border-left: 6px solid var(--c); }
   .pb b { display: block; font-size: 14.5px; }
@@ -455,6 +466,13 @@
 
     <div class="card">
       <h3><span class="ja">世界中の人がその国の人と同じ暮らしをしたら、地球はいくつ必要？</span><span class="en">If everyone lived like the people of…, how many Earths would we need?</span></h3>
+      <div class="tabs" role="group" aria-label="View">
+        <button data-ev="globe" aria-pressed="true"><span class="ja">地球の絵</span><span class="en">Earths</span></button>
+        <button data-ev="bar"><span class="ja">棒グラフ</span><span class="en">Bars</span></button>
+      </div>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+        <symbol id="earthIc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#3d86c6"/><g fill="#62b36f"><path d="M4.5 8c1.6-2.8 5-3.4 6.6-1.7 1.1 1.2-.4 2.7-2 2.7s-1.6 1.6-.5 3.2-1.1 3.8-2.7 2.2S3 10.2 4.5 8z"/><path d="M13.6 12.6c1.7-1.1 4.4-.6 4.9 1.6s-1.1 4.3-3.2 4.8-2.7-1.1-2.1-2.7.5-1.6.4-3.7z"/><path d="M14.5 4.6c1.8-.2 3.6.9 4.4 2.6-1.1.6-2.8.1-3.9-.5z"/></g><circle cx="12" cy="12" r="11" fill="none" stroke="rgba(0,0,0,.18)"/><ellipse cx="8.5" cy="7" rx="3.2" ry="1.8" fill="#fff" opacity=".22" transform="rotate(-30 8.5 7)"/></symbol>
+      </defs></svg>
       <div class="earths" id="earths"></div>
       <p class="small" style="margin-top:8px"><span class="ja">Global Footprint Network。国別は2025年版の推計（多くは2024年の状況）、世界は2026年版で、年が少し違います。インドとナイジェリアは地球1個に収まっています（それぞれ地球の75%・53%分）。</span><span class="en">Global Footprint Network. Country figures are from the 2025 edition (mostly 2024 conditions); the world figure is from the 2026 edition. India and Nigeria fit within one Earth (75% and 53% of one).</span></p>
     </div>
@@ -960,9 +978,27 @@ const EARTHS = [
   { ja: '中国', en: 'China', v: 2.5 }, { ja: '世界平均', en: 'World', v: 1.73, w: 1 }, { ja: 'ブラジル', en: 'Brazil', v: 1.6 },
   { ja: 'インドネシア', en: 'Indonesia', v: 1.3 }, { ja: 'インド', en: 'India', v: 0.75 }, { ja: 'ナイジェリア', en: 'Nigeria', v: 0.53 },
 ];
+let eView = 'globe';
 function renderEarths() {
+  document.querySelectorAll('[data-ev]').forEach(b => b.setAttribute('aria-pressed', b.dataset.ev === eView));
+  const el = $('earths');
+  el.classList.toggle('eg', eView === 'globe');
+  if (eView === 'globe') {
+    // 地球1個を1つの絵に。端数は絵を途中で切り、残りは薄く見せる
+    const ic = '<svg><use href="#earthIc"/></svg>';
+    el.innerHTML = EARTHS.map(r => {
+      const n = Math.ceil(r.v), g = [];
+      for (let i = 0; i < n; i++) {
+        const f = Math.min(1, r.v - i);
+        g.push(f >= 1 ? `<span>${ic}</span>` : `<span><span class="ghost">${ic}</span><span class="part" style="width:${(f * 100).toFixed(0)}%">${ic}</span></span>`);
+      }
+      const c = r.w ? 'var(--ink)' : r.v <= 1 ? 'var(--green)' : r.v >= 4 ? 'var(--red)' : 'var(--amber)';
+      return `<div class="row${r.w ? ' w' : ''}${r.me ? ' me' : ''}"><div>${r[lang]}</div><div class="gl" role="img" aria-label="${fmt(r.v, r.v < 1 || r.w ? 2 : 1)}">${g.join('')}</div><div class="v num" style="color:${c}">${fmt(r.v, r.v < 1 || r.w ? 2 : 1)}</div></div>`;
+    }).join('') + `<p class="one">${ja() ? '絵ひとつ＝地球1個。私たちが持っている地球は、1個だけです。' : 'One picture = one Earth. We only have one.'}</p>`;
+    return;
+  }
   const mx = 10, pc = v => v / mx * 100;
-  $('earths').innerHTML = EARTHS.map(r => {
+  el.innerHTML = EARTHS.map(r => {
     const c = r.w ? 'var(--ink)' : r.v <= 1 ? 'var(--green)' : r.v >= 4 ? 'var(--red)' : 'var(--amber)';
     return `<div class="row${r.w ? ' w' : ''}"><div>${r[lang]}</div><div class="bar"><i style="width:${pc(r.v)}%;background:${c}"></i><span class="one" style="left:${pc(1)}%"></span></div><div class="v num">${fmt(r.v, r.v < 1 || r.w ? 2 : 1)}</div></div>`;
   }).join('') + `<div class="ax">${[0, 1, 2, 4, 6, 8, 10].map(v => `<span style="left:${pc(v)}%">${v}</span>`).join('')}</div>`;
@@ -1109,6 +1145,7 @@ document.addEventListener('click', e => {
   if (b.dataset.lang) setLang(b.dataset.lang);
   else if (b.dataset.sp) { sp = b.dataset.sp; renderSpeed(); }
   else if (b.dataset.en) { enMode = b.dataset.en; renderEnergy(); }
+  else if (b.dataset.ev) { eView = b.dataset.ev; renderEarths(); }
   else if (b.id === 'reveal') $('cwrap').classList.add('open');
   else if (b.id === 'copyLink') {
     navigator.clipboard?.writeText(SITE_URL).then(() => {
