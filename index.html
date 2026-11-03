@@ -27,7 +27,7 @@
 <style>
   :root {
     --bg: #f6f2ea; --bg2: #fffdf8; --bg3: #ece6da; --ink: #1d1f1c; --muted: #6b6a63; --faint: #d9d2c4;
-    --red: #b8402f; --red2: #e0634c; --amber: #c98a1e; --blue: #2f5d8a; --green: #2f6b4f; --vio: #5a4fa0; --dark: #141614;
+    --red: #b8402f; --red2: #e0634c; --amber: #c98a1e; --blue: #2f5d8a; --green: #2f6b4f; --vio: #5a4fa0; --g1: #bbb2e2; --g2: #8578c9; --g3: #5a4fa0; --g4: #2e2660; --dark: #141614;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -68,6 +68,7 @@
   .lab .presets { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 14px; }
   .lab .presets button { font: inherit; font-size: 12.5px; background: var(--bg); color: var(--ink); border: 1px dashed var(--faint); border-radius: 8px; padding: 6px 10px; cursor: pointer; }
   .lab .presets button:hover { border-color: var(--vio); }
+  .lab .presets button[aria-pressed="true"] { border-style: solid; border-color: var(--vio); background: var(--bg2); font-weight: 700; }
   .lab .sl { display: grid; grid-template-columns: 110px 1fr 120px; gap: 10px; align-items: center; padding: 4px 0; font-size: 14px; }
   .lab .sl b { display: flex; align-items: center; gap: 6px; }
   .lab .sl b i { width: 10px; height: 10px; border-radius: 50%; background: var(--c); flex-shrink: 0; }
@@ -486,7 +487,7 @@
     <div class="guide ja"><span class="gchar" data-mood="smile"></span><p class="bubble">いちばん多く出している人たちと、いちばん多く持っている人たちは、<b>ほとんど同じ人たち</b>。だから、<b>分け方を変えれば、多くの人は苦しまずにすむ</b>んだ。</p></div>
     <p class="lead narrow"><span class="ja">世界の人々を所得で3つに分けてみます。<b>上位10%</b>の人々は、世界の資産の約4分の3を持ち、排出の約半分を出しています。<b>下位50%</b>の人々は、資産の約2%しか持たず、排出も約12%ですが、気候の被害を最も強く受けています。</span><span class="en">Split the world’s people into three groups by income. The <b>top 10%</b> own about three-quarters of the world’s wealth and cause about half of emissions. The <b>bottom 50%</b> own about 2% of wealth and cause about 12% of emissions — yet suffer the most from climate damage.</span></p>
     <div class="card">
-      <div class="legend" style="margin:0 0 6px"><span><i style="background:#7fae8f"></i><span class="ja">下位50%</span><span class="en">Bottom 50%</span></span><span><i style="background:#cfc7b6"></i><span class="ja">中間40%</span><span class="en">Middle 40%</span></span><span><i style="background:var(--vio)"></i><span class="ja">上位10%</span><span class="en">Top 10%</span></span></div>
+      <div class="legend" style="margin:0 0 6px"><span><i style="background:var(--g1)"></i><span class="ja">下位50%</span><span class="en">Bottom 50%</span></span><span><i style="background:var(--g2)"></i><span class="ja">中間40%</span><span class="en">Middle 40%</span></span><span><i style="background:var(--g3)"></i><span class="ja">上位10%</span><span class="en">Top 10%</span></span></div>
       <div class="ineq" id="ineq"></div>
       <p class="small" style="margin-top:10px"><span class="ja">世界の人々を一人ずつ、所得の順に並べた分け方（国ごとではありません）。所得・資産：World Inequality Report 2022（2021年）。排出：Chancel（2022、2019年、消費にもとづく個人の排出）。最新の World Inequality Report 2026 でも、上位10%が資産の約4分の3、下位50%が約2%と、ほとんど変わっていません。</span><span class="en">Individuals worldwide ranked by income (not countries). Income and wealth: World Inequality Report 2022 (2021). Emissions: Chancel (2022), 2019, consumption-based personal emissions. The latest World Inequality Report 2026 finds almost no change: the top 10% own about three-quarters of wealth, the bottom half about 2%.</span></p>
     </div>
@@ -533,12 +534,18 @@
         <div class="lbar" id="labBar"></div>
       </div>
       <div id="labPay" hidden>
-        <div class="sl" style="--c:var(--vio)"><b><span class="ja">炭素の価格</span><span class="en">Carbon price</span></b><input type="range" id="labP" min="0" max="200" step="10" value="100" aria-label="Carbon price"><div class="o" id="labPO"></div></div>
+        <div class="sl" style="--c:var(--vio)"><b><span class="ja">炭素の価格</span><span class="en">Carbon price</span></b><input type="range" id="labP" min="0" max="200" step="1" value="80" aria-label="Carbon price"><div class="o" id="labPO"></div></div>
+        <div class="presets" id="labPr">
+          <button data-price="2"><span class="ja">日本の温暖化対策税 約$2</span><span class="en">Japan’s carbon tax ~$2</span></button>
+          <button data-price="80"><span class="ja">EU 排出量取引（2025年平均）約$80</span><span class="en">EU emissions trading (2025 avg) ~$80</span></button>
+          <button data-price="150"><span class="ja">スウェーデンの炭素税 約$150</span><span class="en">Sweden’s carbon tax ~$150</span></button>
+          <button data-price="190"><span class="ja">気候被害の推計（米 EPA）$190</span><span class="en">Estimated climate damage (US EPA) $190</span></button>
+        </div>
         <label class="chk"><input type="checkbox" id="labDiv" checked><span class="ja">集めたお金を、全員に同じ額で戻す</span><span class="en">Return the revenue to everyone as an equal dividend</span></label>
         <div id="labRows"></div>
         <p class="s" id="labPayS" style="font-size:14px;margin:12px 0 0"></p>
       </div>
-      <p class="small" style="margin-top:14px"><span class="ja"><b>私たちの概算です。</b>Chancel（2022）の2019年の値（消費と投資にもとづく個人の温室効果ガス）を、グループの平均でそのまま使った単純なモデルです。同じグループの中にも大きな差があり、人々の行動の変化や、価格が商品にどう転嫁されるかは考えていません。−35%・−55%は、2035年に2019年比で2℃・1.5℃に必要とされる削減の目安（UNEP 2025）です。金額は一人あたり・1年あたりの米ドル。</span><span class="en"><b>Our own estimate.</b> A simple model using Chancel (2022) 2019 values (individual greenhouse gases from consumption and investment) as group averages. There are large differences within each group, and it ignores behaviour change and how prices pass through to goods. −35% and −55% are the cuts by 2035 versus 2019 needed for 2°C and 1.5°C (UNEP 2025), shown as yardsticks. Amounts are US dollars per person per year.</span></p>
+      <p class="small" style="margin-top:14px"><span class="ja"><b>私たちの概算です。</b>Chancel（2022）の2019年の値（消費と投資にもとづく個人の温室効果ガス）を、グループの平均でそのまま使った単純なモデルです。同じグループの中にも大きな差があり、人々の行動の変化や、価格が商品にどう転嫁されるかは考えていません。−35%・−55%は、2035年に2019年比で2℃・1.5℃に必要とされる削減の目安（UNEP 2025）です。金額は一人あたり・1年あたりの米ドル。価格の例は、日本の地球温暖化対策税（CO₂ 1 t あたり289円）、EU 排出量取引の2025年1〜11月の平均（約73.5ユーロ）、スウェーデンの炭素税（2025年 1,510クローナ）、米国環境保護庁（EPA）の2023年の「炭素の社会的費用」（2020年のドルで190ドル）を、おおまかにドルに換えた値です。実際の制度は、排出の一部（発電・工場、燃料など）にしかかかっていません。</span><span class="en"><b>Our own estimate.</b> A simple model using Chancel (2022) 2019 values (individual greenhouse gases from consumption and investment) as group averages. There are large differences within each group, and it ignores behaviour change and how prices pass through to goods. −35% and −55% are the cuts by 2035 versus 2019 needed for 2°C and 1.5°C (UNEP 2025), shown as yardsticks. Amounts are US dollars per person per year. Example prices are rough dollar conversions of Japan’s Tax for Climate Change Mitigation (¥289 per tonne of CO₂), the EU ETS average for January–November 2025 (~€73.5), Sweden’s carbon tax (SEK 1,510 in 2025) and the US EPA’s 2023 social cost of carbon ($190 in 2020 dollars). Real schemes cover only part of emissions (power, industry, fuels and so on).</span></p>
     </div>
   </div>
 </section>
@@ -888,6 +895,7 @@
       <li><a href="https://www.unep.org/resources/emissions-gap-report-2024">UNEP (2024) Emissions Gap Report 2024</a> <span class="use"><span class="ja">1.5℃には2035年まで毎年7.5%、2℃には4%の削減</span><span class="en">Cuts of 7.5% a year to 2035 for 1.5°C, 4% for 2°C</span></span>; <a href="https://doi.org/10.5194/essd-14-1917-2022">Friedlingstein et al. (2022) Global Carbon Budget 2021</a> <span class="use"><span class="ja">2020年の化石燃料 CO₂ は5.4%減（36.7→34.8 Gt）、2021年にほぼ元の水準へ</span><span class="en">Fossil CO₂ fell 5.4% in 2020 (36.7→34.8 Gt) and nearly rebounded in 2021</span></span></li>
       <li><a href="https://earthjustice.org/wp-content/uploads/2026/06/annex-12.-anderson-and-calverley-report.pdf">Calverley & Anderson (2026) Australia’s export emissions and the Paris Agreement temperature commitments (expert report, Table 1)</a> <span class="use"><span class="ja">2026年はじめの残り予算：2℃（確率83%）5,380億 t。Forster ら 2025 の値から</span><span class="en">Budget left at the start of 2026: 538 Gt for 2°C (83% chance), from Forster et al. 2025</span></span>; <a href="https://news.agu.org/press-release/in-a-first-researchers-confirm-global-warming-has-accelerated-in-last-decade/">Foster & Rahmstorf (2026) Global warming has accelerated significantly. <i>Geophysical Research Letters</i></a> <span class="use"><span class="ja">ここ10年 約0.35℃/10年（1970〜2015年は0.2℃弱）</span><span class="en">~0.35°C per decade over the past ten years (just under 0.2°C in 1970–2015)</span></span></li>
       <li><a href="https://doi.org/10.1080/00139157.2025.2434494">Hansen et al. (2025) Global warming has accelerated: are the United Nations and the public well-informed? <i>Environment: Science and Policy for Sustainable Development</i></a> <span class="use"><span class="ja">気候感度 約4.5℃、温暖化の加速、2045年ごろに2℃。危険側の気温（いまの約1.37℃からの上乗せ ×1.5）は、これを当てはめた私たちの概算</span><span class="en">Climate sensitivity ~4.5°C, accelerating warming, 2°C around 2045. The high-risk temperatures (warming still to come from ~1.37°C × 1.5) are our estimate applying this</span></span>; <a href="https://climateactiontracker.org/global/cat-thermometer/">Climate Action Tracker (2025) The CAT Thermometer</a> <span class="use"><span class="ja">2030・2035年の目標どおりで中央2.6℃、3.5℃以上の確率10%</span><span class="en">2030/2035 targets: 2.6°C central, 10% chance of 3.5°C or more</span></span></li>
+      <li><span class="ja">炭素の価格の例（分け方ラボ）：</span><span class="en">Carbon price examples (distribution lab): </span><a href="https://www.env.go.jp/policy/tax/about.html">環境省「地球温暖化対策のための税」</a> <span class="use"><span class="ja">CO₂ 1 t あたり289円</span><span class="en">¥289 per tonne of CO₂</span></span>; <a href="https://rienergia.staffettaonline.com/articolo/35841/Navigating+a+Volatile+Year:+The+European+Carbon+Price+in+2025/Qin">Staffetta Quotidiana (2025) The European carbon price in 2025</a> <span class="use"><span class="ja">EU 排出枠の2025年1〜11月の平均 約73.5ユーロ</span><span class="en">EUA average ~€73.5 for January–November 2025</span></span>; <a href="https://www.iea.org/policies/12725-sweden-carbon-tax">IEA: Sweden carbon tax</a> <span class="use"><span class="ja">2025年 1,510クローナ（約134ユーロ）</span><span class="en">SEK 1,510 (~€134) in 2025</span></span>; <a href="https://www.epa.gov/system/files/documents/2023-12/epa_scghg_2023_report_final.pdf">US EPA (2023) Report on the Social Cost of Greenhouse Gases</a> <span class="use"><span class="ja">炭素の社会的費用 190ドル（2020年のドル、割引率2%）</span><span class="en">Social cost of carbon $190 (2020 dollars, 2% discount rate)</span></span></li>
       <li><a href="https://www.imf.org/en/Publications/WP/Issues/2023/08/22/IMF-Fossil-Fuel-Subsidies-Data-2023-Update-537281">IMF (2023) Fossil Fuel Subsidies Data: 2023 Update</a> <span class="use"><span class="ja">約7兆ドル（2022年、GDP の約7%）</span><span class="en">~$7 trillion (2022, ~7% of GDP)</span></span></li>
       <li>Fressoz, J.-B. (2024) <i>More and More and More: An All-Consuming History of Energy</i> <span class="use"><span class="ja">エネルギーの歴史は「移行」ではなく「追加」</span><span class="en">Energy history as addition, not transition</span></span></li>
       <li><a href="https://doi.org/10.1016/S2542-5196(23)00174-2">Vogel & Hickel (2023) Is green growth happening? An empirical analysis of achieved versus Paris-compliant CO₂–GDP decoupling in high-income countries. <i>The Lancet Planetary Health</i> 7, e759–69</a> <span class="use"><span class="ja">11か国、95%削減まで220年超、公平な取り分の27倍、必要な速さは15倍（年約30%）</span><span class="en">11 countries; 220+ years to cut 95%; 27× fair shares; 15× faster (~30%/yr) needed</span></span></li>
@@ -1101,14 +1109,14 @@ const INEQ = [
   { ja: '排出', en: 'Emissions', sj: '2019年', se: '2019', v: [12, 40, 48] },
 ];
 function renderIneq() {
-  const col = ['#7fae8f', '#cfc7b6', 'var(--vio)'];
+  const col = ['var(--g1)', 'var(--g2)', 'var(--g3)'];
   $('ineq').innerHTML = INEQ.map(r => `<div class="irow"><div class="t">${r[lang]}${r.sj ? `<small>${ja() ? r.sj : r.se}</small>` : ''}</div>
-    <div class="ibar">${r.v.map((v, i) => `<i class="${i === 1 ? 'm' : ''}" style="width:${v}%;background:${col[i]}" title="${v}%">${v >= 9 ? v + '%' : ''}</i>`).join('')}</div></div>`).join('');
+    <div class="ibar">${r.v.map((v, i) => `<i class="${i === 0 ? 'm' : ''}" style="width:${v}%;background:${col[i]}" title="${v}%">${v >= 9 ? v + '%' : ''}</i>`).join('')}</div></div>`).join('');
   const P = [
-    { ja: '下位50%', en: 'Bottom 50%', v: 1.4, c: '#7fae8f' },
-    { ja: '中間40%', en: 'Middle 40%', v: 6.1, c: '#b5ab96' },
-    { ja: '上位10%', en: 'Top 10%', v: 29, c: 'var(--vio)', e: 1 },
-    { ja: '上位1%', en: 'Top 1%', v: 101, c: '#3b3270' },
+    { ja: '下位50%', en: 'Bottom 50%', v: 1.4, c: 'var(--g1)' },
+    { ja: '中間40%', en: 'Middle 40%', v: 6.1, c: 'var(--g2)' },
+    { ja: '上位10%', en: 'Top 10%', v: 29, c: 'var(--g3)', e: 1 },
+    { ja: '上位1%', en: 'Top 1%', v: 101, c: 'var(--g4)' },
   ];
   $('pcap').innerHTML = P.map(r => `<div class="row"><div>${r[lang]}</div><div class="bar"><i style="width:${r.v / 101 * 100}%;background:${r.c}"></i></div><div class="v num">${r.e ? '~' : ''}${fmt(r.v, r.v < 10 ? 1 : 0)} t</div></div>`).join('');
 }
@@ -1161,9 +1169,9 @@ function renderEarths() {
 }
 // ---- 分け方ラボ（Chancel 2022 の一人あたり排出をグループの平均として使う単純なモデル。私たちの概算）
 const LAB = [
-  { ja: '下位50%', en: 'Bottom 50%', pop: 0.5, t: 1.4, c: '#7fae8f' },
-  { ja: '中間40%', en: 'Middle 40%', pop: 0.4, t: 6.1, c: '#cfc7b6' },
-  { ja: '上位10%', en: 'Top 10%', pop: 0.1, t: 29, c: 'var(--vio)' },
+  { ja: '下位50%', en: 'Bottom 50%', pop: 0.5, t: 1.4, c: 'var(--g1)' },
+  { ja: '中間40%', en: 'Middle 40%', pop: 0.4, t: 6.1, c: 'var(--g2)' },
+  { ja: '上位10%', en: 'Top 10%', pop: 0.1, t: 29, c: 'var(--g3)' },
 ];
 const LAB_T0 = LAB.reduce((s, g) => s + g.pop * g.t, 0);   // 約6.0 t
 const LAB_PRESETS = { reset: [0, 0, 0], topmid: [0, 0, -79], flat: [-30, -30, -30], bottom0: [-100, 0, 0], fair: [100, 0, -79] };
@@ -1200,9 +1208,10 @@ function renderLab() {
   // 誰が払うか
   const P = +$('labP').value, div = $('labDiv').checked, D = div ? P * LAB_T0 : 0;
   $('labPO').innerHTML = `<strong class="num">$${P}</strong>${ja() ? '／t' : ' / t'}`;
+  document.querySelectorAll('[data-price]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.price === P));
   const rows = [...LAB, { ja: 'うち上位1%', en: 'of which top 1%', t: 101, sub: 1 }];
-  // 帯の長さは3つのグループで決め、上位1%ははみ出す分を切って示す
-  const nets = rows.map(g => D - P * g.t), mx = Math.max(1, ...nets.slice(0, 3).map(Math.abs));
+  // 帯の長さは固定の目盛り（最高価格 $200 での上位10%の差し引き額を端とする）。価格を上げると帯が伸びる。上位1%ははみ出す分を切って示す
+  const nets = rows.map(g => D - P * g.t), mx = 200 * (LAB[2].t - LAB_T0);
   const usd = x => (x < 0 ? '−' : x > 0 ? '+' : '±') + '$' + fmt(Math.abs(Math.round(x)));
   $('labRows').innerHTML = rows.map((g, i) => {
     const n = nets[i], w = Math.min(50, Math.abs(n) / mx * 50), clip = Math.abs(n) > mx * 1.01, near = Math.abs(n) < Math.max(10, P * g.t * 0.02);
@@ -1359,6 +1368,7 @@ document.addEventListener('click', e => {
   else if (b.dataset.ev) { eView = b.dataset.ev; renderEarths(); }
   else if (b.dataset.lab) { labTab = b.dataset.lab; renderLab(); }
   else if (b.dataset.preset) { labCut = [...LAB_PRESETS[b.dataset.preset]]; renderLab(); }
+  else if (b.dataset.price) { $('labP').value = b.dataset.price; renderLab(); }
   else if (b.id === 'reveal') $('cwrap').classList.add('open');
   else if (b.id === 'copyLink') {
     navigator.clipboard?.writeText(SITE_URL).then(() => {
