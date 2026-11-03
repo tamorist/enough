@@ -89,6 +89,7 @@
   .lab .prow.sub { color: var(--muted); font-size: 12.5px; }
   .lab .prow .nums { color: var(--muted); font-size: 12.5px; }
   .lab .prow .nums b { font-size: 16px; }
+  .lab .prow .nums small, .lab .sl .o small { font-size: 11.5px; font-weight: 400; color: var(--muted); }
   .lab .dv { position: relative; height: 20px; background: var(--bg3); border-radius: 5px; }
   .lab .dv::after { content: ""; position: absolute; left: 50%; top: -4px; bottom: -4px; width: 2px; background: var(--ink); }
   .lab .dv i { position: absolute; top: 0; bottom: 0; border-radius: 5px; transition: left .25s, width .25s; }
@@ -534,18 +535,18 @@
         <div class="lbar" id="labBar"></div>
       </div>
       <div id="labPay" hidden>
-        <div class="sl" style="--c:var(--vio)"><b><span class="ja">炭素の価格</span><span class="en">Carbon price</span></b><input type="range" id="labP" min="0" max="200" step="1" value="80" aria-label="Carbon price"><div class="o" id="labPO"></div></div>
+        <div class="sl" style="--c:var(--vio)"><b><span class="ja">炭素の価格</span><span class="en">Carbon price</span></b><input type="range" id="labP" min="0" max="200" step="any" value="80" aria-label="Carbon price"><div class="o" id="labPO"></div></div>
         <div class="presets" id="labPr">
-          <button data-price="2"><span class="ja">日本の温暖化対策税 約$2</span><span class="en">Japan’s carbon tax ~$2</span></button>
-          <button data-price="80"><span class="ja">EU 排出量取引（2025年平均）約$80</span><span class="en">EU emissions trading (2025 avg) ~$80</span></button>
-          <button data-price="150"><span class="ja">スウェーデンの炭素税 約$150</span><span class="en">Sweden’s carbon tax ~$150</span></button>
-          <button data-price="190"><span class="ja">気候被害の推計（米 EPA）$190</span><span class="en">Estimated climate damage (US EPA) $190</span></button>
+          <button data-price="1.92667"><span class="ja">日本の温暖化対策税 289円</span><span class="en">Japan’s carbon tax ~$2</span></button>
+          <button data-price="80"><span class="ja">EU 排出量取引（2025年平均）約1.2万円</span><span class="en">EU emissions trading (2025 avg) ~$80</span></button>
+          <button data-price="150"><span class="ja">スウェーデンの炭素税 約2.3万円</span><span class="en">Sweden’s carbon tax ~$150</span></button>
+          <button data-price="190"><span class="ja">気候被害の推計（米 EPA）約2.9万円</span><span class="en">Estimated climate damage (US EPA) $190</span></button>
         </div>
         <label class="chk"><input type="checkbox" id="labDiv" checked><span class="ja">集めたお金を、全員に同じ額で戻す</span><span class="en">Return the revenue to everyone as an equal dividend</span></label>
         <div id="labRows"></div>
         <p class="s" id="labPayS" style="font-size:14px;margin:12px 0 0"></p>
       </div>
-      <p class="small" style="margin-top:14px"><span class="ja"><b>私たちの概算です。</b>Chancel（2022）の2019年の値（消費と投資にもとづく個人の温室効果ガス）を、グループの平均でそのまま使った単純なモデルです。同じグループの中にも大きな差があり、人々の行動の変化や、価格が商品にどう転嫁されるかは考えていません。−35%・−55%は、2035年に2019年比で2℃・1.5℃に必要とされる削減の目安（UNEP 2025）です。金額は一人あたり・1年あたりの米ドル。価格の例は、日本の地球温暖化対策税（CO₂ 1 t あたり289円）、EU 排出量取引の2025年1〜11月の平均（約73.5ユーロ）、スウェーデンの炭素税（2025年 1,510クローナ）、米国環境保護庁（EPA）の2023年の「炭素の社会的費用」（2020年のドルで190ドル）を、おおまかにドルに換えた値です。実際の制度は、排出の一部（発電・工場、燃料など）にしかかかっていません。</span><span class="en"><b>Our own estimate.</b> A simple model using Chancel (2022) 2019 values (individual greenhouse gases from consumption and investment) as group averages. There are large differences within each group, and it ignores behaviour change and how prices pass through to goods. −35% and −55% are the cuts by 2035 versus 2019 needed for 2°C and 1.5°C (UNEP 2025), shown as yardsticks. Amounts are US dollars per person per year. Example prices are rough dollar conversions of Japan’s Tax for Climate Change Mitigation (¥289 per tonne of CO₂), the EU ETS average for January–November 2025 (~€73.5), Sweden’s carbon tax (SEK 1,510 in 2025) and the US EPA’s 2023 social cost of carbon ($190 in 2020 dollars). Real schemes cover only part of emissions (power, industry, fuels and so on).</span></p>
+      <p class="small" style="margin-top:14px"><span class="ja"><b>私たちの概算です。</b>Chancel（2022）の2019年の値（消費と投資にもとづく個人の温室効果ガス）を、グループの平均でそのまま使った単純なモデルです。同じグループの中にも大きな差があり、人々の行動の変化や、価格が商品にどう転嫁されるかは考えていません。−35%・−55%は、2035年に2019年比で2℃・1.5℃に必要とされる削減の目安（UNEP 2025）です。金額は一人あたり・1年あたり。円は1ドル＝150円で換えたおおまかな値です。価格の例は、日本の地球温暖化対策税（CO₂ 1 t あたり289円）、EU 排出量取引の2025年1〜11月の平均（約73.5ユーロ）、スウェーデンの炭素税（2025年 1,510クローナ）、米国環境保護庁（EPA）の2023年の「炭素の社会的費用」（2020年のドルで190ドル）を、おおまかにドルに換えた値です。実際の制度は、排出の一部（発電・工場、燃料など）にしかかかっていません。</span><span class="en"><b>Our own estimate.</b> A simple model using Chancel (2022) 2019 values (individual greenhouse gases from consumption and investment) as group averages. There are large differences within each group, and it ignores behaviour change and how prices pass through to goods. −35% and −55% are the cuts by 2035 versus 2019 needed for 2°C and 1.5°C (UNEP 2025), shown as yardsticks. Amounts are US dollars per person per year. Example prices are rough dollar conversions of Japan’s Tax for Climate Change Mitigation (¥289 per tonne of CO₂), the EU ETS average for January–November 2025 (~€73.5), Sweden’s carbon tax (SEK 1,510 in 2025) and the US EPA’s 2023 social cost of carbon ($190 in 2020 dollars). Real schemes cover only part of emissions (power, industry, fuels and so on).</span></p>
     </div>
   </div>
 </section>
@@ -1174,6 +1175,7 @@ const LAB = [
   { ja: '上位10%', en: 'Top 10%', pop: 0.1, t: 29, c: 'var(--g3)' },
 ];
 const LAB_T0 = LAB.reduce((s, g) => s + g.pop * g.t, 0);   // 約6.0 t
+const LAB_YEN = 150;   // 円／ドル（表示用のおおまかな換算）
 const LAB_PRESETS = { reset: [0, 0, 0], topmid: [0, 0, -79], flat: [-30, -30, -30], bottom0: [-100, 0, 0], fair: [100, 0, -79] };
 let labCut = [0, 0, 0], labTab = 'cut';
 function renderLab() {
@@ -1205,23 +1207,25 @@ function renderLab() {
   const segs = LAB.map((g, i) => { const w = px(g.pop * g.t * (1 + labCut[i] / 100)); const s = `<span class="seg" style="left:${Math.min(left, 100)}%;width:${Math.max(0, Math.min(w, 100 - left))}%;background:${g.c}" title="${g[lang]}"></span>`; left += w; return s; }).join('');
   const mk = (pct, l, cls) => `<span class="mk ${cls}" style="left:${W * (1 + pct / 100)}%"><span>${l}</span></span>`;
   $('labBar').innerHTML = segs + mk(0, ja() ? '2019年' : '2019', '') + mk(-35, ja() ? '2℃ −35%' : '2°C −35%', 'r') + mk(-55, ja() ? '1.5℃ −55%' : '1.5°C −55%', 'r');
-  // 誰が払うか
+  // 誰が払うか（日本語では円を先に、ドルをカッコで。1ドル＝150円で換算）
   const P = +$('labP').value, div = $('labDiv').checked, D = div ? P * LAB_T0 : 0;
-  $('labPO').innerHTML = `<strong class="num">$${P}</strong>${ja() ? '／t' : ' / t'}`;
+  const yen = x => { const y = Math.abs(x) * LAB_YEN; return y >= 10000 ? fmt(y / 10000, y < 100000 ? 1 : 0) + '万円' : fmt(y < 1000 ? Math.round(y) : Math.round(y / 10) * 10) + '円'; };
+  const dol = x => '$' + fmt(Math.abs(x), Math.abs(x) < 10 && x % 1 ? 1 : 0);
+  const money = (x, sign) => { const s = sign ? (x < 0 ? '−' : '+') : ''; return ja() ? `${s}${yen(x)}<small>（${s}${dol(x)}）</small>` : s + dol(x); };
+  $('labPO').innerHTML = ja() ? `<strong class="num">${yen(P)}</strong>／t<small>（${dol(P)}）</small>` : `<strong class="num">${dol(P)}</strong> / t`;
   document.querySelectorAll('[data-price]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.price === P));
   const rows = [...LAB, { ja: 'うち上位1%', en: 'of which top 1%', t: 101, sub: 1 }];
   // 帯の長さは固定の目盛り（最高価格 $200 での上位10%の差し引き額を端とする）。価格を上げると帯が伸びる。上位1%ははみ出す分を切って示す
   const nets = rows.map(g => D - P * g.t), mx = 200 * (LAB[2].t - LAB_T0);
-  const usd = x => (x < 0 ? '−' : x > 0 ? '+' : '±') + '$' + fmt(Math.abs(Math.round(x)));
   $('labRows').innerHTML = rows.map((g, i) => {
-    const n = nets[i], w = Math.min(50, Math.abs(n) / mx * 50), clip = Math.abs(n) > mx * 1.01, near = Math.abs(n) < Math.max(10, P * g.t * 0.02);
+    const n = nets[i], w = Math.min(50, Math.abs(n) / mx * 50), clip = Math.abs(n) > mx * 1.01, near = Math.abs(n) < Math.max(0.5, P * g.t * 0.02);
     return `<div class="prow${g.sub ? ' sub' : ''}"><div>${g[lang]}</div>
-      <div class="nums">${ja() ? '払う' : 'Pays'} $${fmt(Math.round(P * g.t))}${div ? ` · ${ja() ? '戻る' : 'Gets'} $${fmt(Math.round(D))}` : ''}<br><b style="color:${near ? 'var(--ink)' : n > 0 ? 'var(--green)' : 'var(--red)'}">${near ? (ja() ? 'ほぼ ±0' : 'about ±0') : usd(n)}</b></div>
+      <div class="nums">${ja() ? '払う' : 'Pays'} ${money(P * g.t)}${div ? ` · ${ja() ? '戻る' : 'Gets'} ${money(D)}` : ''}<br><b style="color:${near ? 'var(--ink)' : n > 0 ? 'var(--green)' : 'var(--red)'}">${near ? (ja() ? 'ほぼ ±0' : 'about ±0') : money(n, 1)}</b></div>
       <div class="dv"><i class="${clip ? 'clip' : ''}" style="left:${n >= 0 ? 50 : 50 - w}%;width:${w}%;background:${n >= 0 ? 'var(--green)' : 'var(--red)'}"></i></div></div>`;
   }).join('');
   $('labPayS').innerHTML = P === 0 ? (ja() ? '価格を上げてみましょう。' : 'Try raising the price.')
     : div ? (ja() ? `排出の少ない<b>下位50%（約40億人）は、払う額より受け取る額の方が多く</b>なります。中間40%はほぼ差し引きゼロ、負担は排出の多い上位10%に集まります。燃料税の「逆向きの負担」を、仕組みで反対向きにできるということです。` : `The <b>bottom 50% (about 4 billion people) receive more than they pay</b>. The middle 40% roughly break even, and the cost falls on the high-emitting top 10%. The design turns a regressive charge into a progressive one.`)
-    : (ja() ? `戻さなければ、全員が払うだけです。下位50%にとっての $${fmt(Math.round(P * 1.4))} は、上位10%にとっての $${fmt(Math.round(P * 29))} より、暮らしへの重さがずっと大きいことも。「戻す」にチェックを入れて比べてみましょう。` : `Without a dividend, everyone simply pays — and $${fmt(Math.round(P * 1.4))} can weigh far more on a low-income household than $${fmt(Math.round(P * 29))} on a high-income one. Tick the dividend box to compare.`);
+    : (ja() ? `戻さなければ、全員が払うだけです。下位50%にとっての${money(P * 1.4)}は、上位10%にとっての${money(P * 29)}より、暮らしへの重さがずっと大きいことも。「戻す」にチェックを入れて比べてみましょう。` : `Without a dividend, everyone simply pays — and ${money(P * 1.4)} can weigh far more on a low-income household than ${money(P * 29)} on a high-income one. Tick the dividend box to compare.`);
 }
 const PB = [
   { ja: '気候変動', en: 'Climate change', x: 1 }, { ja: '生物圏の健全性', en: 'Biosphere integrity', x: 1 },
