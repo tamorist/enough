@@ -63,6 +63,44 @@
   @media (max-width: 640px) { .why4 { grid-template-columns: 1fr; } }
 
   /* top bar */
+  /* 分け方ラボ */
+  .lab .tabs { margin-top: 12px; }
+  .lab .presets { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 14px; }
+  .lab .presets button { font: inherit; font-size: 12.5px; background: var(--bg); color: var(--ink); border: 1px dashed var(--faint); border-radius: 8px; padding: 6px 10px; cursor: pointer; }
+  .lab .presets button:hover { border-color: var(--vio); }
+  .lab .sl { display: grid; grid-template-columns: 110px 1fr 120px; gap: 10px; align-items: center; padding: 4px 0; font-size: 14px; }
+  .lab .sl b { display: flex; align-items: center; gap: 6px; }
+  .lab .sl b i { width: 10px; height: 10px; border-radius: 50%; background: var(--c); flex-shrink: 0; }
+  .lab .sl .o { text-align: right; font-size: 13px; color: var(--muted); }
+  .lab .sl .o strong { color: var(--ink); font-size: 15px; }
+  .lab .res { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; align-items: end; margin: 16px 0 6px; }
+  .lab .res .big { font-size: clamp(38px, 7vw, 54px); font-weight: 900; line-height: 1; }
+  .lab .res .s { font-size: 13.5px; color: var(--muted); }
+  .lab .res .s b { color: var(--ink); }
+  .lab .lbar { position: relative; height: 34px; background: var(--bg3); border-radius: 8px; margin: 26px 0 30px; }
+  .lab .lbar .seg { position: absolute; top: 0; bottom: 0; transition: left .25s, width .25s; }
+  .lab .lbar .seg:first-child { border-radius: 8px 0 0 8px; }
+  .lab .lbar .mk { position: absolute; top: -8px; bottom: -8px; width: 2px; background: var(--ink); }
+  .lab .lbar .mk span { position: absolute; top: -18px; transform: translateX(-50%); font-size: 11px; white-space: nowrap; color: var(--muted); }
+  .lab .lbar .mk.r { background: var(--red); }
+  .lab .lbar .mk.r span { color: var(--red); top: auto; bottom: -18px; }
+  .lab .prow { display: grid; grid-template-columns: 110px 1fr 1fr; gap: 10px; align-items: center; padding: 8px 0; border-top: 1px solid var(--faint); font-size: 13.5px; }
+  .lab .prow.sub { color: var(--muted); font-size: 12.5px; }
+  .lab .prow .nums { color: var(--muted); font-size: 12.5px; }
+  .lab .prow .nums b { font-size: 16px; }
+  .lab .dv { position: relative; height: 20px; background: var(--bg3); border-radius: 5px; }
+  .lab .dv::after { content: ""; position: absolute; left: 50%; top: -4px; bottom: -4px; width: 2px; background: var(--ink); }
+  .lab .dv i { position: absolute; top: 0; bottom: 0; border-radius: 5px; transition: left .25s, width .25s; }
+  .lab .dv i.clip { border-radius: 0 5px 5px 0; -webkit-mask: linear-gradient(90deg, transparent 0 4px, #000 4px 7px, transparent 7px 10px, #000 10px); mask: linear-gradient(90deg, transparent 0 4px, #000 4px 7px, transparent 7px 10px, #000 10px); }
+  .lab .chk { display: flex; gap: 8px; align-items: center; font-size: 14px; margin: 6px 0 12px; cursor: pointer; }
+  .lab .chk input { width: 18px; height: 18px; accent-color: var(--vio); }
+  @media (max-width: 560px) {
+    .lab .sl { grid-template-columns: 1fr auto; gap: 2px 8px; }
+    .lab .sl input { grid-column: 1 / -1; grid-row: 2; }
+    .lab .res { grid-template-columns: 1fr; }
+    .lab .prow { grid-template-columns: 1fr 1fr; }
+    .lab .prow .dv { grid-column: 1 / -1; }
+  }
   /* ClimateWatchMan（トップページ）への導線 */
   .hub { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; flex-shrink: 0; white-space: nowrap; text-decoration: none; font-weight: 700; font-size: 12.5px; color: #f3efe6; background: var(--dark); border-radius: 999px; padding: 6px 12px 6px 10px; }
   .hub:hover { background: #000; }
@@ -474,6 +512,34 @@
         <p><span class="ja">炭素への課金の収入を全員に同じ額で戻すと、排出の少ない多数派は、払う額より受け取る額の方が多くなります。富裕層への課税を公共交通・住宅・医療に回せば、<b>減らすことと、暮らしが良くなることが両立</b>します。</span><span class="en">If carbon-price revenue is returned to everyone as an equal dividend, the low-emitting majority receive more than they pay. Taxing wealth to fund transit, housing and health care means <b>cutting emissions and improving lives at the same time</b>.</span></p></div>
     </div>
     <p class="small" style="margin-top:14px"><span class="ja">「全員に同じ額で戻す」の効果は仕組みの説明で、国や制度によって結果は変わります。</span><span class="en">The equal-dividend effect describes the mechanism; actual results depend on the country and the design.</span></p>
+
+    <div class="card lab" id="lab">
+      <h3>🧪 <span class="ja">分け方ラボ：自分で試してみる</span><span class="en">Distribution lab: try it yourself</span></h3>
+      <p class="small" style="margin:0"><span class="ja">上の3つのグループ（一人あたり 下位50% 1.4 t、中間40% 6.1 t、上位10% 約29 t）で、「誰が減らすか」「誰が払うか」を動かしてみましょう。</span><span class="en">Using the three groups above (per person: bottom 50% 1.4 t, middle 40% 6.1 t, top 10% ~29 t), try changing who cuts and who pays.</span></p>
+      <div class="tabs" role="group" aria-label="Lab">
+        <button data-lab="cut" aria-pressed="true"><span class="ja">誰が減らすか</span><span class="en">Who cuts</span></button>
+        <button data-lab="pay" aria-pressed="false"><span class="ja">誰が払うか</span><span class="en">Who pays</span></button>
+      </div>
+      <div id="labCut">
+        <div class="presets">
+          <button data-preset="topmid"><span class="ja">上位10%を中間40%並みに</span><span class="en">Top 10% down to the middle’s level</span></button>
+          <button data-preset="flat"><span class="ja">全員一律に3割減らす</span><span class="en">Everyone cuts 30%</span></button>
+          <button data-preset="bottom0"><span class="ja">下位50%をゼロに</span><span class="en">Bottom 50% to zero</span></button>
+          <button data-preset="fair"><span class="ja">下位50%は2倍、上位10%は中間並みに</span><span class="en">Bottom 50% doubles, top 10% to the middle’s level</span></button>
+          <button data-preset="reset"><span class="ja">元に戻す</span><span class="en">Reset</span></button>
+        </div>
+        <div id="labSl"></div>
+        <div class="res"><div class="big num" id="labTot">0%</div><div class="s" id="labTotS"></div></div>
+        <div class="lbar" id="labBar"></div>
+      </div>
+      <div id="labPay" hidden>
+        <div class="sl" style="--c:var(--vio)"><b><span class="ja">炭素の価格</span><span class="en">Carbon price</span></b><input type="range" id="labP" min="0" max="200" step="10" value="100" aria-label="Carbon price"><div class="o" id="labPO"></div></div>
+        <label class="chk"><input type="checkbox" id="labDiv" checked><span class="ja">集めたお金を、全員に同じ額で戻す</span><span class="en">Return the revenue to everyone as an equal dividend</span></label>
+        <div id="labRows"></div>
+        <p class="s" id="labPayS" style="font-size:14px;margin:12px 0 0"></p>
+      </div>
+      <p class="small" style="margin-top:14px"><span class="ja"><b>私たちの概算です。</b>Chancel（2022）の2019年の値（消費と投資にもとづく個人の温室効果ガス）を、グループの平均でそのまま使った単純なモデルです。同じグループの中にも大きな差があり、人々の行動の変化や、価格が商品にどう転嫁されるかは考えていません。−35%・−55%は、2035年に2019年比で2℃・1.5℃に必要とされる削減の目安（UNEP 2025）です。金額は一人あたり・1年あたりの米ドル。</span><span class="en"><b>Our own estimate.</b> A simple model using Chancel (2022) 2019 values (individual greenhouse gases from consumption and investment) as group averages. There are large differences within each group, and it ignores behaviour change and how prices pass through to goods. −35% and −55% are the cuts by 2035 versus 2019 needed for 2°C and 1.5°C (UNEP 2025), shown as yardsticks. Amounts are US dollars per person per year.</span></p>
+    </div>
   </div>
 </section>
 
@@ -1093,6 +1159,61 @@ function renderEarths() {
     return `<div class="row${r.w ? ' w' : ''}"><div>${r[lang]}${r.old ? '*' : ''}</div><div class="bar"><i style="width:${pc(r.v)}%;background:${c}"></i><span class="one" style="left:${pc(1)}%"></span></div><div class="v num">${fmt(r.v, r.v < 1 || r.w ? 2 : 1)}</div></div>`;
   }).join('') + `<div class="ax">${[0, 1, 2, 4, 6, 8, 10].map(v => `<span style="left:${pc(v)}%">${v}</span>`).join('')}</div>`;
 }
+// ---- 分け方ラボ（Chancel 2022 の一人あたり排出をグループの平均として使う単純なモデル。私たちの概算）
+const LAB = [
+  { ja: '下位50%', en: 'Bottom 50%', pop: 0.5, t: 1.4, c: '#7fae8f' },
+  { ja: '中間40%', en: 'Middle 40%', pop: 0.4, t: 6.1, c: '#cfc7b6' },
+  { ja: '上位10%', en: 'Top 10%', pop: 0.1, t: 29, c: 'var(--vio)' },
+];
+const LAB_T0 = LAB.reduce((s, g) => s + g.pop * g.t, 0);   // 約6.0 t
+const LAB_PRESETS = { reset: [0, 0, 0], topmid: [0, 0, -79], flat: [-30, -30, -30], bottom0: [-100, 0, 0], fair: [100, 0, -79] };
+let labCut = [0, 0, 0], labTab = 'cut';
+function renderLab() {
+  document.querySelectorAll('[data-lab]').forEach(b => b.setAttribute('aria-pressed', b.dataset.lab === labTab));
+  $('labCut').hidden = labTab !== 'cut';
+  $('labPay').hidden = labTab !== 'pay';
+  const tt = ja() ? ' t' : ' t';
+  // 誰が減らすか
+  if (!$('labSl').children.length) {
+    $('labSl').innerHTML = LAB.map((g, i) => `<div class="sl" style="--c:${g.c}"><b><i></i><span class="gn"></span></b><input type="range" min="-100" max="100" step="1" value="0" data-gi="${i}" aria-label="${g.en}"><div class="o" id="labO${i}"></div></div>`).join('');
+  }
+  LAB.forEach((g, i) => {
+    $('labSl').children[i].querySelector('.gn').textContent = g[lang];
+    $('labSl').children[i].querySelector('input').value = labCut[i];
+    const v = g.t * (1 + labCut[i] / 100), d = labCut[i];
+    $('labO' + i).innerHTML = `<strong class="num">${fmt(v, 1)}${tt}</strong> ${d === 0 ? (ja() ? 'いまのまま' : 'as now') : (d > 0 ? '+' : '−') + Math.abs(d) + '%'}`;
+  });
+  const tot = LAB.reduce((s, g, i) => s + g.pop * g.t * (1 + labCut[i] / 100), 0), ch = (tot / LAB_T0 - 1) * 100;
+  $('labTot').textContent = (ch > 0.5 ? '+' : ch < -0.5 ? '−' : '±') + Math.abs(Math.round(ch)) + '%';
+  $('labTot').style.color = ch <= -55 ? 'var(--green)' : ch <= -35 ? 'var(--amber)' : ch < 0 ? 'var(--ink)' : 'var(--red)';
+  const gap = Math.round(55 + ch);
+  const status = ch <= -55 ? (ja() ? '1.5℃の目安（−55%）に届きます。' : 'Reaches the 1.5°C yardstick (−55%).')
+    : ch <= -35 ? (ja() ? `2℃の目安（−35%）に届きます。1.5℃の目安まで、あと${gap}ポイント。` : `Reaches the 2°C yardstick (−35%). ${gap} points short of 1.5°C.`)
+    : (ja() ? `1.5℃の目安（−55%）まで、あと${gap}ポイント。` : `${gap} points short of the 1.5°C yardstick (−55%).`);
+  $('labTotS').innerHTML = (ja() ? `世界の排出（2019年比）。一人あたり平均 <b>${fmt(LAB_T0, 1)} t → ${fmt(tot, 1)} t</b>。` : `World emissions vs 2019. Average per person <b>${fmt(LAB_T0, 1)} t → ${fmt(tot, 1)} t</b>. `) + status;
+  // 帯：2019年の合計を幅の80%に置く（増えた場合は125%まで）
+  const W = 80, px = x => Math.min(x / LAB_T0 * W, 100);
+  let left = 0;
+  const segs = LAB.map((g, i) => { const w = px(g.pop * g.t * (1 + labCut[i] / 100)); const s = `<span class="seg" style="left:${Math.min(left, 100)}%;width:${Math.max(0, Math.min(w, 100 - left))}%;background:${g.c}" title="${g[lang]}"></span>`; left += w; return s; }).join('');
+  const mk = (pct, l, cls) => `<span class="mk ${cls}" style="left:${W * (1 + pct / 100)}%"><span>${l}</span></span>`;
+  $('labBar').innerHTML = segs + mk(0, ja() ? '2019年' : '2019', '') + mk(-35, ja() ? '2℃ −35%' : '2°C −35%', 'r') + mk(-55, ja() ? '1.5℃ −55%' : '1.5°C −55%', 'r');
+  // 誰が払うか
+  const P = +$('labP').value, div = $('labDiv').checked, D = div ? P * LAB_T0 : 0;
+  $('labPO').innerHTML = `<strong class="num">$${P}</strong>${ja() ? '／t' : ' / t'}`;
+  const rows = [...LAB, { ja: 'うち上位1%', en: 'of which top 1%', t: 101, sub: 1 }];
+  // 帯の長さは3つのグループで決め、上位1%ははみ出す分を切って示す
+  const nets = rows.map(g => D - P * g.t), mx = Math.max(1, ...nets.slice(0, 3).map(Math.abs));
+  const usd = x => (x < 0 ? '−' : x > 0 ? '+' : '±') + '$' + fmt(Math.abs(Math.round(x)));
+  $('labRows').innerHTML = rows.map((g, i) => {
+    const n = nets[i], w = Math.min(50, Math.abs(n) / mx * 50), clip = Math.abs(n) > mx * 1.01, near = Math.abs(n) < Math.max(10, P * g.t * 0.02);
+    return `<div class="prow${g.sub ? ' sub' : ''}"><div>${g[lang]}</div>
+      <div class="nums">${ja() ? '払う' : 'Pays'} $${fmt(Math.round(P * g.t))}${div ? ` · ${ja() ? '戻る' : 'Gets'} $${fmt(Math.round(D))}` : ''}<br><b style="color:${near ? 'var(--ink)' : n > 0 ? 'var(--green)' : 'var(--red)'}">${near ? (ja() ? 'ほぼ ±0' : 'about ±0') : usd(n)}</b></div>
+      <div class="dv"><i class="${clip ? 'clip' : ''}" style="left:${n >= 0 ? 50 : 50 - w}%;width:${w}%;background:${n >= 0 ? 'var(--green)' : 'var(--red)'}"></i></div></div>`;
+  }).join('');
+  $('labPayS').innerHTML = P === 0 ? (ja() ? '価格を上げてみましょう。' : 'Try raising the price.')
+    : div ? (ja() ? `排出の少ない<b>下位50%（約40億人）は、払う額より受け取る額の方が多く</b>なります。中間40%はほぼ差し引きゼロ、負担は排出の多い上位10%に集まります。燃料税の「逆向きの負担」を、仕組みで反対向きにできるということです。` : `The <b>bottom 50% (about 4 billion people) receive more than they pay</b>. The middle 40% roughly break even, and the cost falls on the high-emitting top 10%. The design turns a regressive charge into a progressive one.`)
+    : (ja() ? `戻さなければ、全員が払うだけです。下位50%にとっての $${fmt(Math.round(P * 1.4))} は、上位10%にとっての $${fmt(Math.round(P * 29))} より、暮らしへの重さがずっと大きいことも。「戻す」にチェックを入れて比べてみましょう。` : `Without a dividend, everyone simply pays — and $${fmt(Math.round(P * 1.4))} can weigh far more on a low-income household than $${fmt(Math.round(P * 29))} on a high-income one. Tick the dividend box to compare.`);
+}
 const PB = [
   { ja: '気候変動', en: 'Climate change', x: 1 }, { ja: '生物圏の健全性', en: 'Biosphere integrity', x: 1 },
   { ja: '土地利用の変化', en: 'Land-system change', x: 1 }, { ja: '淡水の変化', en: 'Freshwater change', x: 1 },
@@ -1198,7 +1319,7 @@ function setLang(l) {
   try { localStorage.setItem('en-lang', l); } catch (e) {}
   document.querySelectorAll('.lang button[data-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
   document.title = l === 'ja' ? '足りる経済へ — 地球ひとつを、みんなで分ける' : 'Enough for All — one Earth, shared fairly';
-  renderSpeed(); renderCbar(); renderBirth(); renderIneq(); renderCal(); renderEarths(); renderPB(); renderSect(); renderEnergy(); renderOver(); tick(); setShare();
+  renderSpeed(); renderCbar(); renderBirth(); renderIneq(); renderLab(); renderCal(); renderEarths(); renderPB(); renderSect(); renderEnergy(); renderOver(); tick(); setShare();
 }
 function guideSVG(mood) {
   const brow = mood === 'worry' ? '<path d="M37 44l8-3M71 41l8 3" stroke="#2b2f2c" stroke-width="2.6" stroke-linecap="round"/>' : '';
@@ -1236,6 +1357,8 @@ document.addEventListener('click', e => {
   else if (b.dataset.sp) { sp = b.dataset.sp; renderSpeed(); }
   else if (b.dataset.en) { enMode = b.dataset.en; renderEnergy(); }
   else if (b.dataset.ev) { eView = b.dataset.ev; renderEarths(); }
+  else if (b.dataset.lab) { labTab = b.dataset.lab; renderLab(); }
+  else if (b.dataset.preset) { labCut = [...LAB_PRESETS[b.dataset.preset]]; renderLab(); }
   else if (b.id === 'reveal') $('cwrap').classList.add('open');
   else if (b.id === 'copyLink') {
     navigator.clipboard?.writeText(SITE_URL).then(() => {
@@ -1244,6 +1367,9 @@ document.addEventListener('click', e => {
   }
 });
 $('byr').addEventListener('input', renderBirth);
+$('labSl').addEventListener('input', e => { const i = e.target.dataset.gi; if (i !== undefined) { labCut[i] = +e.target.value; renderLab(); } });
+$('labP').addEventListener('input', renderLab);
+$('labDiv').addEventListener('change', renderLab);
 let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { renderSpeed(); renderEnergy(); }, 150); });
 
 setLang(lang);
