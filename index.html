@@ -54,6 +54,13 @@
   details.more { margin-top: 14px; font-size: 14px; }
   details.more summary { cursor: pointer; color: var(--blue); font-weight: 700; }
   details.more[open] summary { margin-bottom: 8px; }
+  .why4 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+  .why4 > div { background: var(--bg); border: 1px solid var(--faint); border-radius: 12px; padding: 14px 16px; font-size: 13.5px; }
+  .why4 b.t { display: flex; justify-content: space-between; align-items: baseline; font-size: 15px; margin-bottom: 6px; }
+  .why4 b.t span.n { color: var(--red); font-weight: 900; }
+  .why4 ul { margin: 0; padding-left: 1.1em; }
+  .why4 li { margin: 4px 0; line-height: 1.6; }
+  @media (max-width: 640px) { .why4 { grid-template-columns: 1fr; } }
 
   /* top bar */
   .top { position: sticky; top: 0; z-index: 10; background: rgba(246,242,234,.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--faint); }
@@ -475,6 +482,35 @@
       </defs></svg>
       <div class="earths" id="earths"></div>
       <p class="small" style="margin-top:8px"><span class="ja">Global Footprint Network。国別は2025年版の推計（多くは2024年の状況）、世界は2026年版で、年が少し違います。インドとナイジェリアは地球1個に収まっています（それぞれ地球の75%・53%分）。</span><span class="en">Global Footprint Network. Country figures are from the 2025 edition (mostly 2024 conditions); the world figure is from the 2026 edition. India and Nigeria fit within one Earth (75% and 53% of one).</span></p>
+      <details class="more">
+        <summary><span class="ja">なぜカタール、カナダ、アメリカ、オーストラリアは多いの？</span><span class="en">Why are Qatar, Canada, the US and Australia so high?</span></summary>
+        <p class="narrow" style="font-size:14px"><span class="ja">「地球何個分」の大部分は、<b>CO₂ を吸収するのに必要な森の広さ</b>です。足跡のうちこの「炭素」の部分は、アメリカで62%、カナダで64%（日本は71%）。つまり、<b>化石燃料をどれだけ使うか</b>が、地球の数をほぼ決めています。</span><span class="en">Most of “how many Earths” is <b>the forest area needed to absorb CO₂</b>. This carbon part is 62% of the US footprint and 64% of Canada’s (71% of Japan’s). So <b>how much fossil fuel a country burns</b> largely sets its number of Earths.</span></p>
+        <div class="why4">
+          <div><b class="t"><span><span class="ja">カタール</span><span class="en">Qatar</span></span><span class="n num">10</span></b><ul>
+            <li><span class="ja">国内で生まれる足跡の<b>99%が CO₂</b>。天然ガスを掘り、冷やして液化（LNG）して輸出する産業が、大量のエネルギーを使います。</span><span class="en"><b>99% of the footprint produced in Qatar is CO₂.</b> Extracting natural gas and chilling it into LNG for export takes vast amounts of energy.</span></li>
+            <li><span class="ja">一人あたりのエネルギー使用は<b>世界平均の約10倍</b>。電気はほぼすべてガスで作られ、冷房は1年の大半、飲み水はほぼすべて海水の淡水化です。</span><span class="en">Energy use per person is <b>about 10× the world average</b>. Power comes almost entirely from gas; air conditioning runs most of the year, and nearly all drinking water is desalinated seawater.</span></li>
+            <li><span class="ja">カタール国籍の人には、電気と水が長く無料またはほぼ無料で、ガソリンも安い国です。</span><span class="en">Electricity and water have long been free or nearly free for Qatari citizens, and petrol is cheap.</span></li>
+            <li><span class="ja"><b>注意：</b>人口約300万人の多くは消費の少ない外国人労働者で、これは平均です。また、小さな産ガス国は輸出のための排出を国内の消費と切り分けにくく、版によって数字が大きく動きます（2026年版の推計では約8個）。</span><span class="en"><b>Note:</b> most of the ~3 million residents are migrant workers who consume little, so this is an average. For small gas exporters, emissions for exports are hard to separate from domestic consumption, and the figure shifts between editions (about 8 in the 2026 edition’s estimate).</span></li>
+          </ul></div>
+          <div><b class="t"><span><span class="ja">カナダ</span><span class="en">Canada</span></span><span class="n num">5.5</span></b><ul>
+            <li><span class="ja">電気の<b>約54%は水力</b>で、電気そのものはかなりクリーンです。それでも、一人あたりのエネルギー使用は<b>世界平均の約4.5倍</b>。</span><span class="en">About <b>54% of its electricity is hydro</b>, so the power itself is fairly clean. Yet energy use per person is <b>about 4.5× the world average</b>.</span></li>
+            <li><span class="ja">寒い冬の暖房（多くはガス）、広い国土での長い移動、大きな家。石油やガスの生産（オイルサンドなど）も多くのエネルギーを使います。</span><span class="en">Heating through cold winters (largely with gas), long distances across a vast country, big homes — and energy-hungry oil and gas production such as the oil sands.</span></li>
+            <li><span class="ja">木材や紙の利用も多く、森林の部分が足跡の18%を占めます。</span><span class="en">Heavy use of wood and paper: forest products are 18% of the footprint.</span></li>
+          </ul></div>
+          <div><b class="t"><span><span class="ja">アメリカ</span><span class="en">USA</span></span><span class="n num">5.1</span></b><ul>
+            <li><span class="ja">一人あたりのエネルギー使用は世界平均の約3.5倍、CO₂ は<b>約14 t</b>（世界平均の約3倍）。</span><span class="en">Energy use per person is about 3.5× the world average; CO₂ is <b>about 14 t</b> per person (about 3× the world average).</span></li>
+            <li><span class="ja">車がないと暮らしにくい郊外の街、大きな家、たくさんのモノの消費。電気の約6割はガスと石炭です。</span><span class="en">Car-dependent suburbs, big homes and a high consumption of goods. About 60% of electricity comes from gas and coal.</span></li>
+            <li><span class="ja">肉の多い食生活などで、農地（耕地）の部分が足跡の19%を占めます。</span><span class="en">A meat-heavy diet, among other things: cropland is 19% of the footprint.</span></li>
+          </ul></div>
+          <div><b class="t"><span><span class="ja">オーストラリア</span><span class="en">Australia</span></span><span class="n num">4.9</span></b><ul>
+            <li><span class="ja">電気の<b>約45%が石炭</b>（日本は約32%、世界は約34%）。一人あたりの CO₂ は<b>約14.5 t</b>。</span><span class="en"><b>About 45% of electricity comes from coal</b> (Japan ~32%, world ~34%). CO₂ is <b>about 14.5 t</b> per person.</span></li>
+            <li><span class="ja">一人あたりのエネルギー使用は世界平均の約2.9倍。都市が広く、車に頼る暮らしです。</span><span class="en">Energy use per person is about 2.9× the world average, with sprawling, car-dependent cities.</span></li>
+            <li><span class="ja">牛肉をはじめ、肉の消費も多い国です（2026年版では、消費の足跡の内訳は公開されていません）。</span><span class="en">Meat consumption, beef especially, is high (the 2026 edition does not publish a breakdown of its consumption footprint).</span></li>
+          </ul></div>
+        </div>
+        <p class="narrow" style="font-size:14px"><span class="ja">4か国に共通するのは、<b>化石燃料の大産出国</b>であること。エネルギーが安く、たくさん使う前提で、街や暮らしが作られてきました。地球の数を決めているのは、一人ひとりの心がけだけでなく、<b>社会の仕組み</b>です。</span><span class="en">All four are <b>major fossil fuel producers</b>. Energy has been cheap, and cities and ways of life were built on using a lot of it. What sets the number of Earths is not only individual habits but <b>how society is built</b>.</span></p>
+        <p class="small"><span class="ja">足跡の内訳：GFN 国別エコロジカル・フットプリントと生物生産力勘定2026年版（2023年）。エネルギー使用と電気：Energy Institute（Our World in Data、2024年）。CO₂：Global Carbon Project（Our World in Data、2024年、世界平均 約4.7 t）。「なぜ」の説明は、これらのデータにもとづく私たちの解説です。</span><span class="en">Footprint breakdown: GFN National Ecological Footprint and Biocapacity Accounts, 2026 edition (2023 data). Energy use and electricity: Energy Institute via Our World in Data (2024). CO₂: Global Carbon Project via Our World in Data (2024; world average ~4.7 t). The “why” is our own explanation based on these data.</span></p>
+      </details>
     </div>
 
     <h3 style="margin-top:44px"><span class="ja">9つの「地球の限界」のうち、7つを超えている</span><span class="en">Seven of nine planetary boundaries are crossed</span></h3>
@@ -737,6 +773,7 @@
       <li><a href="https://doi.org/10.1038/s41893-022-00955-z">Chancel (2022) Global carbon inequality over 1990–2019. <i>Nature Sustainability</i> 5, 931–938</a> <span class="use"><span class="ja">2019年：上位10% 約48%、中間40% 約40%、下位50% 約12%。一人あたり 下位50% 1.4 t、中間40% 6.1 t、上位1% 約101 t、世界平均 約6 t（上位10%の約29 t は割合と平均からの私たちの計算）</span><span class="en">2019: top 10% ~48%, middle 40% ~40%, bottom 50% ~12%. Per person: bottom 50% 1.4 t, middle 40% 6.1 t, top 1% ~101 t, world average ~6 t (top 10% ~29 t is our calculation from the shares and average)</span></span></li>
       <li><a href="https://gabriel-zucman.eu/files/report-g20.pdf">Zucman (2024) A blueprint for a coordinated minimum effective taxation standard for ultra-high-net-worth individuals (report to the G20)</a> <span class="use"><span class="ja">億万長者の実効税率は資産の約0.3%、2%の最低課税で年2,000億〜2,500億ドル</span><span class="en">Billionaires’ effective tax ~0.3% of wealth; a 2% minimum would raise $200–250 bn a year</span></span></li>
       <li><a href="https://footprintnetwork.org/2026/06/05/announcement-earth-overshoot-day-2026-falls-on-july-30/">Global Footprint Network: Earth Overshoot Day 2026</a>; <a href="https://overshoot.footprintnetwork.org/newsroom/country-overshoot-days/">Country Overshoot Days</a> <span class="use"><span class="ja">2026年は7月30日、地球1.73個分（2026年版）。国別の必要な地球の数（2025年版）</span><span class="en">30 July 2026, 1.73 Earths (2026 edition); Earths needed by country (2025 edition)</span></span></li>
+      <li><a href="https://footprint.info.yorku.ca/data/">National Ecological Footprint and Biocapacity Accounts, 2026 edition</a> (York University, FoDaFo, Global Footprint Network) <span class="use"><span class="ja">2023年の消費の足跡に占める炭素：アメリカ 62%、カナダ 64%、日本 71%。森林：カナダ 18%。耕地：アメリカ 19%。カタールの生産の足跡の99%が炭素。2026年版のカタールの推計 約8個（2025年の一人あたり 11.73 gha ÷ 世界の生物生産力 1.48 gha）</span><span class="en">2023 consumption footprint, carbon share: USA 62%, Canada 64%, Japan 71%; forest: Canada 18%; cropland: USA 19%. 99% of Qatar’s production footprint is carbon. Qatar ≈ 8 Earths in the 2026 edition’s estimate (11.73 gha per person in 2025 ÷ world biocapacity 1.48 gha)</span></span></li>
       <li><a href="https://www.planetaryhealthcheck.org/">Planetary Health Check 2025</a> (Sakschewski, Caesar et al., PIK) <span class="use"><span class="ja">9つのうち7つが超過、海の酸性化が新たに超過</span><span class="en">7 of 9 crossed; ocean acidification newly crossed</span></span>; Richardson et al. (2023) <i>Science Advances</i>; Rockström et al. (2009) <i>Nature</i></li>
       <li><a href="https://www.unep.org/resources/global-resource-outlook-2024">UNEP International Resource Panel (2024) Global Resources Outlook 2024</a> <span class="use"><span class="ja">採掘量 1970年 約300億 t → 2020年 約1,060億 t、2060年までに約60%増、採掘と加工で温室効果ガスの55%超、生物資源で土地関連の生物多様性損失・水不足の約90%</span><span class="en">Extraction ~30 bn t (1970) → ~106 bn t (2020); ~60% more by 2060; extraction and processing >55% of GHG; biomass ~90% of land-related biodiversity loss and water stress</span></span></li>
       <li><a href="https://www.wri.org/insights/4-charts-explain-greenhouse-gas-emissions-countries-and-sectors">WRI (2026) Where do emissions come from? (Climate Watch, 2023 data)</a> <span class="use"><span class="ja">エネルギー 76.7%（電気と熱 33.6、運輸 14.3、製造と建設 12.2、建物 6.3）、農業 12.3、工業プロセス 6.2、廃棄物 3.8、土地利用 0.9（正味）。「その他のエネルギー」10.3%はエネルギー合計から差し引いた私たちの計算</span><span class="en">Energy 76.7% (electricity & heat 33.6, transport 14.3, manufacturing & construction 12.2, buildings 6.3), agriculture 12.3, industrial processes 6.2, waste 3.8, land use 0.9 (net). “Other energy” 10.3% is our calculation by subtraction</span></span></li>
