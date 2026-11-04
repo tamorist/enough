@@ -694,10 +694,21 @@
         <button data-dv="main" aria-pressed="true"><span class="ja">主流の評価（2℃・確率50%）</span><span class="en">Mainstream (2°C, 50% chance)</span></button>
         <button data-dv="risk" aria-pressed="false"><span class="ja">危険側の見方（2℃・確率83%）</span><span class="en">High-risk view (2°C, 83% chance)</span></button>
       </div>
+      <div class="tabs" role="group" aria-label="Shape">
+        <button data-dm="exp" aria-pressed="true"><span class="ja">毎年同じ割合で減らす</span><span class="en">Same % cut every year</span></button>
+        <button data-dm="lin" aria-pressed="false"><span class="ja">まっすぐ正味ゼロへ</span><span class="en">Straight line to net zero</span></button>
+      </div>
       <div class="sl"><label for="dlyR"><span class="ja">減らし始める年</span><span class="en">Year cuts begin</span></label><div class="o num" id="dlyO"></div><input type="range" id="dlyR" min="0" max="25" step="1" value="0"></div>
       <div class="res"><div class="big num" id="dlyBig"></div><div class="s" id="dlyS"></div></div>
       <div class="chart" id="dlyChart"></div>
-      <p class="small" style="margin-top:8px"><span class="ja"><b>私たちの概算です。</b><a href="#rate4">上のカード</a>と同じ計算で、CO₂ を始める年から毎年同じ割合で減らし続け、合計を残りの予算（2026年はじめから、主流 1兆550億 t、危険側 5,380億 t）に収める場合の削減率です。実際には遅れる間も排出が増えたり、温暖化の加速で予算が小さくなったりする可能性があり、その場合はもっと厳しくなります。グラフの面積が、使える CO₂ の量にあたります。</span><span class="en"><b>Our own estimate</b>, using the same method as <a href="#rate4">the card above</a>: CO₂ is cut by the same percentage every year from the start year, so that the total stays within the remaining budget (from the start of 2026: 1,055 Gt mainstream, 538 Gt high-risk). In reality emissions might keep rising during the delay, or accelerating warming might shrink the budget, which would make it harsher still. The area under the line is the CO₂ that can still be emitted.</span></p>
+      <p class="small" style="margin-top:8px"><span class="ja"><b>私たちの概算です。</b><a href="#rate4">上のカード</a>と同じ計算で、CO₂ を始める年から毎年同じ割合で減らし続け、合計を残りの予算（2026年はじめから、主流 1兆550億 t、危険側 5,380億 t）に収める場合の削減率です。「まっすぐ正味ゼロへ」は、毎年同じ量ずつ減らし、予算を使い切るところで正味ゼロにする場合です。実際には遅れる間も排出が増えたり、温暖化の加速で予算が小さくなったりする可能性があり、その場合はもっと厳しくなります。グラフの面積が、使える CO₂ の量にあたります。</span><span class="en"><b>Our own estimate</b>, using the same method as <a href="#rate4">the card above</a>: CO₂ is cut by the same percentage every year from the start year, so that the total stays within the remaining budget (from the start of 2026: 1,055 Gt mainstream, 538 Gt high-risk). “Straight line to net zero” instead cuts by the same amount each year, reaching net zero just as the budget runs out. In reality emissions might keep rising during the delay, or accelerating warming might shrink the budget, which would make it harsher still. The area under the line is the CO₂ that can still be emitted.</span></p>
+      <details class="more">
+        <summary><span class="ja">この計算で見えていないこと：正味ゼロと CO₂ 除去</span><span class="en">What this calculation hides: net zero and CO₂ removal</span></summary>
+        <p class="small"><span class="ja"><b>① 一定の割合で減らすと、排出はゼロになりません。</b>細く長く続き、年4%なら2050年でも約160億 t、2100年でも約20億 t です。遅れた分は、このすそ野（点線より下に来る2050年ごろ以降）で釣り合いをとっています。5年遅れの場合、超えた分（約770億 t）を取り戻す部分の6割ほどは2080年より後にあり、グラフでは細い帯にしか見えません。</span><span class="en"><b>① Cutting by the same percentage never reaches zero.</b> Emissions taper off for a very long time: at 4% a year they are still about 16 Gt in 2050 and about 2 Gt in 2100. A delay is balanced out in that long tail (after about 2050, where the line falls below the dashed one). For a 5-year delay, about 60% of the make-up for the extra ~77 Gt comes after 2080 and shows only as a thin sliver.</span></p>
+        <p class="small"><span class="ja"><b>② 主流のシナリオは「正味ゼロ」をめざします。</b>IPCC 第6次報告で、2℃（確率67%以上）に抑える道筋は、中央値で<b>2070年代前半に CO₂ の正味ゼロ</b>に達し、その後わずかに正味マイナスになります（約400億 t）。「まっすぐ正味ゼロへ」を選ぶと、主流の評価でいますぐ始めた場合、ちょうどそのころ（2076年）にゼロになります。</span><span class="en"><b>② Mainstream scenarios aim for net zero.</b> In the IPCC’s Sixth Assessment, pathways that keep warming below 2°C (>67% chance) reach <b>net-zero CO₂ in the early 2070s</b> (median), then go slightly net negative (about 40 Gt). Choose “straight line to net zero” and the mainstream view, starting now, reaches zero at about that time (2076).</span></p>
+        <p class="small"><span class="ja"><b>③ その「正味ゼロ」は、大量の CO₂ 除去が前提です。</b>農業や重工業などで残る排出を、植林や、バイオマス発電＋CO₂ の回収・貯留（BECCS）、空気から直接回収する技術などで<b>取り除いて相殺する</b>という意味で、2100年までの除去量は、多くのモデルで<b>約5,000億 t 前後</b>（いまの排出の十数年分）、多いものでは約1兆 t にのぼります。予算は「出す量 − 取り除く量」なので、除去を当てにすると、そのぶん多く出せるように見えます。けれども、その規模の除去は、実用化の途中の技術や広い土地に頼っていて、確実ではありません。除去が足りなければ、出してよい量はもっと少なくなります。</span><span class="en"><b>③ That net zero assumes large-scale CO₂ removal.</b> It means remaining emissions from farming, heavy industry and so on are <b>cancelled out by removing CO₂</b> — through forests, bioenergy with carbon capture and storage (BECCS), direct air capture and more. Most models remove <b>around 500 Gt</b> by 2100 (more than a decade of today’s emissions), some up to about 1,000 Gt. A budget is “emitted minus removed”, so counting on removal makes it look as if more can be emitted. But removal at that scale relies on immature technology and large areas of land, and is not assured. If removal falls short, even less can be emitted.</span></p>
+        <p class="small"><span class="ja"><b>④ そして2℃は「安全な線」ではありません。</b>確率50%で2℃に収まる道筋でも、いくつかの<b>臨界点</b>（氷床や永久凍土など）を越えるおそれがあります。詳しくは姉妹サイト<a href="https://tamorist.github.io/tipping-point/">「臨界点の手前で」</a>へ。</span><span class="en"><b>④ And 2°C is not a safe line.</b> Even a pathway with a 50% chance of staying under 2°C risks crossing several <b>tipping points</b> (ice sheets, permafrost and more). See our sister site <a href="https://tamorist.github.io/tipping-point/">Before the Tipping Point</a>.</span></p>
+      </details>
     </div>
     <div class="callout v">
       <p style="margin:0"><span class="ja"><b>私たちの考え：</b>再エネが安くなり、市場で自然に広がるのを待つだけでは、必要な速さには届かないと考えます。社会が止まったコロナ禍の年ですら5.4%しか減らなかったものを、<b>毎年7.5%ずつ</b>、しかも暮らしを守りながら減らすには、かなり強い強制力のある<b>ルール</b>が必要です。たとえば、化石燃料の生産と使用に法律で上限と終わりの期限を決める、新しいガスボイラーやガソリン車の販売を期限を切って終える、化石燃料への補助をやめる、といったことです。そして、そのルールが受け入れられるには、負担を<a href="#fair">いちばん多く排出している人たち</a>から先に求め、収入の少ない人には支えを回す設計が欠かせません。</span><span class="en"><b>Our view:</b> waiting for cheap renewables to spread through the market will not reach the speed needed. Emissions fell only 5.4% in the year the pandemic stopped much of the world; cutting <b>7.5% every year</b>, while protecting people’s lives, takes <b>rules with real force</b> — for example, legal caps and end dates for fossil fuel production and use, set deadlines to stop selling new gas boilers and petrol cars, and an end to fossil fuel subsidies. For such rules to be accepted, the burden must fall first on <a href="#fair">those who emit the most</a>, with support directed to people on low incomes.</span></p>
@@ -904,6 +915,7 @@
       <li><a href="https://www.ren21.net/gsr-2024/modules/energy_demand/03_renewables_in_transport/">REN21 (2024) Global Status Report: Renewables in transport</a> <span class="use"><span class="ja">運輸は最終エネルギーの30.2%、再エネ 3.9%（バイオ燃料 3.5%、再エネ電力 0.4%、2021年）</span><span class="en">Transport 30.2% of final energy; renewables 3.9% (biofuels 3.5%, renewable electricity 0.4%; 2021)</span></span></li>
       <li><a href="https://trackingsdg7.esmap.org/">IEA, IRENA, UNSD, World Bank, WHO: Tracking SDG 7</a> <span class="use"><span class="ja">2023年の最終エネルギー消費に占める再エネ 18.0%、伝統的なバイオマスを除くと13.4%</span><span class="en">Renewables 18.0% of final energy in 2023; 13.4% excluding traditional biomass</span></span></li>
       <li><a href="https://www.unep.org/resources/emissions-gap-report-2024">UNEP (2024) Emissions Gap Report 2024</a> <span class="use"><span class="ja">1.5℃には2035年まで毎年7.5%、2℃には4%の削減</span><span class="en">Cuts of 7.5% a year to 2035 for 1.5°C, 4% for 2°C</span></span>; <a href="https://doi.org/10.5194/essd-14-1917-2022">Friedlingstein et al. (2022) Global Carbon Budget 2021</a> <span class="use"><span class="ja">2020年の化石燃料 CO₂ は5.4%減（36.7→34.8 Gt）、2021年にほぼ元の水準へ</span><span class="en">Fossil CO₂ fell 5.4% in 2020 (36.7→34.8 Gt) and nearly rebounded in 2021</span></span></li>
+      <li><a href="https://www.carbonbrief.org/analysis-what-the-new-ipcc-report-says-about-how-to-limit-warming-to-1-5c-or-2c">Carbon Brief (2022) What the new IPCC report says about how to limit warming to 1.5C or 2C</a> <span class="use"><span class="ja">IPCC 第6次報告 第3作業部会 表SPM.1：2℃（67%以上）の道筋は CO₂ 正味ゼロが中央値2070〜75年、正味マイナス約400億 t。CO₂ 除去は多くのモデルで約5,000億 t 前後、上限は約1兆 t</span><span class="en">IPCC AR6 WGIII Table SPM.1: 2°C (>67%) pathways reach net-zero CO₂ in 2070–75 (median), net negative ~40 Gt; CO₂ removal around 500 Gt in most models, up to ~1,000 Gt</span></span></li>
       <li><a href="https://earthjustice.org/wp-content/uploads/2026/06/annex-12.-anderson-and-calverley-report.pdf">Calverley & Anderson (2026) Australia’s export emissions and the Paris Agreement temperature commitments (expert report, Table 1)</a> <span class="use"><span class="ja">2026年はじめの残り予算：2℃（確率83%）5,380億 t。Forster ら 2025 の値から</span><span class="en">Budget left at the start of 2026: 538 Gt for 2°C (83% chance), from Forster et al. 2025</span></span>; <a href="https://news.agu.org/press-release/in-a-first-researchers-confirm-global-warming-has-accelerated-in-last-decade/">Foster & Rahmstorf (2026) Global warming has accelerated significantly. <i>Geophysical Research Letters</i></a> <span class="use"><span class="ja">ここ10年 約0.35℃/10年（1970〜2015年は0.2℃弱）</span><span class="en">~0.35°C per decade over the past ten years (just under 0.2°C in 1970–2015)</span></span></li>
       <li><a href="https://doi.org/10.1080/00139157.2025.2434494">Hansen et al. (2025) Global warming has accelerated: are the United Nations and the public well-informed? <i>Environment: Science and Policy for Sustainable Development</i></a> <span class="use"><span class="ja">気候感度 約4.5℃、温暖化の加速、2045年ごろに2℃。危険側の気温（いまの約1.37℃からの上乗せ ×1.5）は、これを当てはめた私たちの概算</span><span class="en">Climate sensitivity ~4.5°C, accelerating warming, 2°C around 2045. The high-risk temperatures (warming still to come from ~1.37°C × 1.5) are our estimate applying this</span></span>; <a href="https://climateactiontracker.org/global/cat-thermometer/">Climate Action Tracker (2025) The CAT Thermometer</a> <span class="use"><span class="ja">2030・2035年の目標どおりで中央2.6℃、3.5℃以上の確率10%</span><span class="en">2030/2035 targets: 2.6°C central, 10% chance of 3.5°C or more</span></span></li>
       <li><a href="https://www.imf.org/en/Publications/WP/Issues/2023/08/22/IMF-Fossil-Fuel-Subsidies-Data-2023-Update-537281">IMF (2023) Fossil Fuel Subsidies Data: 2023 Update</a> <span class="use"><span class="ja">約7兆ドル（2022年、GDP の約7%）</span><span class="en">~$7 trillion (2022, ~7% of GDP)</span></span></li>
@@ -1365,11 +1377,13 @@ function setShare() {
 
 // ---- 始めるのが遅れたら（私たちの概算：削減率 ≒ 年の排出 ÷ 残りの予算）
 const DLY_E = 42, DLY_B = { main: 1055, risk: 538 }, DLY_Y0 = 2026;
-let dView = 'main';
+let dView = 'main', dMode = 'exp';
 function renderDelay() {
   const d = +$('dlyR').value, B = DLY_B[dView], left = B - DLY_E * d, p0 = DLY_E / B, p = left > 0 ? DLY_E / left : Infinity;
   const col = dView === 'risk' ? 'var(--red)' : 'var(--amber)';
   document.querySelectorAll('[data-dv]').forEach(b => b.setAttribute('aria-pressed', b.dataset.dv === dView));
+  document.querySelectorAll('[data-dm]').forEach(b => b.setAttribute('aria-pressed', b.dataset.dm === dMode));
+  const lin = dMode === 'lin', T0 = B / (DLY_E / 2), T = left / (DLY_E / 2);
   $('dlyO').textContent = (ja() ? (DLY_Y0 + d) + '年' : DLY_Y0 + d) + (d === 0 ? (ja() ? '（いますぐ）' : ' (now)') : (ja() ? `（${d}年遅れ）` : ` (${d} yr${d > 1 ? 's' : ''} late)`));
   const gt = g => ja() ? (g >= 1000 ? `1兆${fmt((g - 1000) * 10)}億 t` : fmt(g * 10) + '億 t') : fmt(g) + ' Gt';
   const big = $('dlyBig');
@@ -1378,6 +1392,13 @@ function renderDelay() {
     big.textContent = ja() ? '間に合わない' : 'Too late';
     big.style.fontSize = 'clamp(28px, 5vw, 40px)'; big.style.color = 'var(--red)';
     $('dlyS').innerHTML = ja() ? `いまの排出が続くと、この予算は<b>${yr}年ごろに使い切ります</b>。そこから一気にゼロにしても、2℃には収まりません。` : `At today’s emissions this budget is <b>used up around ${yr}</b>. Even dropping to zero at once would not keep warming under 2°C.`;
+  } else if (lin) {
+    const zy = Math.round(DLY_Y0 + d + T), zy0 = Math.round(DLY_Y0 + T0), step = DLY_E / T;
+    big.textContent = ja() ? `${zy}年に正味ゼロ` : `Net zero by ${zy}`;
+    big.style.fontSize = 'clamp(28px, 5vw, 44px)'; big.style.color = T < 15 ? 'var(--red)' : T < 30 ? 'var(--red2)' : 'var(--ink)';
+    $('dlyS').innerHTML = (ja() ? `残りの予算 ${gt(left)}。毎年<b>${fmt(step * 10)}億 t</b>ずつ（いまの排出の約${fmt(step / DLY_E * 100, 1)}%分）減らし、${Math.round(T)}年でゼロに。` : `Budget left: ${gt(left)}. Cut by <b>${fmt(step, 1)} Gt</b> every year (about ${fmt(step / DLY_E * 100, 1)}% of today’s emissions) and reach zero in ${Math.round(T)} years. `)
+      + (d > 0 ? (ja() ? `いますぐ始めれば${zy0}年で済んだものが、<b>${zy0 - zy}年早く</b>ゼロにしなければなりません。` : `Starting now would allow until ${zy0}; this must reach zero <b>${zy0 - zy} years sooner</b>.`) : '')
+      + (dView === 'main' && d === 0 ? (ja() ? 'IPCC の2℃の道筋の中央値（2070年代前半）とほぼ同じ形です。' : ' This is close to the median IPCC 2°C pathway (net zero in the early 2070s).') : '');
   } else {
     const pc = p * 100, k = p / p0, cv = pc / 5.4, cvJ = cv < 0.95 ? `の${Math.round(cv * 10)}割ほど` : `の約${fmt(cv, 1)}倍`, cvE = cv < 0.95 ? `about ${Math.round(cv * 10) * 10}% of` : `about ${fmt(cv, 1)}×`;
     big.textContent = (ja() ? '年 ' : '') + fmt(pc, pc < 10 ? 1 : 0) + '%' + (ja() ? '' : ' a year');
@@ -1390,21 +1411,23 @@ function renderDelay() {
   }
   // グラフ：排出の道筋（面積＝使える CO₂）
   fit($('dlyChart'));
-  const x0 = DLY_Y0, x1 = 2080, y1 = 50, X = y => sx(y, x0, x1), Y = v => sy(v, y1);
+  const x0 = DLY_Y0, x1 = 2100, y1 = 50, X = y => sx(y, x0, x1), Y = v => sy(v, y1);
   const path = (dd, BB) => {
     const l = BB - DLY_E * dd, pp = l > 0 ? DLY_E / l : null, pts = [];
     if (pp === null || pp >= 1) { const t = x0 + BB / DLY_E; pts.push([x0, DLY_E], [t, DLY_E], [t, 0]); return pts; }
+    if (lin) { const z = x0 + dd + l / (DLY_E / 2); pts.push([x0, DLY_E], [x0 + dd, DLY_E], [z, 0], [x1, 0]); return pts; }
     pts.push([x0, DLY_E]);
     for (let t = x0 + dd, v = DLY_E; t <= x1; t++, v *= 1 - pp) pts.push([t, v]);
     return pts;
   };
   const toD = pts => 'M' + pts.map(([a, b]) => `${X(Math.min(a, x1)).toFixed(1)},${Y(b).toFixed(1)}`).join(' L');
   let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${ja() ? '排出の道筋' : 'Emissions pathway'}">`;
-  s += axes(x0, x1, y1, narrow ? [2026, 2040, 2060, 2080] : [2026, 2030, 2040, 2050, 2060, 2070, 2080], [0, 10, 20, 30, 40], v => v + (v === 40 ? ' Gt' : ''));
+  s += axes(x0, x1, y1, narrow ? [2026, 2050, 2075, 2100] : [2026, 2040, 2050, 2060, 2070, 2080, 2090, 2100], [0, 10, 20, 30, 40], v => v + (v === 40 ? ' Gt' : ''));
   const pts = path(d, B);
   s += `<path d="${toD(pts)} L${X(Math.min(pts[pts.length - 1][0], x1)).toFixed(1)},${Y(0)} L${X(x0)},${Y(0)} Z" fill="${col}" opacity=".35"/>`;
   if (d > 0) s += `<path d="${toD(path(0, B))}" fill="none" stroke="var(--muted)" stroke-width="1.4" stroke-dasharray="4 3"/>`;
   s += `<path d="${toD(pts)}" fill="none" stroke="${col}" stroke-width="2.2"/>`;
+  if (!lin && p < 1) { const v = DLY_E * Math.pow(1 - p, x1 - x0 - d); s += `<text class="ax" x="${X(x1)}" y="${Y(v) - 24}" text-anchor="end">${ja() ? `2100年でも ${fmt(v * 10)}億 t ↓` : `Still ${fmt(v, 1)} Gt in 2100 ↓`}</text>`; }
   if (d > 0) s += `<text class="ax" x="${X(x0 + 1)}" y="${Y(DLY_E) - 8}">${ja() ? '点線：いますぐ始めた場合' : 'Dashed: starting now'}</text>`;
   $('dlyChart').innerHTML = s + '</svg>';
 }
@@ -1460,6 +1483,7 @@ document.addEventListener('click', e => {
   else if (b.dataset.en) { enMode = b.dataset.en; renderEnergy(); }
   else if (b.dataset.ev) { eView = b.dataset.ev; renderEarths(); }
   else if (b.dataset.dv) { dView = b.dataset.dv; renderDelay(); }
+  else if (b.dataset.dm) { dMode = b.dataset.dm; renderDelay(); }
   else if (b.dataset.preset) { labCut = [...LAB_PRESETS[b.dataset.preset]]; renderLab(); }
   else if (b.id === 'reveal') $('cwrap').classList.add('open');
   else if (b.id === 'copyLink') {
