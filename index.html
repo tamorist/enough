@@ -506,9 +506,9 @@
       <p class="small" style="margin:0"><span class="ja">上の3つのグループ（一人あたり 下位50% 1.4 t、中間40% 6.1 t、上位10% 約29 t）で、それぞれがどれだけ減らすかを動かしてみましょう。</span><span class="en">Using the three groups above (per person: bottom 50% 1.4 t, middle 40% 6.1 t, top 10% ~29 t), try changing how much each group cuts.</span></p>
       <div id="labCut" style="margin-top:12px">
         <div class="presets">
-          <button data-preset="topmid"><span class="ja">上位10%を中間40%並みに</span><span class="en">Top 10% down to the middle’s level</span></button>
           <button data-preset="flat"><span class="ja">全員一律に3割減らす</span><span class="en">Everyone cuts 30%</span></button>
-          <button data-preset="half80"><span class="ja">中間40%は半分、上位10%は8割減</span><span class="en">Middle 40% halves, top 10% cuts 80%</span></button>
+          <button data-preset="topmid"><span class="ja">上位10%を中間40%並みに</span><span class="en">Top 10% down to the middle’s level</span></button>
+          <button data-preset="half70"><span class="ja">中間40%は半分、上位10%は7割減</span><span class="en">Middle 40% halves, top 10% cuts 70%</span></button>
           <button data-preset="fair"><span class="ja">下位50%は2倍、中間40%は3割減、上位10%も中間と同じ量に</span><span class="en">Bottom 50% doubles, middle 40% cuts 30%, top 10% down to the same as the middle</span></button>
           <button data-preset="reset"><span class="ja">元に戻す</span><span class="en">Reset</span></button>
         </div>
@@ -1144,7 +1144,7 @@ const LAB = [
   { ja: '上位10%', en: 'Top 10%', pop: 0.1, t: 29, c: 'var(--g3)' },
 ];
 const LAB_T0 = LAB.reduce((s, g) => s + g.pop * g.t, 0);   // 約6.0 t
-const LAB_PRESETS = { reset: [0, 0, 0], topmid: [0, 0, -79], flat: [-30, -30, -30], half80: [0, -50, -80], fair: [100, -30, -85] };
+const LAB_PRESETS = { reset: [0, 0, 0], topmid: [0, 0, -79], flat: [-30, -30, -30], half70: [0, -50, -70], fair: [100, -30, -85] };
 let labCut = [0, 0, 0];
 function renderLab() {
   const tt = ja() ? ' t' : ' t';
