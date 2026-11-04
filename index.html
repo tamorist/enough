@@ -177,7 +177,7 @@
   .gpick:not(.first) { display: inline-block; padding: 6px 10px; border-radius: 999px; }
   .gpick:not(.first) .gp-q, .gpick:not(.first) button small { display: none; }
   .gpick:not(.first) button { padding: 3px 11px; border-radius: 999px; font-size: 12.5px; }
-  html.en .gpick, .gpick[hidden] { display: none !important; }
+  .gpick[hidden] { display: none !important; }
   html.noguide .guide, html.noguide .sw-guide { display: none !important; }
   .guide { display: flex; align-items: flex-end; gap: 10px; margin: 18px 0 22px; max-width: 680px; }
   .guide .gchar { flex: 0 0 64px; width: 64px; height: 64px; }
@@ -420,14 +420,14 @@
       <span class="ja">人類の歴史の大半で、人口も排出もゆっくりとしか増えませんでした。それがこの50年で一気に膨らみ、いま社会は地球の限界にぶつかっています。しかもその負荷は、<b>ひと握りの豊かな人々に大きく偏っています</b>。気候変動の根っこにあるのは、技術の不足よりも、<b>富の偏りと、使いすぎを前提にした経済</b>です。このページは、なぜ富を分け直し、過剰消費の経済から抜け出す必要があるのかを、データで順に見ていきます。数字にはすべて出典をつけ、私たちの概算にはそう書いています。</span>
       <span class="en">For most of human history, population and emissions grew slowly. In the last 50 years they surged, and society has now run into the planet’s limits. And the load is <b>concentrated in a small, wealthy minority</b>. At the root of climate change lies less a lack of technology than <b>unequal wealth and an economy built on using too much</b>. This page walks through the data on why we need to share wealth fairly and leave the overconsumption economy behind. Every number is sourced, and our own estimates are labelled as such.</span>
     </p>
-<div class="gpick first" id="guidePick" role="group" aria-label="ちきゅうさんの解説">
-  <p class="gp-q">はじめに、読み方を選べます</p>
-  <div class="gp-btns"><span class="gp-l">ちきゅうさんの解説</span>
-    <button data-guide-set="on">🌍 解説あり<small>ちきゅうさんと、やさしい言葉で読む</small></button>
-    <button data-guide-set="off">解説なし<small>データと本文だけで読む</small></button>
+<div class="gpick first" id="guidePick" role="group" aria-label="Guide">
+  <p class="gp-q"><span class="ja">はじめに、読み方を選べます</span><span class="en">How would you like to read?</span></p>
+  <div class="gp-btns"><span class="gp-l"><span class="ja">ちきゅうさんの解説</span><span class="en">Little Earth’s guide</span></span>
+    <button data-guide-set="on">🌍 <span class="ja">解説あり</span><span class="en">Guide on</span><small><span class="ja">ちきゅうさんと、やさしい言葉で読む</span><span class="en">Read along with Little Earth, in plain words</span></small></button>
+    <button data-guide-set="off"><span class="ja">解説なし</span><span class="en">Guide off</span><small><span class="ja">データと本文だけで読む</span><span class="en">Just the data and the text</span></small></button>
   </div>
 </div>
-<div class="guide ja hero-g"><span class="gchar" data-mood="smile"></span><p class="bubble"><span class="nm">ちきゅうさん</span>こんにちは。ここでは、<b>「なぜ社会の仕組みを変える必要があるのか」</b>をいっしょに見ていくよ。だれかを責める話じゃなくて、<b>みんなに足りる世界</b>をどう作るかの話。ゆっくり読んでね。</p></div>
+<div class="guide hero-g"><span class="gchar" data-mood="smile"></span><p class="bubble"><span class="nm"><span class="ja">ちきゅうさん</span><span class="en">Little Earth</span></span><span class="ja">こんにちは。ここでは、<b>「なぜ社会の仕組みを変える必要があるのか」</b>をいっしょに見ていくよ。だれかを責める話じゃなくて、<b>みんなに足りる世界</b>をどう作るかの話。ゆっくり読んでね。</span><span class="en">Hello! Here we’ll look together at <b>why the way society works needs to change</b>. It’s not about blaming anyone — it’s about how to build <b>a world with enough for everyone</b>. Take your time.</span></p></div>
     <div class="cwrap" id="cwrap">
     <button type="button" class="reveal" id="reveal">いまの数字を見る<small>世界の人口・地球の予算・富の偏り</small></button>
     <div class="counter">
@@ -473,7 +473,7 @@
   <div class="wrap">
     <p class="chapter" style="--c:var(--red)"><span class="cn">1</span><span class="ja">急激な変化</span><span class="en">A sudden surge</span></p>
     <h2><span class="ja">人類の歴史の大半は、ゆっくりだった。<br>この50年だけが、違う。</span><span class="en">For most of history, change was slow.<br>The last 50 years are different.</span></h2>
-    <div class="guide ja"><span class="gchar" data-mood="worry"></span><p class="bubble">グラフの右のはしが、ぐっと立ち上がっているよね。いま生きている多くの人は、<b>その急な坂の上で</b>暮らしているんだ。</p></div>
+    <div class="guide"><span class="gchar" data-mood="worry"></span><p class="bubble"><span class="ja">グラフの右のはしが、ぐっと立ち上がっているよね。いま生きている多くの人は、<b>その急な坂の上で</b>暮らしているんだ。</span><span class="en">See how the right-hand end of the chart shoots up? Most people alive today live <b>on that steep slope</b>.</span></p></div>
     <p class="lead narrow"><span class="ja">世界の人口が10億人に達したのは、1800年ごろのことです。1950年には約25億人、1975年には約41億人、そして今は約82億人。<b>この50年で、ほぼ2倍</b>になりました。この30年間だけでも約25億人が増えています。1950年の世界の人口と、ほぼ同じ規模です。</span><span class="en">The world reached one billion people around 1800. By 1950 it was about 2.5 billion, by 1975 about 4.1 billion, and today about 8.2 billion — <b>nearly double in 50 years</b>. In the last 30 years alone we added about 2.5 billion people: as many as lived on Earth in 1950.</span></p>
 
     <div class="card">
@@ -531,7 +531,7 @@
   <div class="wrap">
     <p class="chapter" style="--c:var(--vio)"><span class="cn">2</span><span class="ja">富と排出の偏り</span><span class="en">Unequal wealth, unequal emissions</span></p>
     <h2><span class="ja">富の偏りと、排出の偏りは<br>ほぼ同じ形をしている。</span><span class="en">Wealth inequality and emissions inequality<br>have almost the same shape.</span></h2>
-    <div class="guide ja"><span class="gchar" data-mood="smile"></span><p class="bubble">いちばん多く出している人たちと、いちばん多く持っている人たちは、<b>ほとんど同じ人たち</b>。だから、<b>分け方を変えれば、多くの人は苦しまずにすむ</b>んだ。</p></div>
+    <div class="guide"><span class="gchar" data-mood="smile"></span><p class="bubble"><span class="ja">いちばん多く出している人たちと、いちばん多く持っている人たちは、<b>ほとんど同じ人たち</b>。だから、<b>分け方を変えれば、多くの人は苦しまずにすむ</b>んだ。</span><span class="en">The people who emit the most and the people who own the most are <b>almost the same people</b>. So <b>if we share differently, most people needn’t suffer</b>.</span></p></div>
     <div class="quiz" id="qz-fair" style="--qc:var(--vio)"></div>
     <p class="lead narrow"><span class="ja">世界の人々を所得で3つに分けてみます。<b>上位10%</b>の人々は、世界の資産の約4分の3を持ち、排出の約半分を出しています。<b>下位50%</b>の人々は、資産の約2%しか持たず、排出も約12%ですが、気候の被害を最も強く受けています。</span><span class="en">Split the world’s people into three groups by income. The <b>top 10%</b> own about three-quarters of the world’s wealth and cause about half of emissions. The <b>bottom 50%</b> own about 2% of wealth and cause about 12% of emissions — yet suffer the most from climate damage.</span></p>
     <div class="card">
@@ -588,7 +588,7 @@
   <div class="wrap">
     <p class="chapter" style="--c:var(--amber)"><span class="cn">3</span><span class="ja">地球の限界</span><span class="en">The planet’s limits</span></p>
     <h2><span class="ja">今年の地球の予算は、<br>7月30日に使い切った。</span><span class="en">This year’s Earth budget<br>ran out on 30 July.</span></h2>
-    <div class="guide ja"><span class="gchar" data-mood="worry"></span><p class="bubble">8月からは、<b>未来の分を前借り</b>しているんだ。森や海や土が1年で生み出せる以上を、私たちは使っているよ。</p></div>
+    <div class="guide"><span class="gchar" data-mood="worry"></span><p class="bubble"><span class="ja">8月からは、<b>未来の分を前借り</b>しているんだ。森や海や土が1年で生み出せる以上を、私たちは使っているよ。</span><span class="en">From August on, we’re <b>borrowing from the future</b>. We use more than forests, oceans and soil can regrow in a year.</span></p></div>
     <p class="lead narrow"><span class="ja">アース・オーバーシュート・デーは、人類がその年に使う自然の資源と、吸収してもらう CO₂ が、地球が1年で再生・吸収できる量を超える日です。2026年は<b>7月30日</b>。人類は、地球が再生できる速さの約1.7倍（<b>地球1.73個分</b>）で自然を使っていて、これは記録上最も大きな行き過ぎです。</span><span class="en">Earth Overshoot Day marks the date when humanity’s demand for nature that year — resources used and CO₂ to be absorbed — exceeds what the Earth can regenerate in a year. In 2026 it fell on <b>30 July</b>. We are using nature about 1.7 times faster than it can renew (<b>1.73 Earths</b>), the largest overshoot on record.</span></p>
     <div class="card">
       <h3><span class="ja">2026年のカレンダー</span><span class="en">The 2026 calendar</span></h3>
@@ -656,7 +656,7 @@
   <div class="wrap">
     <p class="chapter" style="--c:var(--blue)"><span class="cn">4</span><span class="ja">どこから出ているか</span><span class="en">Where emissions come from</span></p>
     <h2><span class="ja">排出の4分の3は、エネルギーから。<br>でも、それだけではない。</span><span class="en">Three-quarters of emissions come from energy.<br>But not all.</span></h2>
-    <div class="guide ja"><span class="gchar" data-mood="smile"></span><p class="bubble">円の上を押すと、その中身が見られるよ。<b>電気・移動・ものづくり・食べもの</b>。暮らしのほとんどが、どこかでつながっているんだ。</p></div>
+    <div class="guide"><span class="gchar" data-mood="smile"></span><p class="bubble"><span class="ja">円の上を押すと、その中身が見られるよ。<b>電気・移動・ものづくり・食べもの</b>。暮らしのほとんどが、どこかでつながっているんだ。</span><span class="en">Tap a slice of the circle to see what’s inside: <b>electricity, transport, making things, food</b>. Almost everything in daily life connects somewhere.</span></p></div>
     <p class="lead narrow"><span class="ja">世界の温室効果ガスの排出を部門別に分けると、<b>電気と熱、移動、ものづくり、建物</b>など、エネルギーを使うことによる排出が約77%を占めます。残りは農業、工業の化学反応、廃棄物などです。</span><span class="en">Split global greenhouse gas emissions by sector and about 77% come from using energy — <b>electricity and heat, transport, manufacturing, buildings</b> and more. The rest come from agriculture, industrial processes and waste.</span></p>
     <div class="sect" id="sect"></div>
     <p class="small" style="margin-top:14px"><span class="ja">WRI / Climate Watch（2026年4月更新、2023年のデータ）。土地利用は森林の吸収を差し引いた正味の値で、森林破壊そのものの排出はもっと大きくなります。部門の分け方を変えて「食べもの」で見ると、生産から輸送・加工・廃棄まで、食料システム全体で<b>排出の約3分の1</b>になります（Crippa ら 2021）。</span><span class="en">WRI / Climate Watch (updated April 2026, 2023 data). Land use is net of forest sinks; gross deforestation emissions are much larger. Viewed through food instead, the whole food system — from farm to transport, processing and waste — accounts for <b>about a third of emissions</b> (Crippa et al. 2021).</span></p>
@@ -672,7 +672,7 @@
   <div class="wrap">
     <p class="chapter" style="--c:var(--red)"><span class="cn">5</span><span class="ja">エネルギー</span><span class="en">Energy</span></p>
     <h2><span class="ja">再エネは「置き換え」ではなく、<br>まだ「上乗せ」になっている。</span><span class="en">Renewables are still being added on top,<br>not replacing fossil fuels.</span></h2>
-    <div class="guide ja"><span class="gchar" data-mood="worry"></span><p class="bubble">再エネは、すごい速さで増えているよ。でも<b>化石燃料も、まだ増えている</b>。下の灰色の部分が、ちっとも細くならないんだ。</p></div>
+    <div class="guide"><span class="gchar" data-mood="worry"></span><p class="bubble"><span class="ja">再エネは、すごい速さで増えているよ。でも<b>化石燃料も、まだ増えている</b>。下の灰色の部分が、ちっとも細くならないんだ。</span><span class="en">Renewables are growing amazingly fast. But <b>fossil fuels are still growing too</b>. The grey band at the bottom just won’t get thinner.</span></p></div>
     <div class="quiz" id="qz-energy" style="--qc:var(--red)"></div>
     <p class="lead narrow"><span class="ja">世界のエネルギーの<b>約8割は、いまも化石燃料</b>です。風力と太陽光は急速に伸びていますが、増え続けるエネルギー需要の<b>上乗せ</b>になっていて、化石燃料の使用量そのものは2024年も過去最高でした。2000年から2024年までに、低炭素のエネルギー（再エネ＋原子力）は約17.5 PWh 増えましたが、化石燃料は<b>約48 PWh</b>、その約2.7倍も増えています。</span><span class="en"><b>About 80% of the world’s energy still comes from fossil fuels.</b> Wind and solar are growing fast, but mostly <b>on top of</b> rising demand; fossil fuel use hit another record in 2024. From 2000 to 2024, low-carbon energy (renewables + nuclear) grew by about 17.5 PWh — while fossil fuels grew by <b>about 48 PWh</b>, some 2.7 times as much.</span></p>
     <div class="card">
@@ -692,7 +692,7 @@
     <p class="narrow"><span class="ja">歴史家のジャン＝バティスト・フレソズは、人類のエネルギーの歴史に「移行」はほとんどなく、あったのは<b>「追加」</b>だったと指摘しています。石炭の時代にも木材の使用は増え続け、石油の時代にも石炭は増え続けました。効率が上がると、かえって使う量が増える「リバウンド効果（ジェボンズのパラドックス）」もあります。気候を安定させるには、新しいエネルギーを足すだけでなく、<b>化石燃料を意図して減らし、エネルギーの総量を抑える</b>ことが必要です。</span><span class="en">Historian Jean-Baptiste Fressoz argues that the history of energy has had almost no “transitions” — only <b>additions</b>. Wood use kept growing in the coal age, and coal kept growing in the oil age. Efficiency gains can even raise total use (the rebound effect, or Jevons paradox). To stabilise the climate we must not only add new energy but <b>deliberately cut fossil fuels and cap total energy use</b>.</span></p>
 
     <h3 style="margin-top:44px"><span class="ja">「再エネが石炭を超えた」のに、なぜ減らないの？</span><span class="en">“Renewables overtook coal” — so why aren’t emissions falling?</span></h3>
-    <div class="guide ja"><span class="gchar" data-mood="smile"></span><p class="bubble">ニュースの「再エネが石炭を超えた」は、<b>電気の話</b>なんだ。電気は、使っているエネルギー全体の<b>2割くらい</b>。残りの8割、つまり工場の熱や暖房、車や飛行機や船の燃料は、まだほとんど化石燃料のままなんだよ。</p></div>
+    <div class="guide"><span class="gchar" data-mood="smile"></span><p class="bubble"><span class="ja">ニュースの「再エネが石炭を超えた」は、<b>電気の話</b>なんだ。電気は、使っているエネルギー全体の<b>2割くらい</b>。残りの8割、つまり工場の熱や暖房、車や飛行機や船の燃料は、まだほとんど化石燃料のままなんだよ。</span><span class="en">When the news says “renewables overtook coal”, that’s <b>about electricity</b>. Electricity is only <b>about a fifth</b> of all the energy we use. The other four-fifths — heat for factories and homes, fuel for cars, planes and ships — is still mostly fossil fuels.</span></p></div>
     <p class="narrow"><span class="ja">2025年、世界の発電量で再エネ（約34%）が初めて石炭を上回りました（上半期は再エネ34.3%、石炭33.1%）。これは本当に大きな前進です。でも電気は、私たちが最終的に使うエネルギーの<b>約21%</b>にすぎません。エネルギーの<b>ほぼ半分は「熱」</b>（工場の高温、暖房、給湯、調理）、<b>約3割は「運輸」</b>で、そこでの再エネの割合は、熱で約13%、運輸ではわずか<b>約4%</b>です。エネルギー全体で見ると、再エネは<b>約13%</b>にとどまります。</span><span class="en">In 2025, renewables (about 34%) generated more of the world’s electricity than coal for the first time (34.3% vs 33.1% in the first half). That is real progress. But electricity is only <b>about 21%</b> of the energy we finally use. <b>Almost half is heat</b> (industrial heat, space and water heating, cooking) and <b>about 30% is transport</b> — where renewables supply about 13% and just <b>about 4%</b> respectively. Across all energy, renewables come to <b>about 13%</b>.</span></p>
     <div class="card">
       <h3><span class="ja">再エネの割合、使い道ごとに</span><span class="en">Renewable share, by use</span></h3>
@@ -759,7 +759,7 @@
   <div class="wrap">
     <p class="chapter" style="--c:var(--red)"><span class="cn">6</span><span class="ja">ギャップ</span><span class="en">The gap</span></p>
     <h2><span class="ja">必要な削減と、各国の約束。<br>その間には、大きな溝がある。</span><span class="en">What is needed, and what is promised.<br>Between them lies a wide gap.</span></h2>
-    <div class="guide ja"><span class="gchar" data-mood="worry"></span><p class="bubble">いまの約束をぜんぶ守っても、1.5℃に必要な削減の<b>5分の1ほど</b>しか減らないんだ。しかも、その約束もまだ守れていないよ。</p></div>
+    <div class="guide"><span class="gchar" data-mood="worry"></span><p class="bubble"><span class="ja">いまの約束をぜんぶ守っても、1.5℃に必要な削減の<b>5分の1ほど</b>しか減らないんだ。しかも、その約束もまだ守れていないよ。</span><span class="en">Even if every current pledge were kept, emissions would fall by only <b>about a fifth</b> of what 1.5°C needs. And those pledges aren’t being kept yet.</span></p></div>
     <p class="lead narrow"><span class="ja">世界の温室効果ガスの排出は、2024年も前年より2.3%増えて、過去最高の<b>約577億 t</b>（CO₂ 換算）になりました。国連環境計画（UNEP）の「排出ギャップ報告」は、パリ協定の目標に必要な削減と、各国の約束（NDC）との差を毎年まとめています。</span><span class="en">Global greenhouse gas emissions rose another 2.3% in 2024 to a record <b>57.7 billion tonnes</b> (CO₂-equivalent). Each year the UN Environment Programme’s Emissions Gap Report compares the cuts needed for the Paris goals with what countries have pledged (their NDCs).</span></p>
     <div class="card">
       <h3><span class="ja">2035年の排出、2019年と比べて</span><span class="en">Emissions in 2035, compared with 2019</span></h3>
@@ -798,7 +798,7 @@
   <div class="wrap">
     <p class="chapter" style="--c:var(--amber)"><span class="cn">7</span><span class="ja">成長の限界</span><span class="en">The limits of growth</span></p>
     <h2><span class="ja">「グリーン成長」だけでは、<br>間に合わない。</span><span class="en">“Green growth” alone<br>won’t get there in time.</span></h2>
-    <div class="guide ja"><span class="gchar" data-mood="smile"></span><p class="bubble">でもね、いい知らせもあるよ。<b>みんながちゃんと暮らすのに必要なエネルギーは、いまよりずっと少なくてすむ</b>んだって。</p></div>
+    <div class="guide"><span class="gchar" data-mood="smile"></span><p class="bubble"><span class="ja">でもね、いい知らせもあるよ。<b>みんながちゃんと暮らすのに必要なエネルギーは、いまよりずっと少なくてすむ</b>んだって。</span><span class="en">But there’s good news too. <b>The energy everyone needs for a decent life is far less than we use now</b>.</span></p></div>
     <p class="lead narrow"><span class="ja">経済を成長させながら排出を減らす「デカップリング」は、一部の豊かな国で実際に起きています。ただし、その速さは必要な速さに遠く及びません。</span><span class="en">“Decoupling” — growing the economy while cutting emissions — is happening in some rich countries. But nowhere near fast enough.</span></p>
     <div class="stats">
       <div><div class="v num"><span class="ja">220年以上</span><span class="en">220+ years</span></div><div class="k"><span class="ja">デカップリングに成功した豊かな11か国が、いまの速さで排出を95%減らすのにかかる年数</span><span class="en">Time for 11 rich countries that achieved decoupling to cut emissions 95% at their current pace</span></div><div class="s"><span class="ja">その間に、1.5℃の公平な取り分の約27倍を排出（Vogel & Hickel 2023）</span><span class="en">Emitting ~27× their fair 1.5°C share on the way (Vogel & Hickel 2023)</span></div></div>
@@ -823,7 +823,7 @@
   <div class="wrap">
     <p class="chapter" style="--c:var(--green)"><span class="cn">8</span><span class="ja">変革の方向</span><span class="en">The direction of change</span></p>
     <h2><span class="ja">分け直し、使いすぎをやめ、<br>みんなに足りる経済へ。</span><span class="en">Share fairly, stop overusing,<br>build an economy that is enough for all.</span></h2>
-    <div class="guide ja"><span class="gchar" data-mood="happy"></span><p class="bubble">ここまで読んでくれて、ありがとう。<b>減らすのは「過剰」、増やすのは「足りないところ」</b>。そう考えると、変えることは怖くないよ。</p></div>
+    <div class="guide"><span class="gchar" data-mood="happy"></span><p class="bubble"><span class="ja">ここまで読んでくれて、ありがとう。<b>減らすのは「過剰」、増やすのは「足りないところ」</b>。そう考えると、変えることは怖くないよ。</span><span class="en">Thank you for reading this far. <b>Cut the excess, add where there isn’t enough.</b> Seen that way, change isn’t so scary.</span></p></div>
     <p class="lead narrow"><span class="ja">ここまでのデータが示す方向はひとつです。地球の限界の内側に戻りながら、すべての人の暮らしを支える。そのためには、<b>富を分け直すこと</b>と、<b>過剰消費を前提にした経済から抜け出すこと</b>を、セットで進める必要があります。どちらか一方だけでは、うまくいきません。</span><span class="en">The data point one way: return within the planet’s limits while supporting everyone’s life. That means <b>redistributing wealth</b> and <b>leaving an economy built on overconsumption</b> — together. Either one alone will fail.</span></p>
 
     <div class="card dn">
@@ -1383,6 +1383,7 @@ function setLang(l) {
   document.documentElement.lang = l;
   document.documentElement.classList.remove('ja', 'en'); document.documentElement.classList.add(l);
   try { localStorage.setItem('en-lang', l); } catch (e) {}
+  if (window.cwmGuideApply) window.cwmGuideApply();
   document.querySelectorAll('.lang button[data-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
   document.title = l === 'ja' ? '足りる経済へ — 地球ひとつを、みんなで分ける' : 'Enough for All — one Earth, shared fairly';
   renderSpeed(); renderCbar(); renderQuiz(); renderDelay(); renderCdr(); renderBirth(); renderIneq(); renderLab(); renderCal(); renderEarths(); renderPB(); renderSect(); renderEnergy(); renderOver(); tick(); setShare();
@@ -1566,11 +1567,14 @@ setInterval(tick, 1000);
   const KEY = 'cwm-guide';
   let g = null;
   try { const q = new URLSearchParams(location.search).get('guide'); if (q === 'on' || q === 'off') { g = q; localStorage.setItem(KEY, q); } else g = localStorage.getItem(KEY); } catch (e) {}
+  // 選ぶ前は、日本語では「解説あり」、英語では「解説なし」。選んだあとは、どちらの言語でもその選択に従う
+  const L = () => { const h = document.documentElement; return h.classList.contains('en') ? 'en' : h.classList.contains('ja') ? 'ja' : (h.lang === 'ja' ? 'ja' : 'en'); };
   const apply = () => {
-    document.documentElement.classList.toggle('noguide', g === 'off');
+    const chosen = g === 'on' || g === 'off', eff = chosen ? g : (L() === 'ja' ? 'on' : 'off');
+    document.documentElement.classList.toggle('noguide', eff === 'off');
     const box = document.getElementById('guidePick'); if (!box) return;
-    box.classList.toggle('first', g !== 'on' && g !== 'off');
-    box.querySelectorAll('[data-guide-set]').forEach(b => b.setAttribute('aria-pressed', b.dataset.guideSet === g));
+    box.classList.toggle('first', !chosen && L() === 'ja');
+    box.querySelectorAll('[data-guide-set]').forEach(b => b.setAttribute('aria-pressed', (chosen || L() === 'en') && b.dataset.guideSet === eff));
   };
   // 「解説なし」なら冒頭の数字をすぐ見せ、「解説あり」なら隠した初期状態に戻す
   const reveal = () => { const cw = document.getElementById('cwrap'); if (cw) cw.classList.toggle('open', g === 'off'); };
