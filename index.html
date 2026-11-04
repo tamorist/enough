@@ -92,6 +92,14 @@
   .quiz .qr { font-size: 14.5px; margin: 0; }
   .quiz .qr b.big { font-size: 20px; color: var(--qc, var(--vio)); }
   @media (max-width: 560px) { .quiz .qrow { grid-template-columns: 1fr auto; } .quiz .qrow input { grid-column: 1 / -1; } }
+  .dly .res { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; align-items: end; margin: 10px 0 4px; }
+  .dly .big { font-size: clamp(38px, 7vw, 54px); font-weight: 900; line-height: 1; }
+  .dly .res .s { font-size: 13.5px; color: var(--muted); }
+  .dly .res .s b { color: var(--ink); }
+  .dly .sl { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; align-items: center; font-size: 14px; margin: 6px 0; }
+  .dly .sl input { grid-column: 1 / -1; }
+  .dly .sl .o { font-weight: 700; }
+  @media (max-width: 560px) { .dly .res { grid-template-columns: 1fr; } }
   .lab .why { margin: 0; padding: 10px 14px; border-left: 3px solid var(--vio); background: var(--bg2); border-radius: 0 8px 8px 0; font-size: 14px; line-height: 1.7; }
   .lab .lbar { position: relative; height: 34px; background: var(--bg3); border-radius: 8px; margin: 26px 0 30px; }
   .lab .lbar .seg { position: absolute; top: 0; bottom: 0; transition: left .25s, width .25s; }
@@ -678,6 +686,18 @@
       </div>
       <p class="small" style="margin-top:12px"><span class="ja">さらに、ここ10年で温暖化が<b>加速している</b>という研究があります（Foster & Rahmstorf 2026：10年あたり約0.35℃、1970〜2015年は0.2℃弱）。この速さが続くなら、残りの予算はもっと小さいかもしれません。そして、削減を始めるのが1年遅れるごとに、必要な速さは上がります。<b>年4%は「これでよい」数字ではなく、最低ライン</b>と考えたほうが安全です。</span><span class="en">Research also finds that warming has <b>accelerated</b> over the past decade (Foster & Rahmstorf 2026: ~0.35°C per decade, versus just under 0.2°C in 1970–2015). If that continues, the remaining budget may be smaller still. And every year of delay raises the pace required. <b>4% a year is not “good enough” — it is the bare minimum.</b></span></p>
       <p class="small" style="margin-top:8px"><span class="ja">2℃の2本は、CO₂ を2026年はじめの年420億 t から毎年同じ割合で減らし続けて予算に収める場合の、私たちの概算（必要な削減率 ≒ 年の排出 ÷ 残りの予算）。予算は2026年はじめ時点の CO₂ のみ。UNEP の1.5℃は温室効果ガス全体の値で、厳密には同じ物差しではありません。</span><span class="en">The two 2°C bars are our estimate for cutting CO₂ by the same percentage every year from 42 Gt at the start of 2026 so that the total stays within the budget (rate ≈ annual emissions ÷ remaining budget). Budgets are CO₂-only, from the start of 2026. UNEP’s 1.5°C figure covers all greenhouse gases, so it is not strictly the same yardstick.</span></p>
+    </div>
+    <div class="card dly" id="delay" style="scroll-margin-top:80px">
+      <h3><span class="ja">始めるのが遅れたら？</span><span class="en">What if we start late?</span></h3>
+      <p class="small" style="margin:0 0 10px"><span class="ja">減らし始めるのを先に延ばし、その間は排出がいまのまま（年420億 t）だとすると、2℃に収めるために必要な毎年の削減は、どこまで上がるでしょう。</span><span class="en">Suppose we put off starting and emissions stay where they are (42 Gt a year) in the meantime. How fast would we then have to cut each year to stay under 2°C?</span></p>
+      <div class="tabs" role="group" aria-label="View">
+        <button data-dv="main" aria-pressed="true"><span class="ja">主流の評価（2℃・確率50%）</span><span class="en">Mainstream (2°C, 50% chance)</span></button>
+        <button data-dv="risk" aria-pressed="false"><span class="ja">危険側の見方（2℃・確率83%）</span><span class="en">High-risk view (2°C, 83% chance)</span></button>
+      </div>
+      <div class="sl"><label for="dlyR"><span class="ja">減らし始める年</span><span class="en">Year cuts begin</span></label><div class="o num" id="dlyO"></div><input type="range" id="dlyR" min="0" max="25" step="1" value="0"></div>
+      <div class="res"><div class="big num" id="dlyBig"></div><div class="s" id="dlyS"></div></div>
+      <div class="chart" id="dlyChart"></div>
+      <p class="small" style="margin-top:8px"><span class="ja"><b>私たちの概算です。</b><a href="#rate4">上のカード</a>と同じ計算で、CO₂ を始める年から毎年同じ割合で減らし続け、合計を残りの予算（2026年はじめから、主流 1兆550億 t、危険側 5,380億 t）に収める場合の削減率です。実際には遅れる間も排出が増えたり、温暖化の加速で予算が小さくなったりする可能性があり、その場合はもっと厳しくなります。グラフの面積が、使える CO₂ の量にあたります。</span><span class="en"><b>Our own estimate</b>, using the same method as <a href="#rate4">the card above</a>: CO₂ is cut by the same percentage every year from the start year, so that the total stays within the remaining budget (from the start of 2026: 1,055 Gt mainstream, 538 Gt high-risk). In reality emissions might keep rising during the delay, or accelerating warming might shrink the budget, which would make it harsher still. The area under the line is the CO₂ that can still be emitted.</span></p>
     </div>
     <div class="callout v">
       <p style="margin:0"><span class="ja"><b>私たちの考え：</b>再エネが安くなり、市場で自然に広がるのを待つだけでは、必要な速さには届かないと考えます。社会が止まったコロナ禍の年ですら5.4%しか減らなかったものを、<b>毎年7.5%ずつ</b>、しかも暮らしを守りながら減らすには、かなり強い強制力のある<b>ルール</b>が必要です。たとえば、化石燃料の生産と使用に法律で上限と終わりの期限を決める、新しいガスボイラーやガソリン車の販売を期限を切って終える、化石燃料への補助をやめる、といったことです。そして、そのルールが受け入れられるには、負担を<a href="#fair">いちばん多く排出している人たち</a>から先に求め、収入の少ない人には支えを回す設計が欠かせません。</span><span class="en"><b>Our view:</b> waiting for cheap renewables to spread through the market will not reach the speed needed. Emissions fell only 5.4% in the year the pandemic stopped much of the world; cutting <b>7.5% every year</b>, while protecting people’s lives, takes <b>rules with real force</b> — for example, legal caps and end dates for fossil fuel production and use, set deadlines to stop selling new gas boilers and petrol cars, and an end to fossil fuel subsidies. For such rules to be accepted, the burden must fall first on <a href="#fair">those who emit the most</a>, with support directed to people on low incomes.</span></p>
@@ -1313,7 +1333,7 @@ function setLang(l) {
   try { localStorage.setItem('en-lang', l); } catch (e) {}
   document.querySelectorAll('.lang button[data-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
   document.title = l === 'ja' ? '足りる経済へ — 地球ひとつを、みんなで分ける' : 'Enough for All — one Earth, shared fairly';
-  renderSpeed(); renderCbar(); renderQuiz(); renderBirth(); renderIneq(); renderLab(); renderCal(); renderEarths(); renderPB(); renderSect(); renderEnergy(); renderOver(); tick(); setShare();
+  renderSpeed(); renderCbar(); renderQuiz(); renderDelay(); renderBirth(); renderIneq(); renderLab(); renderCal(); renderEarths(); renderPB(); renderSect(); renderEnergy(); renderOver(); tick(); setShare();
 }
 function guideSVG(mood) {
   const brow = mood === 'worry' ? '<path d="M37 44l8-3M71 41l8 3" stroke="#2b2f2c" stroke-width="2.6" stroke-linecap="round"/>' : '';
@@ -1343,6 +1363,51 @@ function setShare() {
   $('shareX').href = 'https://x.com/intent/post?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(SITE_URL);
 }
 
+// ---- 始めるのが遅れたら（私たちの概算：削減率 ≒ 年の排出 ÷ 残りの予算）
+const DLY_E = 42, DLY_B = { main: 1055, risk: 538 }, DLY_Y0 = 2026;
+let dView = 'main';
+function renderDelay() {
+  const d = +$('dlyR').value, B = DLY_B[dView], left = B - DLY_E * d, p0 = DLY_E / B, p = left > 0 ? DLY_E / left : Infinity;
+  const col = dView === 'risk' ? 'var(--red)' : 'var(--amber)';
+  document.querySelectorAll('[data-dv]').forEach(b => b.setAttribute('aria-pressed', b.dataset.dv === dView));
+  $('dlyO').textContent = (ja() ? (DLY_Y0 + d) + '年' : DLY_Y0 + d) + (d === 0 ? (ja() ? '（いますぐ）' : ' (now)') : (ja() ? `（${d}年遅れ）` : ` (${d} yr${d > 1 ? 's' : ''} late)`));
+  const gt = g => ja() ? (g >= 1000 ? `1兆${fmt((g - 1000) * 10)}億 t` : fmt(g * 10) + '億 t') : fmt(g) + ' Gt';
+  const big = $('dlyBig');
+  if (p >= 1) {
+    const yr = DLY_Y0 + Math.floor(B / DLY_E);
+    big.textContent = ja() ? '間に合わない' : 'Too late';
+    big.style.fontSize = 'clamp(28px, 5vw, 40px)'; big.style.color = 'var(--red)';
+    $('dlyS').innerHTML = ja() ? `いまの排出が続くと、この予算は<b>${yr}年ごろに使い切ります</b>。そこから一気にゼロにしても、2℃には収まりません。` : `At today’s emissions this budget is <b>used up around ${yr}</b>. Even dropping to zero at once would not keep warming under 2°C.`;
+  } else {
+    const pc = p * 100, k = p / p0, cv = pc / 5.4, cvJ = cv < 0.95 ? `の${Math.round(cv * 10)}割ほど` : `の約${fmt(cv, 1)}倍`, cvE = cv < 0.95 ? `about ${Math.round(cv * 10) * 10}% of` : `about ${fmt(cv, 1)}×`;
+    big.textContent = (ja() ? '年 ' : '') + fmt(pc, pc < 10 ? 1 : 0) + '%' + (ja() ? '' : ' a year');
+    big.style.fontSize = ''; big.style.color = pc >= 15 ? 'var(--red)' : pc >= 7 ? 'var(--red2)' : 'var(--ink)';
+    const left2 = ja() ? `残りの予算 ${gt(left)}。` : `Budget left: ${gt(left)}. `;
+    const cmp = d === 0
+      ? (ja() ? `いますぐ始めた場合の、毎年の削減です。コロナ禍の2020年の減少（5.4%）${cvJ}を、毎年続ける計算です。` : `The yearly cut if we start now — ${cvE} the pandemic drop of 2020 (5.4%), every year.`)
+      : (ja() ? `いますぐ始めれば年${fmt(p0 * 100, 1)}%で済んだものが、<b>約${fmt(k, 1)}倍</b>になります。コロナ禍の年の減少（5.4%）<b>${cvJ}</b>を、毎年続ける計算です。` : `Starting now would need ${fmt(p0 * 100, 1)}% a year; this is <b>about ${fmt(k, 1)}×</b> that — <b>${cvE}</b> the pandemic drop of 2020 (5.4%), every year.`);
+    $('dlyS').innerHTML = left2 + cmp;
+  }
+  // グラフ：排出の道筋（面積＝使える CO₂）
+  fit($('dlyChart'));
+  const x0 = DLY_Y0, x1 = 2080, y1 = 50, X = y => sx(y, x0, x1), Y = v => sy(v, y1);
+  const path = (dd, BB) => {
+    const l = BB - DLY_E * dd, pp = l > 0 ? DLY_E / l : null, pts = [];
+    if (pp === null || pp >= 1) { const t = x0 + BB / DLY_E; pts.push([x0, DLY_E], [t, DLY_E], [t, 0]); return pts; }
+    pts.push([x0, DLY_E]);
+    for (let t = x0 + dd, v = DLY_E; t <= x1; t++, v *= 1 - pp) pts.push([t, v]);
+    return pts;
+  };
+  const toD = pts => 'M' + pts.map(([a, b]) => `${X(Math.min(a, x1)).toFixed(1)},${Y(b).toFixed(1)}`).join(' L');
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${ja() ? '排出の道筋' : 'Emissions pathway'}">`;
+  s += axes(x0, x1, y1, narrow ? [2026, 2040, 2060, 2080] : [2026, 2030, 2040, 2050, 2060, 2070, 2080], [0, 10, 20, 30, 40], v => v + (v === 40 ? ' Gt' : ''));
+  const pts = path(d, B);
+  s += `<path d="${toD(pts)} L${X(Math.min(pts[pts.length - 1][0], x1)).toFixed(1)},${Y(0)} L${X(x0)},${Y(0)} Z" fill="${col}" opacity=".35"/>`;
+  if (d > 0) s += `<path d="${toD(path(0, B))}" fill="none" stroke="var(--muted)" stroke-width="1.4" stroke-dasharray="4 3"/>`;
+  s += `<path d="${toD(pts)}" fill="none" stroke="${col}" stroke-width="2.2"/>`;
+  if (d > 0) s += `<text class="ax" x="${X(x0 + 1)}" y="${Y(DLY_E) - 8}">${ja() ? '点線：いますぐ始めた場合' : 'Dashed: starting now'}</text>`;
+  $('dlyChart').innerHTML = s + '</svg>';
+}
 // ---- 予想してから見る
 const QUIZ = {
   speed: { ans: () => Math.round(cumFrom(1975) / TOTAL * 100),
@@ -1394,6 +1459,7 @@ document.addEventListener('click', e => {
   else if (b.dataset.sp) { sp = b.dataset.sp; renderSpeed(); }
   else if (b.dataset.en) { enMode = b.dataset.en; renderEnergy(); }
   else if (b.dataset.ev) { eView = b.dataset.ev; renderEarths(); }
+  else if (b.dataset.dv) { dView = b.dataset.dv; renderDelay(); }
   else if (b.dataset.preset) { labCut = [...LAB_PRESETS[b.dataset.preset]]; renderLab(); }
   else if (b.id === 'reveal') $('cwrap').classList.add('open');
   else if (b.id === 'copyLink') {
@@ -1403,8 +1469,9 @@ document.addEventListener('click', e => {
   }
 });
 $('byr').addEventListener('input', renderBirth);
+$('dlyR').addEventListener('input', renderDelay);
 $('labSl').addEventListener('input', e => { const i = e.target.dataset.gi; if (i !== undefined) { labCut[i] = +e.target.value; renderLab(); } });
-let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { renderSpeed(); renderEnergy(); }, 150); });
+let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { renderSpeed(); renderEnergy(); renderDelay(); }, 150); });
 
 setLang(lang);
 setInterval(tick, 1000);
