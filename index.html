@@ -164,6 +164,21 @@
   .hero .q .ib { display: inline-block; }
   .hero p { color: #bdbab1; max-width: 680px; font-size: clamp(15px, 2.2vw, 18px); }
   .hero p b { color: #efece4; }
+  /* ちきゅうさんの解説 あり／なし（姉妹サイト共通） */
+  .gpick { background: #fff; color: #1d1f1c; border: 1px solid rgba(0,0,0,.12); border-radius: 14px; padding: 12px 14px; margin: 18px 0 6px; max-width: 680px; font-size: 13px; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+  .gpick .gp-q { margin: 0 0 8px; font-weight: 700; font-size: 14px; color: #1d1f1c !important; }
+  .gpick .gp-btns { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .gpick .gp-l { color: #6b6e66; font-size: 12.5px; }
+  .gpick button { font: inherit; font-size: 13.5px; text-align: left; background: #f4f1ea; color: #1d1f1c; border: 1px solid rgba(0,0,0,.14); border-radius: 10px; padding: 8px 12px; cursor: pointer; line-height: 1.4; }
+  .gpick button small { display: block; font-size: 11.5px; color: #6b6e66; font-weight: 400; }
+  .gpick button[aria-pressed="true"] { background: #1d1f1c; color: #fff; border-color: #1d1f1c; font-weight: 700; }
+  .gpick button[aria-pressed="true"] small { color: rgba(255,255,255,.75); }
+  .gpick.first .gp-l { display: none; }
+  .gpick:not(.first) { display: inline-block; padding: 6px 10px; border-radius: 999px; }
+  .gpick:not(.first) .gp-q, .gpick:not(.first) button small { display: none; }
+  .gpick:not(.first) button { padding: 3px 11px; border-radius: 999px; font-size: 12.5px; }
+  html.en .gpick, .gpick[hidden] { display: none !important; }
+  html.noguide .guide, html.noguide .sw-guide { display: none !important; }
   .guide { display: flex; align-items: flex-end; gap: 10px; margin: 18px 0 22px; max-width: 680px; }
   .guide .gchar { flex: 0 0 64px; width: 64px; height: 64px; }
   .guide .gchar svg { width: 100%; height: 100%; display: block; }
@@ -405,6 +420,13 @@
       <span class="ja">人類の歴史の大半で、人口も排出もゆっくりとしか増えませんでした。それがこの50年で一気に膨らみ、いま社会は地球の限界にぶつかっています。しかもその負荷は、<b>ひと握りの豊かな人々に大きく偏っています</b>。気候変動の根っこにあるのは、技術の不足よりも、<b>富の偏りと、使いすぎを前提にした経済</b>です。このページは、なぜ富を分け直し、過剰消費の経済から抜け出す必要があるのかを、データで順に見ていきます。数字にはすべて出典をつけ、私たちの概算にはそう書いています。</span>
       <span class="en">For most of human history, population and emissions grew slowly. In the last 50 years they surged, and society has now run into the planet’s limits. And the load is <b>concentrated in a small, wealthy minority</b>. At the root of climate change lies less a lack of technology than <b>unequal wealth and an economy built on using too much</b>. This page walks through the data on why we need to share wealth fairly and leave the overconsumption economy behind. Every number is sourced, and our own estimates are labelled as such.</span>
     </p>
+<div class="gpick first" id="guidePick" role="group" aria-label="ちきゅうさんの解説">
+  <p class="gp-q">はじめに、読み方を選べます</p>
+  <div class="gp-btns"><span class="gp-l">ちきゅうさんの解説</span>
+    <button data-guide-set="on">🌍 解説あり<small>ちきゅうさんと、やさしい言葉で読む</small></button>
+    <button data-guide-set="off">解説なし<small>データと本文だけで読む</small></button>
+  </div>
+</div>
 <div class="guide ja hero-g"><span class="gchar" data-mood="smile"></span><p class="bubble"><span class="nm">ちきゅうさん</span>こんにちは。ここでは、<b>「なぜ社会の仕組みを変える必要があるのか」</b>をいっしょに見ていくよ。だれかを責める話じゃなくて、<b>みんなに足りる世界</b>をどう作るかの話。ゆっくり読んでね。</p></div>
     <div class="cwrap" id="cwrap">
     <button type="button" class="reveal" id="reveal">いまの数字を見る<small>世界の人口・地球の予算・富の偏り</small></button>
@@ -1539,6 +1561,25 @@ let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() 
 
 setLang(lang);
 setInterval(tick, 1000);
+// ---- ちきゅうさんの解説 あり／なし（姉妹サイト共通の設定。同じドメインなので localStorage を共有。?guide=on|off でも指定できる）
+(function () {
+  const KEY = 'cwm-guide';
+  let g = null;
+  try { const q = new URLSearchParams(location.search).get('guide'); if (q === 'on' || q === 'off') { g = q; localStorage.setItem(KEY, q); } else g = localStorage.getItem(KEY); } catch (e) {}
+  const apply = () => {
+    document.documentElement.classList.toggle('noguide', g === 'off');
+    const box = document.getElementById('guidePick'); if (!box) return;
+    box.classList.toggle('first', g !== 'on' && g !== 'off');
+    box.querySelectorAll('[data-guide-set]').forEach(b => b.setAttribute('aria-pressed', b.dataset.guideSet === g));
+  };
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-guide-set]'); if (!b) return;
+    g = b.dataset.guideSet; try { localStorage.setItem(KEY, g); } catch (e) {}
+    apply();
+  });
+  window.cwmGuideApply = apply;
+  apply();
+})();
 </script>
 </body>
 </html>
