@@ -98,6 +98,12 @@
   .sq .bx i { position: absolute; left: 0; bottom: 0; display: block; }
   .sq .it p { margin: 6px 0 0; font-size: 12px; line-height: 1.45; color: var(--muted); }
   .sq .it p b { display: block; font-size: 14px; color: var(--ink); }
+  .hb { display: grid; grid-template-columns: minmax(120px, 34%) 1fr; gap: 8px 12px; align-items: center; margin: 8px 0 4px; font-size: 13px; }
+  .hb .l { color: var(--muted); line-height: 1.4; }
+  .hb .l b { display: block; color: var(--ink); font-size: 14px; }
+  .hb .t { position: relative; height: 22px; background: var(--bg3); border-radius: 4px; }
+  .hb .t i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; }
+  .hb .t span { position: absolute; top: 50%; transform: translateY(-50%); font-size: 12px; white-space: nowrap; color: var(--muted); }
   .sq-h { font-size: 13px; font-weight: 700; margin: 16px 0 0; }
   .dly .res { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; align-items: end; margin: 10px 0 4px; }
   .dly .big { font-size: clamp(38px, 7vw, 54px); font-weight: 900; line-height: 1; }
@@ -716,7 +722,7 @@
         <p class="small"><span class="ja"><b>② 主流のシナリオは「正味ゼロ」をめざします。</b>IPCC 第6次報告で、2℃（確率67%以上）に抑える道筋は、中央値で<b>2070年代前半に CO₂ の正味ゼロ</b>に達し、その後わずかに正味マイナスになります（約400億 t）。「まっすぐ正味ゼロへ」を選ぶと、主流の評価でいますぐ始めた場合、ちょうどそのころ（2076年）にゼロになります。</span><span class="en"><b>② Mainstream scenarios aim for net zero.</b> In the IPCC’s Sixth Assessment, pathways that keep warming below 2°C (>67% chance) reach <b>net-zero CO₂ in the early 2070s</b> (median), then go slightly net negative (about 40 Gt). Choose “straight line to net zero” and the mainstream view, starting now, reaches zero at about that time (2076).</span></p>
         <p class="small"><span class="ja"><b>③ その「正味ゼロ」は、大量の CO₂ 除去が前提です。</b>農業や重工業などで残る排出を、植林や、バイオマス発電＋CO₂ の回収・貯留（BECCS）、空気から直接回収する技術などで<b>取り除いて相殺する</b>という意味で、2100年までの除去量は、多くのモデルで<b>約5,000億 t 前後</b>（いまの排出の十数年分）、多いものでは約1兆 t にのぼります。予算は「出す量 − 取り除く量」なので、除去を当てにすると、そのぶん多く出せるように見えます。けれども、その規模の除去は、実用化の途中の技術や広い土地に頼っていて、確実ではありません。除去が足りなければ、出してよい量はもっと少なくなります。</span><span class="en"><b>③ That net zero assumes large-scale CO₂ removal.</b> It means remaining emissions from farming, heavy industry and so on are <b>cancelled out by removing CO₂</b> — through forests, bioenergy with carbon capture and storage (BECCS), direct air capture and more. Most models remove <b>around 500 Gt</b> by 2100 (more than a decade of today’s emissions), some up to about 1,000 Gt. A budget is “emitted minus removed”, so counting on removal makes it look as if more can be emitted. But removal at that scale relies on immature technology and large areas of land, and is not assured. If removal falls short, even less can be emitted.</span></p>
         <div id="cdrViz"></div>
-        <p class="small" style="margin-top:6px"><span class="ja">四角の<b>面積</b>が量を表します。上の段と下の段は縮尺が違います。これまでの排出は、IPCC 第6次報告の1850〜2019年の累計（約2兆3,900億 t）に、2020〜2025年の排出（Global Carbon Budget）を足した私たちの概算で、土地利用を含みます。除去の想定は、IPCC の2℃の道筋の多くのモデルの値（約5,000億 t、点線は多いモデルの約1兆 t）。いまの除去は The State of Carbon Dioxide Removal（2024）による値です。</span><span class="en">The <b>area</b> of each square shows the amount; the top and bottom rows use different scales. Past emissions are our estimate: the IPCC AR6 total for 1850–2019 (~2,390 Gt) plus 2020–2025 emissions (Global Carbon Budget), including land use. Assumed removal is the typical value in IPCC 2°C model pathways (~500 Gt; the dashed outline is ~1,000 Gt in high-removal models). Current removal is from The State of Carbon Dioxide Removal (2024).</span></p>
+        <p class="small" style="margin-top:6px"><span class="ja">上の段は四角の<b>面積</b>、下の段は棒の<b>長さ</b>が量を表します。これまでの排出は、IPCC 第6次報告の1850〜2019年の累計（約2兆3,900億 t）に、2020〜2025年の排出（Global Carbon Budget）を足した私たちの概算で、土地利用を含みます。除去の想定は、IPCC の2℃の道筋の多くのモデルの値（約5,000億 t、点線は多いモデルの約1兆 t）。いまの除去は The State of Carbon Dioxide Removal（2024）による値で、「2100年まで続いた場合」はそれを75年分（2026〜2100年）足した私たちの概算です。植林などの除去は、排出の統計の土地利用の部分に一部含まれていることもあり、比較はおおまかな目安です。</span><span class="en">In the top row the <b>area</b> of each square shows the amount; in the bottom row, the <b>length</b> of each bar. Past emissions are our estimate: the IPCC AR6 total for 1850–2019 (~2,390 Gt) plus 2020–2025 emissions (Global Carbon Budget), including land use. Assumed removal is the typical value in IPCC 2°C model pathways (~500 Gt; the dashed outline is ~1,000 Gt in high-removal models). Current removal is from The State of Carbon Dioxide Removal (2024); “continued to 2100” is our estimate, adding 75 years of it (2026–2100). Forest removal is partly already counted in the land-use part of emissions statistics, so treat the comparison as a rough guide.</span></p>
         <p class="small"><span class="ja"><b>④ そして2℃は「安全な線」ではありません。</b>確率50%で2℃に収まる道筋でも、いくつかの<b>臨界点</b>（氷床や永久凍土など）を越えるおそれがあります。詳しくは姉妹サイト<a href="https://tamorist.github.io/tipping-point/">「臨界点の手前で」</a>へ。</span><span class="en"><b>④ And 2°C is not a safe line.</b> Even a pathway with a 50% chance of staying under 2°C risks crossing several <b>tipping points</b> (ice sheets, permafrost and more). See our sister site <a href="https://tamorist.github.io/tipping-point/">Before the Tipping Point</a>.</span></p>
       </details>
     </div>
@@ -1450,19 +1456,20 @@ function renderCdr() {
     return `<div class="bx" style="width:${W2}px;height:${W2}px">${ow ? `<i style="width:${ow}px;height:${ow}px;border:1.5px dashed ${c};box-sizing:border-box"></i>` : ''}<i style="width:${w}px;height:${w}px;background:${c};${w < 4 ? 'border-radius:50%;' : ''}"></i></div>`;
   };
   const it = (b, t, d) => `<div class="it">${b}<p><b class="num">${t}</b>${d}</p></div>`;
-  const J = ja(), S = 150, A = 120;
+  const J = ja(), S = 150, Y = 2100 - 2025;   // いまの除去が2026〜2100年の75年続いた場合
   const top = [
     it(box(2640, 2640, S, '#8f897b'), J ? '約2兆6,000億 t' : '~2,640 Gt', J ? 'これまでに出した CO₂（1850〜2025年）' : 'CO₂ emitted so far (1850–2025)'),
     it(box(1055, 2640, S, 'var(--amber)'), J ? '1兆550億 t' : '1,055 Gt', J ? 'これから出せる量（2℃・確率50%）' : 'Still to emit (2°C, 50% chance)'),
     it(box(170, 2640, S, 'var(--red)'), J ? '1,700億 t' : '170 Gt', J ? 'これから出せる量（1.5℃・確率50%）' : 'Still to emit (1.5°C, 50% chance)'),
-    it(box(500, 2640, S, 'var(--green)', { outer: 1000 }), J ? '約5,000億 t（〜1兆 t）' : '~500 Gt (up to ~1,000)', J ? '主流のシナリオが2100年までに当てにする CO₂ 除去' : 'CO₂ removal mainstream scenarios count on by 2100'),
+    it(box(500, 2640, S, 'var(--green)', { outer: 1000 }), J ? '約5,000億 t（〜1兆 t）' : '~500 Gt (up to ~1,000)', J ? '主流のシナリオが2100年までに<b style="display:inline;font-size:inherit">当てにする</b> CO₂ 除去' : 'CO₂ removal mainstream scenarios <b style="display:inline;font-size:inherit">count on</b> by 2100'),
+    it(box(2 * Y, 2640, S, '#9cc3a9'), J ? '約1,500億 t' : '~150 Gt', J ? '<b style="display:inline;font-size:inherit">いまの</b>除去が2100年まで続いた場合（ほとんどが植林など）' : 'If <b style="display:inline;font-size:inherit">today’s</b> removal continued to 2100 (almost all forests)'),
+    it(box(0.0013 * Y, 2640, S, 'var(--green)', { min: 3 }), J ? '約1億 t' : '~0.1 Gt', J ? 'うち新しい技術（直接空気回収・BECCS など）。点ほど（実際より大きく描いています）' : 'Of which novel methods (direct air capture, BECCS…): a dot, drawn larger than true scale'),
   ].join('');
-  const bot = [
-    it(box(42, 42, A, '#8f897b'), J ? '420億 t' : '42 Gt', J ? 'いまの1年の排出' : 'Emissions per year now'),
-    it(box(2, 42, A, 'var(--green)'), J ? '約20億 t' : '~2 Gt', J ? 'いまの1年の除去（ほとんどが植林など）' : 'Removal per year now (almost all forests)'),
-    it(box(0.0013, 42, A, 'var(--green)', { min: 3 }), J ? '約130万 t' : '~0.0013 Gt', J ? 'うち、新しい技術（直接空気回収・BECCS など）。点ほどの大きさ（これでも実際より大きく描いています）' : 'Of which novel methods (direct air capture, BECCS…): a mere dot, and even that is drawn larger than true scale'),
-  ].join('');
-  $('cdrViz').innerHTML = `<p class="sq-h">${J ? '合計の量' : 'Totals'}</p><div class="sq">${top}</div><p class="sq-h">${J ? '1年あたりの量（拡大）' : 'Per year (enlarged scale)'}</p><div class="sq">${bot}</div>`;
+  const bar = (v, c, b, d, lab) => { const w = v / 42 * 100; return `<div class="l"><b class="num">${b}</b>${d}</div><div class="t"><i style="width:${Math.max(w, 0.4)}%;background:${c}"></i>${lab ? `<span style="left:calc(${Math.max(w, 0.4)}% + 6px)">${lab}</span>` : ''}</div>`; };
+  const bot = bar(42, '#8f897b', J ? '420億 t' : '42 Gt', J ? 'いまの1年の排出' : 'Emissions per year now')
+    + bar(2, '#9cc3a9', J ? '約20億 t' : '~2 Gt', J ? 'いまの1年の除去（ほとんどが植林など）' : 'Removal per year now (almost all forests)', J ? '排出の約5%' : '~5% of emissions')
+    + bar(0.0013, 'var(--green)', J ? '約130万 t' : '~0.0013 Gt', J ? 'うち新しい技術' : 'Of which novel methods', J ? '排出の約0.003%。ほぼ見えません' : '~0.003% of emissions — barely visible');
+  $('cdrViz').innerHTML = `<p class="sq-h">${J ? '合計の量（四角の面積）' : 'Totals (area of each square)'}</p><div class="sq">${top}</div><p class="sq-h">${J ? '1年あたりの量（棒の長さ）' : 'Per year (length of each bar)'}</p><div class="hb">${bot}</div>`;
 }
 // ---- 予想してから見る
 const QUIZ = {
