@@ -77,6 +77,7 @@
   .lab .res .big { font-size: clamp(38px, 7vw, 54px); font-weight: 900; line-height: 1; }
   .lab .res .s { font-size: 13.5px; color: var(--muted); }
   .lab .res .s b { color: var(--ink); }
+  .lab .why { margin: 0; padding: 10px 14px; border-left: 3px solid var(--vio); background: var(--bg2); border-radius: 0 8px 8px 0; font-size: 14px; line-height: 1.7; }
   .lab .lbar { position: relative; height: 34px; background: var(--bg3); border-radius: 8px; margin: 26px 0 30px; }
   .lab .lbar .seg { position: absolute; top: 0; bottom: 0; transition: left .25s, width .25s; }
   .lab .lbar .seg:first-child { border-radius: 8px 0 0 8px; }
@@ -508,15 +509,16 @@
         <div class="presets">
           <button data-preset="flat"><span class="ja">全員一律に3割減らす</span><span class="en">Everyone cuts 30%</span></button>
           <button data-preset="topmid"><span class="ja">上位10%を中間40%並みに</span><span class="en">Top 10% down to the middle’s level</span></button>
-          <button data-preset="half70"><span class="ja">中間40%は半分、上位10%は7割減</span><span class="en">Middle 40% halves, top 10% cuts 70%</span></button>
-          <button data-preset="fair"><span class="ja">下位50%は2倍、中間40%は3割減、上位10%も中間と同じ量に</span><span class="en">Bottom 50% doubles, middle 40% cuts 30%, top 10% down to the same as the middle</span></button>
+          <button data-preset="mid20"><span class="ja">中間40%は2割減、上位10%は6割減</span><span class="en">Middle 40% cuts 20%, top 10% cuts 60%</span></button>
+          <button data-preset="fair"><span class="ja">下位50%は2倍、中間40%は2割減、上位10%も中間と同じ量に</span><span class="en">Bottom 50% doubles, middle 40% cuts 20%, top 10% down to the same as the middle</span></button>
           <button data-preset="reset"><span class="ja">元に戻す</span><span class="en">Reset</span></button>
         </div>
         <div id="labSl"></div>
         <div class="res"><div class="big num" id="labTot">0%</div><div class="s" id="labTotS"></div></div>
         <div class="lbar" id="labBar"></div>
+        <p class="why" id="labWhy"></p>
       </div>
-      <p class="small" style="margin-top:14px"><span class="ja"><b>私たちの概算です。</b>Chancel（2022）の2019年の値（消費と投資にもとづく個人の温室効果ガス）を、グループの平均でそのまま使った単純なモデルです。同じグループの中にも大きな差があります。−35%・−55%は、2035年に2019年比で2℃・1.5℃に必要とされる削減の目安（UNEP 2025）です。</span><span class="en"><b>Our own estimate.</b> A simple model using Chancel (2022) 2019 values (individual greenhouse gases from consumption and investment) as group averages. There are large differences within each group. −35% and −55% are the cuts by 2035 versus 2019 needed for 2°C and 1.5°C (UNEP 2025), shown as yardsticks.</span></p>
+      <p class="small" style="margin-top:14px"><span class="ja"><b>私たちの概算です。</b>Chancel（2022）の2019年の値（消費と投資にもとづく個人の温室効果ガス）を、グループの平均でそのまま使った単純なモデルです。同じグループの中にも大きな差があります。−35%・−55%は、2035年に2019年比で2℃・1.5℃に必要とされる削減の目安（UNEP 2025）です。中間40%の削減は我慢だけではなく、電気の脱炭素化、電気自動車、ヒートポンプなどでも進みます。</span><span class="en"><b>Our own estimate.</b> A simple model using Chancel (2022) 2019 values (individual greenhouse gases from consumption and investment) as group averages. There are large differences within each group. −35% and −55% are the cuts by 2035 versus 2019 needed for 2°C and 1.5°C (UNEP 2025), shown as yardsticks. Cuts for the middle 40% need not come from going without: cleaner electricity, electric cars and heat pumps also bring them down.</span></p>
     </div>
   </div>
 </section>
@@ -1144,7 +1146,19 @@ const LAB = [
   { ja: '上位10%', en: 'Top 10%', pop: 0.1, t: 29, c: 'var(--g3)' },
 ];
 const LAB_T0 = LAB.reduce((s, g) => s + g.pop * g.t, 0);   // 約6.0 t
-const LAB_PRESETS = { reset: [0, 0, 0], topmid: [0, 0, -79], flat: [-30, -30, -30], half70: [0, -50, -70], fair: [100, -30, -85] };
+const LAB_PRESETS = { reset: [0, 0, 0], topmid: [0, 0, -79], flat: [-30, -30, -30], mid20: [0, -20, -60], fair: [100, -20, -83] };
+const LAB_WHY = {
+  flat: { ja: '<b>みんなが同じ割合で減らす案。</b>公平に見えますが、もともと排出の少ない下位50%も1.4 tから1.0 tに削ることになり、暮らしに必要な分まで削りかねません。それでも2℃の目安に届きません。',
+          en: '<b>Everyone cuts by the same share.</b> It looks fair, but the bottom 50%, who emit little to begin with, must go from 1.4 t to 1.0 t, possibly cutting into what they need to live. And it still falls short of the 2°C yardstick.' },
+  topmid: { ja: '<b>排出の多い上位10%だけが、中間40%と同じ量まで減らす案。</b>残りの90%がいまのままでも、2℃の目安に届きます。排出の偏りがどれだけ大きいかが分かります。',
+            en: '<b>Only the high-emitting top 10% cut, down to the middle 40%’s level.</b> Even with the other 90% unchanged, this reaches the 2°C yardstick, which shows how concentrated emissions are.' },
+  mid20: { ja: '<b>中間40%も少し減らし、上位10%は大きく減らす案。</b>中間の2割減は、電気の脱炭素化や電気自動車などで届く範囲です。下位50%に我慢を求めずに、2℃の目安に届きます。',
+           en: '<b>The middle 40% cut a little; the top 10% cut a lot.</b> A 20% cut for the middle is within reach of cleaner electricity, electric cars and the like. It reaches the 2°C yardstick without asking the bottom 50% to go without.' },
+  fair: { ja: '<b>貧しい人の暮らしを良くしながら減らす案。</b>下位50%は、電気や調理の燃料、住まいなどのために排出が2倍に増えても良いとし、中間40%は2割減、上位10%は中間と同じ量（約4.9 t）まで減らします。それでも2℃の目安に届きます。1.5℃には、さらに全体の削減が必要です。',
+          en: '<b>Cut while improving the lives of the poor.</b> The bottom 50% may double their emissions for electricity, cooking fuel, housing and so on; the middle 40% cut 20%; and the top 10% come down to the same as the middle (about 4.9 t). This still reaches the 2°C yardstick. Reaching 1.5°C needs deeper cuts overall.' },
+  none: { ja: 'スライダーを動かして、1.5℃の目安（−55%）に届く組み合わせを探してみましょう。',
+          en: 'Move the sliders and look for a combination that reaches the 1.5°C yardstick (−55%).' },
+};
 let labCut = [0, 0, 0];
 function renderLab() {
   const tt = ja() ? ' t' : ' t';
@@ -1172,7 +1186,9 @@ function renderLab() {
   const segs = LAB.map((g, i) => { const w = px(g.pop * g.t * (1 + labCut[i] / 100)); const s = `<span class="seg" style="left:${Math.min(left, 100)}%;width:${Math.max(0, Math.min(w, 100 - left))}%;background:${g.c}" title="${g[lang]}"></span>`; left += w; return s; }).join('');
   const mk = (pct, l, cls) => `<span class="mk ${cls}" style="left:${W * (1 + pct / 100)}%"><span>${l}</span></span>`;
   $('labBar').innerHTML = segs + mk(0, ja() ? '2019年' : '2019', '') + mk(-35, ja() ? '2℃ −35%' : '2°C −35%', 'r') + mk(-55, ja() ? '1.5℃ −55%' : '1.5°C −55%', 'r');
-  document.querySelectorAll('[data-preset]').forEach(b => b.setAttribute('aria-pressed', LAB_PRESETS[b.dataset.preset].every((v, i) => v === labCut[i]) && b.dataset.preset !== 'reset'));
+  const act = Object.keys(LAB_PRESETS).find(k => k !== 'reset' && LAB_PRESETS[k].every((v, i) => v === labCut[i]));
+  document.querySelectorAll('[data-preset]').forEach(b => b.setAttribute('aria-pressed', b.dataset.preset === act));
+  $('labWhy').innerHTML = LAB_WHY[act || 'none'][lang];
 }
 const PB = [
   { ja: '気候変動', en: 'Climate change', x: 1 }, { ja: '生物圏の健全性', en: 'Biosphere integrity', x: 1 },
