@@ -77,6 +77,21 @@
   .lab .res .big { font-size: clamp(38px, 7vw, 54px); font-weight: 900; line-height: 1; }
   .lab .res .s { font-size: 13.5px; color: var(--muted); }
   .lab .res .s b { color: var(--ink); }
+  .quiz { background: var(--bg); border: 1.5px dashed var(--faint); border-radius: 14px; padding: 16px 18px; margin: 22px 0; max-width: 700px; }
+  .quiz .qh { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--muted); margin: 0 0 4px; }
+  .quiz .qq { font-size: 16px; font-weight: 700; margin: 0 0 8px; }
+  .quiz .qrow { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; }
+  .quiz .qg { font-size: 26px; font-weight: 900; min-width: 3.2em; text-align: right; }
+  .quiz .qb { font: inherit; font-size: 14px; font-weight: 700; color: #fff; background: var(--qc, var(--vio)); border: 0; border-radius: 999px; padding: 8px 16px; cursor: pointer; white-space: nowrap; }
+  .quiz .qtrack { position: relative; height: 12px; background: var(--bg3); border-radius: 6px; margin: 30px 0 30px; }
+  .quiz .qtrack .gap { position: absolute; top: 0; bottom: 0; background: var(--qc, var(--vio)); opacity: .25; }
+  .quiz .qtrack .m { position: absolute; top: -6px; bottom: -6px; width: 3px; margin-left: -1.5px; border-radius: 2px; }
+  .quiz .qtrack .m span { position: absolute; left: 50%; transform: translateX(-50%); font-size: 12px; white-space: nowrap; font-weight: 700; }
+  .quiz .qtrack .m.g { background: var(--muted); } .quiz .qtrack .m.g span { bottom: 20px; color: var(--muted); }
+  .quiz .qtrack .m.a { background: var(--qc, var(--vio)); } .quiz .qtrack .m.a span { top: 20px; color: var(--qc, var(--vio)); }
+  .quiz .qr { font-size: 14.5px; margin: 0; }
+  .quiz .qr b.big { font-size: 20px; color: var(--qc, var(--vio)); }
+  @media (max-width: 560px) { .quiz .qrow { grid-template-columns: 1fr auto; } .quiz .qrow input { grid-column: 1 / -1; } }
   .lab .why { margin: 0; padding: 10px 14px; border-left: 3px solid var(--vio); background: var(--bg2); border-radius: 0 8px 8px 0; font-size: 14px; line-height: 1.7; }
   .lab .lbar { position: relative; height: 34px; background: var(--bg3); border-radius: 8px; margin: 26px 0 30px; }
   .lab .lbar .seg { position: absolute; top: 0; bottom: 0; transition: left .25s, width .25s; }
@@ -427,6 +442,7 @@
       <p class="small" id="spNote"></p>
     </div>
 
+    <div class="quiz" id="qz-speed" style="--qc:var(--red)"></div>
     <p class="narrow" style="margin-top:28px"><span class="ja">排出量は、同じことをさらにはっきりと示しています。産業革命以来、化石燃料から出された CO₂ の<b>約7割はこの50年間に、約半分はこの30年間に</b>出されたものです。その大半は、世界が警告を受けたあとのことです。『成長の限界』の出版と、環境をテーマにした初めての国連会議（ストックホルム）は、どちらも1972年、この50年が始まる直前でした。リオの地球サミット（1992年）は、この30年が始まる直前に開かれていました。</span><span class="en">Emissions tell the same story even more sharply. Of all the CO₂ emitted from fossil fuels since the Industrial Revolution, <b>about 70% was emitted in the last 50 years, and about half in the last 30</b>. Most of it came after the world had been warned. <i>The Limits to Growth</i> and the first UN conference on the environment (Stockholm) both came in 1972, just before those 50 years began. The Rio Earth Summit (1992) met just before the last 30.</span></p>
     <div class="card">
       <h3><span class="ja">化石燃料から出た CO₂ の累計（1750〜2025年）は、いつ出されたか</span><span class="en">When was all fossil CO₂ (1750–2025) emitted?</span></h3>
@@ -473,6 +489,7 @@
     <p class="chapter" style="--c:var(--vio)"><span class="cn">2</span><span class="ja">富と排出の偏り</span><span class="en">Unequal wealth, unequal emissions</span></p>
     <h2><span class="ja">富の偏りと、排出の偏りは<br>ほぼ同じ形をしている。</span><span class="en">Wealth inequality and emissions inequality<br>have almost the same shape.</span></h2>
     <div class="guide ja"><span class="gchar" data-mood="smile"></span><p class="bubble">いちばん多く出している人たちと、いちばん多く持っている人たちは、<b>ほとんど同じ人たち</b>。だから、<b>分け方を変えれば、多くの人は苦しまずにすむ</b>んだ。</p></div>
+    <div class="quiz" id="qz-fair" style="--qc:var(--vio)"></div>
     <p class="lead narrow"><span class="ja">世界の人々を所得で3つに分けてみます。<b>上位10%</b>の人々は、世界の資産の約4分の3を持ち、排出の約半分を出しています。<b>下位50%</b>の人々は、資産の約2%しか持たず、排出も約12%ですが、気候の被害を最も強く受けています。</span><span class="en">Split the world’s people into three groups by income. The <b>top 10%</b> own about three-quarters of the world’s wealth and cause about half of emissions. The <b>bottom 50%</b> own about 2% of wealth and cause about 12% of emissions — yet suffer the most from climate damage.</span></p>
     <div class="card">
       <div class="legend" style="margin:0 0 6px"><span><i style="background:var(--g1)"></i><span class="ja">下位50%</span><span class="en">Bottom 50%</span></span><span><i style="background:var(--g2)"></i><span class="ja">中間40%</span><span class="en">Middle 40%</span></span><span><i style="background:var(--g3)"></i><span class="ja">上位10%</span><span class="en">Top 10%</span></span></div>
@@ -613,6 +630,7 @@
     <p class="chapter" style="--c:var(--red)"><span class="cn">5</span><span class="ja">エネルギー</span><span class="en">Energy</span></p>
     <h2><span class="ja">再エネは「置き換え」ではなく、<br>まだ「上乗せ」になっている。</span><span class="en">Renewables are still being added on top,<br>not replacing fossil fuels.</span></h2>
     <div class="guide ja"><span class="gchar" data-mood="worry"></span><p class="bubble">再エネは、すごい速さで増えているよ。でも<b>化石燃料も、まだ増えている</b>。下の灰色の部分が、ちっとも細くならないんだ。</p></div>
+    <div class="quiz" id="qz-energy" style="--qc:var(--red)"></div>
     <p class="lead narrow"><span class="ja">世界のエネルギーの<b>約8割は、いまも化石燃料</b>です。風力と太陽光は急速に伸びていますが、増え続けるエネルギー需要の<b>上乗せ</b>になっていて、化石燃料の使用量そのものは2024年も過去最高でした。2000年から2024年までに、低炭素のエネルギー（再エネ＋原子力）は約17.5 PWh 増えましたが、化石燃料は<b>約48 PWh</b>、その約2.7倍も増えています。</span><span class="en"><b>About 80% of the world’s energy still comes from fossil fuels.</b> Wind and solar are growing fast, but mostly <b>on top of</b> rising demand; fossil fuel use hit another record in 2024. From 2000 to 2024, low-carbon energy (renewables + nuclear) grew by about 17.5 PWh — while fossil fuels grew by <b>about 48 PWh</b>, some 2.7 times as much.</span></p>
     <div class="card">
       <div class="tabs" role="group" aria-label="Units">
@@ -1295,7 +1313,7 @@ function setLang(l) {
   try { localStorage.setItem('en-lang', l); } catch (e) {}
   document.querySelectorAll('.lang button[data-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
   document.title = l === 'ja' ? '足りる経済へ — 地球ひとつを、みんなで分ける' : 'Enough for All — one Earth, shared fairly';
-  renderSpeed(); renderCbar(); renderBirth(); renderIneq(); renderLab(); renderCal(); renderEarths(); renderPB(); renderSect(); renderEnergy(); renderOver(); tick(); setShare();
+  renderSpeed(); renderCbar(); renderQuiz(); renderBirth(); renderIneq(); renderLab(); renderCal(); renderEarths(); renderPB(); renderSect(); renderEnergy(); renderOver(); tick(); setShare();
 }
 function guideSVG(mood) {
   const brow = mood === 'worry' ? '<path d="M37 44l8-3M71 41l8 3" stroke="#2b2f2c" stroke-width="2.6" stroke-linecap="round"/>' : '';
@@ -1325,6 +1343,49 @@ function setShare() {
   $('shareX').href = 'https://x.com/intent/post?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(SITE_URL);
 }
 
+// ---- 予想してから見る
+const QUIZ = {
+  speed: { ans: () => Math.round(cumFrom(1975) / TOTAL * 100),
+    ja: '産業革命（1750年ごろ）から今までに化石燃料から出た CO₂ のうち、<b>この50年（1975年以降）</b>に出されたのは何%くらい？',
+    en: 'Of all the CO₂ emitted from fossil fuels since the Industrial Revolution (around 1750), what share was emitted <b>in the last 50 years (since 1975)</b>?',
+    rja: '人類が化石燃料を使ってきた約270年のうち、最後の50年に大半が集まっています。',
+    ren: 'Most of roughly 270 years of fossil-fuel emissions is packed into the last 50.' },
+  fair: { ans: () => 48,
+    ja: '世界の人々を所得の順に並べたとき、<b>上位10%</b>の人々は、世界の排出（温室効果ガス）の何%を出している？',
+    en: 'Line up the world’s people by income. What share of the world’s greenhouse-gas emissions comes from the <b>top 10%</b>?',
+    rja: '10人に1人が、排出の約半分。下位50%（約40億人）は、合わせて約12%です（Chancel 2022、2019年）。',
+    ren: 'One person in ten accounts for about half. The bottom 50% (about 4 billion people) account for about 12% combined (Chancel 2022, for 2019).' },
+  energy: { ans: () => 81,
+    ja: '世界で使われているエネルギー全体のうち、<b>化石燃料</b>（石油・石炭・ガス）は何%くらい？',
+    en: 'Of all the energy the world uses, what share still comes from <b>fossil fuels</b> (oil, coal and gas)?',
+    rja: '再エネは急速に伸びていますが、エネルギー全体では、まだ約8割が化石燃料です（2024年）。',
+    ren: 'Renewables are growing fast, but across all energy, about 80% is still fossil fuels (2024).' },
+};
+const quizSt = {};
+function renderQuiz() {
+  for (const k in QUIZ) {
+    const q = QUIZ[k], el = $('qz-' + k), st = quizSt[k] ??= { g: 50, shown: false };
+    if (!el) continue;
+    const a = q.ans(), g = st.g;
+    let h = `<p class="qh">${ja() ? '🤔 予想してから見る' : '🤔 Guess first'}</p><p class="qq">${q[lang]}</p>`;
+    if (!st.shown) {
+      h += `<div class="qrow"><input type="range" min="0" max="100" step="1" value="${g}" data-qz="${k}" aria-label="${ja() ? 'あなたの予想' : 'Your guess'}"><div class="qg num">${g}%</div><button class="qb" data-qzshow="${k}">${ja() ? '答えを見る' : 'Show answer'}</button></div>`;
+    } else {
+      const d = a - g, lo = Math.min(a, g), hi = Math.max(a, g);
+      const verdict = Math.abs(d) <= 5 ? (ja() ? 'ほぼ正解です。' : 'Very close.')
+        : ja() ? `あなたの予想（${g}%）より<b>${Math.abs(d)}ポイント${d > 0 ? '高い' : '低い'}</b>値です。` : `That is <b>${Math.abs(d)} points ${d > 0 ? 'higher' : 'lower'}</b> than your guess (${g}%).`;
+      h += `<div class="qtrack"><span class="gap" style="left:${lo}%;width:${hi - lo}%"></span><span class="m g" style="left:${g}%"><span>${ja() ? '予想' : 'Guess'} ${g}%</span></span><span class="m a" style="left:${a}%"><span>${ja() ? '答え' : 'Answer'} ${ja() ? '約' : '~'}${a}%</span></span></div>`
+        + `<p class="qr">${ja() ? '答えは' : 'The answer is'} <b class="big num">${ja() ? '約' : 'about '}${a}%</b>${ja() ? '。' : '. '}${verdict}<br>${q[ja() ? 'rja' : 'ren']} <a href="#" data-qzredo="${k}" style="font-size:13px">${ja() ? 'もう一度' : 'Try again'}</a></p>`;
+    }
+    el.innerHTML = h;
+  }
+}
+document.addEventListener('input', e => { const k = e.target.dataset?.qz; if (k) { quizSt[k].g = +e.target.value; e.target.parentNode.querySelector('.qg').textContent = e.target.value + '%'; } });
+document.addEventListener('click', e => {
+  const s = e.target.closest('[data-qzshow]'), r = e.target.closest('[data-qzredo]');
+  if (s) { quizSt[s.dataset.qzshow].shown = true; renderQuiz(); }
+  else if (r) { e.preventDefault(); quizSt[r.dataset.qzredo].shown = false; renderQuiz(); }
+});
 document.addEventListener('click', e => {
   const sEl = e.target.closest('[data-s]');
   if (sEl) { sel = sel === sEl.dataset.s ? null : sEl.dataset.s; renderSect(); return; }
