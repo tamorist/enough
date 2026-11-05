@@ -272,6 +272,13 @@
   .ibar i { display: flex; align-items: center; justify-content: center; font-style: normal; font-size: 12.5px; font-weight: 700; color: #fff; min-width: 0; overflow: hidden; white-space: nowrap; transition: width .6s; }
   .ibar i.m { color: var(--ink); }
   @media (max-width: 560px) { .irow { grid-template-columns: 1fr; gap: 4px; } }
+  .glasses { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px 18px; margin-top: 14px; }
+  .glass h4 { margin: 0 0 2px; font-size: 15px; text-align: center; }
+  .glass h4 small { font-weight: 400; color: var(--muted); font-size: 12px; margin-left: 4px; }
+  .glass svg { display: block; width: 100%; height: auto; }
+  .glass .gx { font-size: 12.5px; color: var(--muted); text-align: center; margin: 2px 0 0; line-height: 1.5; }
+  .glass .gx b { color: var(--ink); }
+  .ghow { font-size: 13px; color: var(--muted); margin: 4px 0 0; line-height: 1.6; }
   .pcap { margin-top: 10px; }
   .pcap .row { display: grid; grid-template-columns: 150px 1fr 70px; gap: 10px; align-items: center; padding: 6px 0; font-size: 14px; }
   .pcap .bar { height: 18px; background: var(--bg3); border-radius: 5px; overflow: hidden; }
@@ -536,7 +543,8 @@
     <p class="lead narrow"><span class="ja">世界の人々を所得で3つに分けてみます。<b>上位10%</b>の人々は、世界の資産の約4分の3を持ち、排出の約半分を出しています。<b>下位50%</b>の人々は、資産の約2%しか持たず、排出も約12%ですが、気候の被害を最も強く受けています。</span><span class="en">Split the world’s people into three groups by income. The <b>top 10%</b> own about three-quarters of the world’s wealth and cause about half of emissions. The <b>bottom 50%</b> own about 2% of wealth and cause about 12% of emissions — yet suffer the most from climate damage.</span></p>
     <div class="card">
       <div class="legend" style="margin:0 0 6px"><span><i style="background:var(--g1)"></i><span class="ja">下位50%</span><span class="en">Bottom 50%</span></span><span><i style="background:var(--g2)"></i><span class="ja">中間40%</span><span class="en">Middle 40%</span></span><span><i style="background:var(--g3)"></i><span class="ja">上位10%</span><span class="en">Top 10%</span></span></div>
-      <div class="ineq" id="ineq"></div>
+      <p class="ghow"><span class="ja">よく見る Oxfam の「シャンパングラス」の図と同じ読み方です。<b>高さ＝人数</b>、<b>横幅＝一人あたりの量</b>なので、<b>面積がその層の取り分</b>になります。点線の枠は、全員が同じだけ持っていた（出していた）場合の形です。</span><span class="en">Read it like Oxfam’s well-known “champagne glass”. <b>Height = number of people</b> and <b>width = amount per person</b>, so <b>each band’s area is that group’s share</b>. The dotted outline is the shape if everyone had (or emitted) the same.</span></p>
+      <div class="glasses" id="ineq"></div>
       <p class="small" style="margin-top:10px"><span class="ja">世界の人々を一人ずつ、所得の順に並べた分け方（国ごとではありません）。所得・資産：World Inequality Report 2022（2021年）。排出：Chancel（2022、2019年、消費にもとづく個人の排出）。最新の World Inequality Report 2026 でも、上位10%が資産の約4分の3、下位50%が約2%と、ほとんど変わっていません。</span><span class="en">Individuals worldwide ranked by income (not countries). Income and wealth: World Inequality Report 2022 (2021). Emissions: Chancel (2022), 2019, consumption-based personal emissions. The latest World Inequality Report 2026 finds almost no change: the top 10% own about three-quarters of wealth, the bottom half about 2%.</span></p>
     </div>
 
@@ -1171,9 +1179,35 @@ const INEQ = [
   { ja: '排出', en: 'Emissions', sj: '2019年', se: '2019', v: [12, 40, 48] },
 ];
 function renderIneq() {
+  // シャンパングラス型：高さ＝人口の割合、横幅＝一人あたり（取り分÷人口）。3つのグラスで横幅の目盛りをそろえる
   const col = ['var(--g1)', 'var(--g2)', 'var(--g3)'];
-  $('ineq').innerHTML = INEQ.map(r => `<div class="irow"><div class="t">${r[lang]}${r.sj ? `<small>${ja() ? r.sj : r.se}</small>` : ''}</div>
-    <div class="ibar">${r.v.map((v, i) => `<i class="${i === 0 ? 'm' : ''}" style="width:${v}%;background:${col[i]}" title="${v}%">${v >= 9 ? v + '%' : ''}</i>`).join('')}</div></div>`).join('');
+  const POP = INEQ[0].v, rows = INEQ.slice(1);
+  const dens = r => r.v.map((v, i) => v / POP[i]);
+  const maxD = Math.max(...rows.flatMap(dens));
+  const VW = 300, LX = ja() ? 62 : 84, GW = VW - LX - 6, CX = LX + GW / 2, TOP = 8, HH = 230, GAP = 3;
+  const names = [ja() ? '下位50%' : 'Bottom 50%', ja() ? '中間40%' : 'Middle 40%', ja() ? '上位10%' : 'Top 10%'];
+  $('ineq').innerHTML = rows.map(r => {
+    const d = dens(r);
+    let y = TOP, out = '';
+    const bands = [2, 1, 0].map(i => { const h = HH * POP[i] / 100; const b = { i, y, h }; y += h; return b; });
+    const eqW = GW / maxD;
+    out += `<rect x="${CX - eqW / 2}" y="${TOP}" width="${eqW}" height="${HH}" fill="none" stroke="var(--ink)" stroke-opacity=".45" stroke-dasharray="3 3"/>`;
+    bands.forEach(({ i, y, h }) => {
+      const w = Math.max(2, GW * d[i] / maxD), x = CX - w / 2;
+      out += `<rect x="${x}" y="${y + GAP / 2}" width="${w}" height="${h - GAP}" rx="3" fill="${col[i]}"><title>${names[i]}: ${r.v[i]}%</title></rect>`;
+      const inside = w > 54;
+      const tx = inside ? CX : x + w + 5;
+      out += `<text x="${tx}" y="${y + h / 2 + 5}" text-anchor="${inside ? 'middle' : 'start'}" font-size="15" font-weight="900" fill="${inside && i > 0 ? '#fff' : 'var(--ink)'}">${r.v[i]}%</text>`;
+      out += `<text x="${LX - 6}" y="${y + h / 2 + 4}" text-anchor="end" font-size="11.5" fill="var(--muted)">${names[i]}</text>`;
+    });
+    const top = d[2], bot = d[0], ratio = top / bot;
+    const note = ja()
+      ? `上位10%の一人あたりは、下位50%の<b>約${fmt(ratio, 0)}倍</b>`
+      : `Per person, the top 10% have <b>about ${fmt(ratio, 0)}×</b> the bottom 50%`;
+    return `<div class="glass"><h4>${r[lang]}<small>${ja() ? r.sj : r.se}</small></h4>
+      <svg viewBox="0 0 ${VW} ${TOP + HH + 4}" role="img" aria-label="${r[lang]}: ${names.map((n, i) => n + ' ' + r.v[i] + '%').join(', ')}">${out}</svg>
+      <p class="gx">${note}</p></div>`;
+  }).join('');
   const P = [
     { ja: '下位50%', en: 'Bottom 50%', v: 1.4, c: 'var(--g1)' },
     { ja: '中間40%', en: 'Middle 40%', v: 6.1, c: 'var(--g2)' },
