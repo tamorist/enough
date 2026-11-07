@@ -335,6 +335,16 @@
   .sect { display: grid; grid-template-columns: minmax(0, 340px) 1fr; gap: 24px; align-items: center; margin-top: 18px; }
   @media (max-width: 720px) { .sect { grid-template-columns: 1fr; } .sect svg { max-width: 340px; margin: 0 auto; } }
   .sect svg { width: 100%; height: auto; display: block; }
+  .food { display: grid; grid-template-columns: minmax(0, 360px) 1fr; gap: 24px; align-items: center; margin-top: 14px; }
+  .food svg { width: 100%; height: auto; display: block; }
+  .food svg rect { transition: fill .5s; }
+  .food .big { font-size: 40px; font-weight: 900; line-height: 1.1; color: var(--green); }
+  .flist { list-style: none; margin: 10px 0 0; padding: 0; font-size: 14px; }
+  .flist li { display: grid; grid-template-columns: 16px 1fr auto; gap: 8px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--faint); }
+  .flist li i { width: 14px; height: 14px; border-radius: 3px; display: block; transform: translateY(2px); }
+  .flist small { display: block; color: var(--muted); font-size: 12px; }
+  .flist b { font-weight: 900; }
+  @media (max-width: 720px) { .food { grid-template-columns: 1fr; } .food svg { max-width: 340px; margin: 0 auto; } }
   .seg { cursor: pointer; transition: opacity .2s; }
   .sect.hov .seg:not(.on) { opacity: .35; }
   .slist { list-style: none; margin: 0; padding: 0; font-size: 14px; }
@@ -697,7 +707,17 @@
     <div class="guide"><span class="gchar" data-mood="smile"></span><p class="bubble"><span class="ja">円の上を押すと、その中身が見られるよ。<b>電気・移動・ものづくり・食べもの</b>。暮らしのほとんどが、どこかでつながっているんだ。</span><span class="en">Tap a slice of the circle to see what’s inside: <b>electricity, transport, making things, food</b>. Almost everything in daily life connects somewhere.</span></p></div>
     <p class="lead narrow"><span class="ja">世界の温室効果ガスの排出を部門別に分けると、<b>電気と熱、移動、ものづくり、建物</b>など、エネルギーを使うことによる排出が約77%を占めます。残りは農業、工業の化学反応、廃棄物などです。</span><span class="en">Split global greenhouse gas emissions by sector and about 77% come from using energy — <b>electricity and heat, transport, manufacturing, buildings</b> and more. The rest come from agriculture, industrial processes and waste.</span></p>
     <div class="sect" id="sect"></div>
-    <p class="small" style="margin-top:14px"><span class="ja">WRI / Climate Watch（2026年4月更新、2023年のデータ）。土地利用は森林の吸収を差し引いた正味の値で、森林破壊そのものの排出はもっと大きくなります。部門の分け方を変えて「食べもの」で見ると、生産から輸送・加工・廃棄まで、食料システム全体で<b>排出の約3分の1</b>になります（Crippa ら 2021）。</span><span class="en">WRI / Climate Watch (updated April 2026, 2023 data). Land use is net of forest sinks; gross deforestation emissions are much larger. Viewed through food instead, the whole food system — from farm to transport, processing and waste — accounts for <b>about a third of emissions</b> (Crippa et al. 2021).</span></p>
+    <p class="small" style="margin-top:14px"><span class="ja">WRI / Climate Watch（2026年4月更新、2023年のデータ）。土地利用は森林の吸収を差し引いた正味の値で、森林破壊そのものの排出はもっと大きくなります。</span><span class="en">WRI / Climate Watch (updated April 2026, 2023 data). Land use is net of forest sinks; gross deforestation emissions are much larger.</span></p>
+    <div class="card" id="foodCard">
+      <h3><span class="ja">「食べもの」で切り直すと、排出の3分の1</span><span class="en">Recut by food: a third of all emissions</span></h3>
+      <p class="small" style="margin:0 0 10px"><span class="ja">上の円グラフでは、食べものの排出は「農業」「土地利用」「運輸」「製造」「廃棄物」などにばらばらに入っています。それを集め直すと、森を切り開くところから、畑と家畜、加工・輸送・包装・冷蔵・廃棄まで、<b>食料システム全体で世界の排出の約34%</b>になります。</span><span class="en">In the circle above, food’s emissions are scattered across agriculture, land use, transport, manufacturing, waste and more. Gather them back together — from clearing forests, through fields and livestock, to processing, transport, packaging, refrigeration and waste — and <b>the food system accounts for about 34% of global emissions</b>.</span></p>
+      <div class="tabs" role="group" aria-label="View">
+        <button data-fv="stage" aria-pressed="true"><span class="ja">どの段階で出るか</span><span class="en">By stage</span></button>
+        <button data-fv="kind" aria-pressed="false"><span class="ja">何をつくるときに出るか</span><span class="en">By kind of food</span></button>
+      </div>
+      <div class="food" id="food"></div>
+      <p class="small" style="margin-top:12px"><span class="ja">四角1つ＝世界の温室効果ガス排出の1%。食料システム全体と段階別：Crippa ら（2021、2015年、約180億 t CO₂e）。動物性・植物性の割合：Xu ら（2021、食料の生産からの排出 約173億 t CO₂e）。別の研究の割合を同じ34個の四角に当てはめた<b>私たちの概算</b>で、四角の数は四捨五入しています。運輸との比較は、年も集計方法も違う数字どうしの大まかな比べ方です。</span><span class="en">One square = 1% of global greenhouse gas emissions. Food system total and stages: Crippa et al. (2021; 2015, ~18 Gt CO₂e). Animal vs plant shares: Xu et al. (2021; ~17.3 Gt CO₂e from producing food). Applying a different study’s shares to the same 34 squares is <b>our own approximation</b>, and square counts are rounded. The comparison with transport is rough, between figures from different years and methods.</span></p>
+    </div>
     <div class="callout g">
       <span class="ja">どの部門でも、排出の大きさは<b>使う量</b>で決まります。電気をすべて再エネにしても、建てる・運ぶ・つくる・食べる量が増え続ければ、資源の採掘や土地の利用は増えます。部門ごとの技術だけでなく、<b>どれだけ必要なのか</b>を問うことが欠かせません。食べものについては、姉妹サイト<a href="https://tamorist.github.io/83-billion/">「830億の理由」</a>で詳しく扱っています。</span>
       <span class="en">In every sector, the size of emissions depends on <b>how much we use</b>. Even with fully renewable electricity, if we keep building, shipping, making and eating more, extraction and land use keep growing. We need to ask not only which technology, but <b>how much is actually needed</b>. Food is covered in detail on the sister site <a href="https://tamorist.github.io/83-billion/">83 Billion Reasons</a>.</span>
@@ -987,7 +1007,8 @@
       <li><a href="https://www.planetaryhealthcheck.org/">Planetary Health Check 2025</a> (Sakschewski, Caesar et al., PIK) <span class="use"><span class="ja">9つのうち7つが超過、海の酸性化が新たに超過</span><span class="en">7 of 9 crossed; ocean acidification newly crossed</span></span>; Richardson et al. (2023) <i>Science Advances</i>; Rockström et al. (2009) <i>Nature</i></li>
       <li><a href="https://www.unep.org/resources/global-resource-outlook-2024">UNEP International Resource Panel (2024) Global Resources Outlook 2024</a> <span class="use"><span class="ja">採掘量 1970年 約300億 t → 2020年 約1,060億 t、2060年までに約60%増、採掘と加工で温室効果ガスの55%超、生物資源で土地関連の生物多様性損失・水不足の約90%</span><span class="en">Extraction ~30 bn t (1970) → ~106 bn t (2020); ~60% more by 2060; extraction and processing >55% of GHG; biomass ~90% of land-related biodiversity loss and water stress</span></span></li>
       <li><a href="https://www.wri.org/insights/4-charts-explain-greenhouse-gas-emissions-countries-and-sectors">WRI (2026) Where do emissions come from? (Climate Watch, 2023 data)</a> <span class="use"><span class="ja">エネルギー 76.7%（電気と熱 33.6、運輸 14.3、製造と建設 12.2、建物 6.3）、農業 12.3、工業プロセス 6.2、廃棄物 3.8、土地利用 0.9（正味）。「その他のエネルギー」10.3%はエネルギー合計から差し引いた私たちの計算</span><span class="en">Energy 76.7% (electricity & heat 33.6, transport 14.3, manufacturing & construction 12.2, buildings 6.3), agriculture 12.3, industrial processes 6.2, waste 3.8, land use 0.9 (net). “Other energy” 10.3% is our calculation by subtraction</span></span></li>
-      <li><a href="https://doi.org/10.1038/s43016-021-00225-9">Crippa et al. (2021) Food systems are responsible for a third of global anthropogenic GHG emissions. <i>Nature Food</i></a></li>
+      <li><a href="https://doi.org/10.1038/s43016-021-00225-9">Crippa et al. (2021) Food systems are responsible for a third of global anthropogenic GHG emissions. <i>Nature Food</i></a> <span class="use"><span class="ja">2015年：食料システム 約180億 t CO₂e（世界の排出の34%）。そのうち農業と土地利用・土地利用変化が71%（農場での生産 約39%、土地利用 約32%）、残り約29%がサプライチェーン</span><span class="en">2015: food system ~18 Gt CO₂e (34% of global emissions); 71% from agriculture and land use / land-use change (farm production ~39%, land use ~32%), ~29% from the supply chain</span></span></li>
+      <li><a href="https://doi.org/10.1038/s43016-021-00358-x">Xu et al. (2021) Global greenhouse gas emissions from animal-based foods are twice those of plant-based foods. <i>Nature Food</i> 2, 724–732</a> <span class="use"><span class="ja">食料の生産からの排出 約173億 t CO₂e。動物性（飼料を含む）57%、植物性29%、その他の用途14%。最大は牛肉（25%）と米（12%）</span><span class="en">Emissions from producing food ~17.3 Gt CO₂e: animal-based (incl. feed) 57%, plant-based 29%, other uses 14%; beef (25%) and rice (12%) are the largest</span></span></li>
       <li><a href="https://github.com/owid/energy-data">Our World in Data energy dataset</a> (Energy Institute Statistical Review of World Energy) <span class="use"><span class="ja">一次エネルギー（代替法）1965〜2024年、化石燃料の割合 1975年 92%、2024年 81%</span><span class="en">Primary energy (substitution method) 1965–2024; fossil share 92% (1975), 81% (2024)</span></span>; <a href="https://www.energyinst.org/statistical-review">Energy Institute Statistical Review 2025</a> <span class="use"><span class="ja">2024年の需要は過去最高、新しい方法で化石燃料 86.6%</span><span class="en">Record demand in 2024; fossil 86.6% under the new method</span></span></li>
       <li><a href="https://www.unep.org/en/publications/report/emissions-gap-report-2025">UNEP (2025) Emissions Gap Report 2025: Off Target</a> <span class="use"><span class="ja">2024年の排出 577億 t CO₂ 換算（+2.3%）、2035年に2019年比 2℃ −35%・1.5℃ −55%が必要、NDC で2.3〜2.5℃、いまの政策で2.8℃、1.5℃を少なくとも一時的に超える</span><span class="en">2024 emissions 57.7 Gt CO₂e (+2.3%); 2035 cuts vs 2019 of 35% (2°C) and 55% (1.5°C) needed; NDCs 2.3–2.5°C, current policies 2.8°C; 1.5°C exceeded at least temporarily</span></span></li>
       <li><a href="https://unfccc.int/node/653428">UNFCCC (2025) Update to the NDC Synthesis Report</a> <span class="use"><span class="ja">113か国の新しい NDC にもとづき、世界の排出は2035年に2019年比で約12%減の見通し（10月の統合報告では64か国分で17%減）</span><span class="en">Based on new NDCs from 113 Parties, global emissions projected ~12% below 2019 in 2035 (the October report: 17% for the 64 Parties then covered)</span></span></li>
@@ -1420,6 +1441,42 @@ function renderSect() {
   $('sect').classList.toggle('hov', !!sel);
 }
 
+// ---- 食べもので切り直す（100マス）
+const FOOD = {
+  stage: [
+    { n: 11, c: '#2f6b4f', ja: '土地利用の変化', en: 'Land-use change', dj: '森や草原を畑・牧草地に変える', de: 'Turning forests and grasslands into fields and pasture', p: '約32%', pe: '~32%' },
+    { n: 13, c: '#8bb174', ja: '農場での生産', en: 'Farm production', dj: '牛のげっぷ、肥料、水田、農業機械など', de: 'Cattle methane, fertiliser, rice paddies, farm machinery', p: '約39%', pe: '~39%' },
+    { n: 10, c: '#c98a1e', ja: '農場の外（サプライチェーン）', en: 'Beyond the farm (supply chain)', dj: '加工・輸送・包装・小売・調理・廃棄', de: 'Processing, transport, packaging, retail, cooking, waste', p: '約29%', pe: '~29%' },
+  ],
+  kind: [
+    { n: 19, c: '#b8402f', ja: '動物性の食べもの', en: 'Animal-based foods', dj: '肉・乳製品・卵など（飼料づくりを含む）。最大は牛肉', de: 'Meat, dairy, eggs (including growing feed). Beef is the largest', p: '57%', pe: '57%' },
+    { n: 10, c: '#4f9a6a', ja: '植物性の食べもの', en: 'Plant-based foods', dj: '米・小麦・野菜・豆など。最大は米', de: 'Rice, wheat, vegetables, pulses. Rice is the largest', p: '29%', pe: '29%' },
+    { n: 5, c: '#a39e90', ja: 'その他の用途', en: 'Other uses', dj: '食用以外に使われる作物など', de: 'Crops used for non-food purposes and other uses', p: '14%', pe: '14%' },
+  ],
+};
+let fView = 'stage';
+function renderFood() {
+  document.querySelectorAll('[data-fv]').forEach(b => b.setAttribute('aria-pressed', b.dataset.fv === fView));
+  const groups = FOOD[fView], cols = [];
+  groups.forEach(g => { for (let i = 0; i < g.n; i++) cols.push(g.c); });
+  const S = 30, G = 4;
+  let svg = `<svg viewBox="0 0 ${10 * S + 9 * G} ${10 * S + 9 * G}" role="img" aria-label="${ja() ? '100マスのうち34マスが食料システム' : '34 of 100 squares are the food system'}">`;
+  for (let k = 0; k < 100; k++) {
+    const x = (k % 10) * (S + G), y = Math.floor(k / 10) * (S + G);
+    svg += `<rect x="${x}" y="${y}" width="${S}" height="${S}" rx="4" fill="${cols[k] || 'var(--bg3)'}"/>`;
+  }
+  svg += '</svg>';
+  const li = groups.map(g => `<li><i style="background:${g.c}"></i><span>${g[lang]}<small>${ja() ? g.dj : g.de}<br>${ja() ? (fView === 'stage' ? '食料システムの排出の' : '食べものをつくる排出の') + g.p : g.pe + (fView === 'stage' ? ' of food-system emissions' : ' of food-production emissions')}</small></span><b class="num">${ja() ? '約' : '~'}${g.n}%</b></li>`).join('')
+    + `<li><i style="background:var(--bg3)"></i><span>${ja() ? '食料システム以外' : 'Everything else'}<small>${ja() ? '電気・移動・ものづくり・建物など' : 'Power, transport, industry, buildings and more'}</small></span><b class="num">66%</b></li>`;
+  const head = fView === 'stage'
+    ? (ja() ? `<div class="big num">34%</div><p style="margin:4px 0 0;font-size:14px">世界の排出のうち、食べものに関わる分。年約180億 t で、<b>運輸全体（約14%）の2倍以上</b>。そのうち<b>約7割は、森を切り開くことと農場での生産</b>から出ています。</p>`
+            : `<div class="big num">34%</div><p style="margin:4px 0 0;font-size:14px">of global emissions are linked to food — about 18 Gt a year, <b>more than twice all transport (~14%)</b>. About <b>70% of it comes from clearing land and from farms</b>.</p>`)
+    : (ja() ? `<div class="big num" style="color:#b8402f">約2倍</div><p style="margin:4px 0 0;font-size:14px">食べものをつくる排出のうち、<b>動物性の食べものは57%</b>、植物性は29%。カロリーやたんぱく質の多くを植物から得ているのに、排出は動物性が<b>植物性の約2倍</b>です。</p>`
+            : `<div class="big num" style="color:#b8402f">~2×</div><p style="margin:4px 0 0;font-size:14px">Of the emissions from producing food, <b>animal-based foods cause 57%</b> and plant-based foods 29% — <b>about twice as much</b>, though most of the world’s calories come from plants.</p>`);
+  $('food').innerHTML = svg + `<div>${head}<ul class="flist">${li}</ul></div>`;
+}
+document.addEventListener('click', e => { const b = e.target.closest('[data-fv]'); if (!b) return; fView = b.dataset.fv; renderFood(); });
+
 // ---- エネルギー（積み上げ面グラフ）
 const ENC = [
   { ja: '石炭', en: 'Coal', c: '#3a3c37' }, { ja: '石油', en: 'Oil', c: '#6b6a63' }, { ja: 'ガス', en: 'Gas', c: '#a39e90' },
@@ -1473,7 +1530,7 @@ function setLang(l) {
   if (window.cwmGuideApply) window.cwmGuideApply();
   document.querySelectorAll('.lang button[data-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
   document.title = l === 'ja' ? '足りる経済へ — 地球ひとつを、みんなで分ける' : 'Enough for All — one Earth, shared fairly';
-  renderSpeed(); renderCbar(); renderQuiz(); renderDelay(); renderCdr(); renderBirth(); renderIneq(); renderLab(); renderCal(); renderEarths(); renderPB(); renderSect(); renderEnergy(); renderOver(); tick(); setShare();
+  renderSpeed(); renderCbar(); renderQuiz(); renderDelay(); renderCdr(); renderBirth(); renderIneq(); renderLab(); renderCal(); renderEarths(); renderPB(); renderSect(); renderFood(); renderEnergy(); renderOver(); tick(); setShare();
 }
 function guideSVG(mood) {
   const brow = mood === 'worry' ? '<path d="M37 44l8-3M71 41l8 3" stroke="#2b2f2c" stroke-width="2.6" stroke-linecap="round"/>' : '';
