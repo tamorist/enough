@@ -1127,6 +1127,8 @@ const GOATCOUNTER_CODE = 'enough';
 })();
 
 const SITE_URL = 'https://tamorist.github.io/enough/';
+// 共有・コピーするリンク：日本語表示中は ?lang=ja を付けて、開いた人にも日本語で表示する
+const shareUrl = () => SITE_URL + (lang === 'ja' ? '?lang=ja' : '');
 const $ = id => document.getElementById(id);
 let lang = 'en';
 try { const s = localStorage.getItem('en-lang'); if (s === 'en' || s === 'ja') lang = s; } catch (e) {}
@@ -1558,7 +1560,7 @@ function guideSVG(mood) {
 document.querySelectorAll('.gchar').forEach(g => (g.innerHTML = guideSVG(g.dataset.mood)));
 function setShare() {
   const text = ja() ? '地球はひとつ。私たちは1.7個分を使っている。富の偏りと排出の偏りは重なっている。' : 'There is one Earth. We are using 1.7. Wealth inequality and emissions inequality have the same shape.';
-  $('shareX').href = 'https://x.com/intent/post?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(SITE_URL);
+  $('shareX').href = 'https://x.com/intent/post?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(shareUrl());
 }
 
 // ---- 始めるのが遅れたら（私たちの概算：削減率 ≒ 年の排出 ÷ 残りの予算）
@@ -1695,7 +1697,7 @@ document.addEventListener('click', e => {
   else if (b.dataset.preset) { labCut = [...LAB_PRESETS[b.dataset.preset]]; renderLab(); }
   else if (b.id === 'reveal') $('cwrap').classList.add('open');
   else if (b.id === 'copyLink') {
-    navigator.clipboard?.writeText(SITE_URL).then(() => {
+    navigator.clipboard?.writeText(shareUrl()).then(() => {
       const s = b.innerHTML; b.textContent = ja() ? 'コピーしました' : 'Copied'; setTimeout(() => (b.innerHTML = s), 1600);
     });
   }
