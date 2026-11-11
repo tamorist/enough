@@ -392,6 +392,16 @@
   .reads a b { display: block; font-size: 15px; }
   .reads a span.d { color: var(--muted); font-size: 13px; }
 
+  /* 解決の具体策（姉妹サイト共通）：1ページの紹介サイトと、提案サイトの本体 */
+  .plan2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+  .plan2 a { display: block; text-decoration: none; color: var(--ink); background: var(--pbg, var(--bg2)); border: 1px solid var(--faint); border-top: 5px solid #1f6f78; border-radius: 14px; padding: 14px 18px; }
+  .plan2 a:hover { border-color: #1f6f78; }
+  .plan2 small { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .08em; color: #1f6f78; }
+  .plan2 b { display: block; font-size: 17px; line-height: 1.4; margin: 2px 0 4px; }
+  .plan2 .d { display: block; font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+  .plan2 .go { display: inline-block; margin-top: 6px; font-size: 13.5px; font-weight: 800; color: #1f6f78; }
+  @media (max-width: 640px) { .plan2 { grid-template-columns: 1fr; } }
+  .basis-n { font-size: 13.5px; color: var(--muted); margin: 0 0 4px; max-width: 700px; }
   .honest { background: var(--bg3); }
   .honest ul { padding-left: 18px; }
   .honest li { margin: 8px 0; }
@@ -950,11 +960,22 @@
       <button id="copyLink"><span class="ja">リンクをコピー</span><span class="en">Copy link</span></button>
     </div>
 
-    <h3 style="margin-top:44px"><span class="ja">もっと詳しく（作者の連載）</span><span class="en">Go deeper (author’s writing)</span></h3>
+    <h3 style="margin-top:44px"><span class="ja">解決の具体策</span><span class="en">A concrete plan</span></h3>
+    <p class="narrow" style="font-size:15px;margin:0"><span class="ja">では、ルールをどう変えるのか。富の偏りと使いすぎを前提にした経済を、<b>減らすほど得をする仕組み</b>に組み替える具体策を、提案サイトにまとめています。</span><span class="en">So how do we change the rules? A concrete plan to turn an economy built on inequality and overuse into one where <b>cutting pays</b> is set out on the proposal site.</span></p>
+    <div class="plan2" style="--pbg:var(--bg)">
+      <a class="ja" href="https://tamorist.github.io/rewrite/?lang=ja"><small>1ページで知る</small><b>ルールを書き換える</b><span class="d">減らすと損をするルールを、減らすほど得をするルールへ。提案の全体を1ページで。</span><span class="go">サイトへ ↗</span></a>
+      <a class="en" href="https://tamorist.github.io/rewrite/"><small>ON ONE PAGE</small><b>Rewrite the Rules</b><span class="d">From rules where cutting is a losing move to rules where it pays: the whole proposal on one page.</span><span class="go">Visit ↗</span></a>
+      <a class="ja" href="https://tamorist.github.io/steering/ja/"><small>提案の本体</small><b>限界の内側で、舵を取る</b><span class="d">絵で見る提案（約6分）から、1ページ概要、ひと続きの解説、還元シミュレーターまで。</span><span class="go">提案サイトへ ↗</span></a>
+      <a class="en" href="https://tamorist.github.io/steering/"><small>THE FULL PROPOSAL</small><b>Steering Within Limits</b><span class="d">From the proposal in pictures (6 min) to the overview, the full guide and the dividend simulator.</span><span class="go">Visit the proposal ↗</span></a>
+    </div>
+
+    <h3 style="margin-top:36px"><span class="ja">提案の土台にある考え方（作者の記事）</span><span class="en">The thinking behind the proposal (author’s writing)</span></h3>
+    <p class="basis-n"><span class="ja">なぜこの方向なのか。具体策のもとになった基本原理と構想です。具体的な設計と数値は、提案サイトの最新版をご覧ください。</span><span class="en">Why this direction: the principles and big picture the plan grew from. For the current design and figures, see the proposal site.</span></p>
     <div class="reads">
-      <a href="https://note.com/ttmori/n/ncce93c710c01"><b>なぜ脱炭素は進まないのか ―― 問題は「技術」ではなく「経済ルール」である</b><span class="d"><span class="ja">経済ルール・政治・グリーン成長の限界</span><span class="en">Economic rules, politics and the limits of green growth (Japanese)</span></span></a>
-      <a href="https://note.com/ttmori/n/n5c7c99c2537d"><b>持続可能世界へ移行するための全体ロードマップ [Survival Redesign]</b><span class="d"><span class="ja">では、どうやって移行するのか</span><span class="en">How the transition could work (Japanese)</span></span></a>
-      <a href="https://ttmori.substack.com/p/survival-redesign-a-blueprint-for"><b>Survival Redesign: A Blueprint for Capitalism 2.0 and Global Democracy</b><span class="d"><span class="ja">提案の詳細（英語）</span><span class="en">The full proposal</span></span></a>
+      <a href="https://note.com/ttmori/n/ncce93c710c01"><b>なぜ脱炭素は進まないのか ―― 問題は「技術」ではなく「経済ルール」である</b><span class="d"><span class="ja">問題の分析：経済ルール・政治・グリーン成長の限界</span><span class="en">The diagnosis: economic rules, politics and the limits of green growth (Japanese)</span></span></a>
+      <a class="ja" href="https://note.com/ttmori/n/ne11e0dcd5e8a"><b>生存のための再設計：資本主義2.0とグローバル・デモクラシーへの青写真</b><span class="d">全体構想：経済とデモクラシーをどう作り直すか</span></a>
+      <a class="en" href="https://ttmori.substack.com/p/survival-redesign-a-blueprint-for"><b>Survival Redesign: A Blueprint for Capitalism 2.0 and Global Democracy</b><span class="d">The big picture: how to rebuild the economy and democracy</span></a>
+      <a href="https://note.com/ttmori/n/n5c7c99c2537d"><b>持続可能世界へ移行するための全体ロードマップ [Survival Redesign]</b><span class="d"><span class="ja">移行の全体ロードマップ</span><span class="en">A roadmap for the whole transition (Japanese)</span></span></a>
     </div>
   </div>
 </section>
